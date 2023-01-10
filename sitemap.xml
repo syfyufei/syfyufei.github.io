@@ -53,6 +53,9 @@
     <loc>/project/policommu/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/project/politicaldiscourse/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/project/polilingua/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -72,9 +75,6 @@
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/public-policy/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/publication/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/series/</loc>
@@ -142,5 +142,7 @@
     <loc>/contributors/</loc>
   </url><url>
     <loc>/license/</loc>
+  </url><url>
+    <loc>/publication/</loc>
   </url>
 </urlset>
