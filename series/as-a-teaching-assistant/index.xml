@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>public policy on Hu Yue</title>
-    <link>/categories/public-policy/</link>
-    <description>Recent content in public policy on Hu Yue</description>
+    <title>As a teaching assistant on Hu Yue</title>
+    <link>/series/as-a-teaching-assistant/</link>
+    <description>Recent content in As a teaching assistant on Hu Yue</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023</copyright>
-    <lastBuildDate>Thu, 29 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/public-policy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/series/as-a-teaching-assistant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Analysis of Public Policy | 公共政策分析 (30700953)</title>
       <link>/course/teaching-assistant/01-analysis_of_public_policy/</link>
@@ -37,31 +37,13 @@ Preview Slides     TBA</description>
     </item>
     
     <item>
-      <title>Political Discourse</title>
-      <link>/project/politicaldiscourse/</link>
-      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      <title>Political Culture | 政治文化</title>
+      <link>/course/teaching-assistant/02-principles_of_politics/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>/project/politicaldiscourse/</guid>
-      <description>Disproportionate scholarly attention in the studies of the government-mass relationship focused on the government&amp;rsquo;s responses (motivations and means) to public demands. Less research explores what happens next. However, in real politics, the governments often fall into the curse that what they do mismatches what the public wants. I unbox this puzzle by investigating how the public responds to the government&amp;rsquo;s response. Several focused questions include: what do the masses learn from the government&amp;rsquo;s decisions and actions?</description>
-    </item>
-    
-    <item>
-      <title>Political Linguistics</title>
-      <link>/project/polilingua/</link>
-      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/project/polilingua/</guid>
-      <description>Language is the fundamental feature of human beings. The debate of whether does language shapes thoughts or the other way around has inspires the greatest theorists and scientists throughout the human history. Nevertheless, the importance of language in political lives has not been well studied yet.
-Cutting in from an empirical angle, I strive to identify the influences of linguistic relativity and language planning in the government-mass relationship and the (re)construction of mass political cognition.</description>
-    </item>
-    
-    <item>
-      <title>Political Response</title>
-      <link>/project/poliresponse/</link>
-      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/project/poliresponse/</guid>
-      <description>Disproportionate scholarly attention in the studies of the government-mass relationship focused on the government&amp;rsquo;s responses (motivations and means) to public demands. Less research explores what happens next. However, in real politics, the governments often fall into the curse that what they do mismatches what the public wants. I unbox this puzzle by investigating how the public responds to the government&amp;rsquo;s response. Several focused questions include: what do the masses learn from the government&amp;rsquo;s decisions and actions?</description>
+      <guid>/course/teaching-assistant/02-principles_of_politics/</guid>
+      <description>This is the &amp;ldquo;Political Culture&amp;rdquo; section of the &amp;ldquo;Principles of Politics&amp;rdquo; course led by Dr. MENG Tianguang. The lecture is still an ongoing project. More materials will be available soon.
+Preview Slides     TBA</description>
     </item>
     
     <item>
