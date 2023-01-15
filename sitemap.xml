@@ -29,15 +29,6 @@
     <loc>/categories/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/identity/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/inequality/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/language/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/series/method-courses-for-non-math-students/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -47,40 +38,7 @@
     <loc>/categories/methodology/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/political-communication/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/policommu/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/politicaldiscourse/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/polilingua/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/political-opinions/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/poliresponse/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/public-opinion/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/public-opinions/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/public-policy/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/series/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/project/inequality/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/</loc>
@@ -96,6 +54,9 @@
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/hugo-site/</loc>
+    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/public-policy/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
@@ -142,6 +103,8 @@
     <loc>/contributors/</loc>
   </url><url>
     <loc>/license/</loc>
+  </url><url>
+    <loc>/project/</loc>
   </url><url>
     <loc>/publication/</loc>
   </url>
