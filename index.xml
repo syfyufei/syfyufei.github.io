@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023</copyright>
-    <lastBuildDate>Thu, 29 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Analysis of Political Data | 政治数据分析 (70700173)</title>
       <link>/course/method-series/01-analysis_of_poli_data/</link>
@@ -72,6 +72,17 @@ Preview Slides     TBA</description>
       <guid>/course/teaching-assistant/02-principles_of_politics/</guid>
       <description>This is the &amp;ldquo;Political Culture&amp;rdquo; section of the &amp;ldquo;Principles of Politics&amp;rdquo; course led by Dr. MENG Tianguang. The lecture is still an ongoing project. More materials will be available soon.
 Preview Slides     TBA</description>
+    </item>
+    
+    <item>
+      <title>Political Discourse</title>
+      <link>/project/political_discourse/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/political_discourse/</guid>
+      <description>In studies of official political discourse in non-Western electoral democracies, scholars have focused disproportionately on government discourse itself. Less research explores what happens next.
+However, in real politics, the governments often fall into the curse that official discourse is unacceptable, ironic (KUSO), or misused by the public.
+I unbox this puzzle by investigating how the public responds to the government officail discourse. Several focused questions include: How do official forms of government discourse (the &amp;ldquo;official voice&amp;rdquo;) spread through different levels of government?</description>
     </item>
     
     <item>
