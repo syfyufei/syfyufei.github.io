@@ -9,6 +9,24 @@
     <copyright>&amp;copy; 2023</copyright>
     <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Active Audience</title>
+      <link>/categories/active-audience/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/active-audience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Language Processing</title>
+      <link>/categories/natural-language-processing/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Official Discourse</title>
       <link>/categories/official-discourse/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
@@ -18,11 +36,38 @@
     </item>
     
     <item>
-      <title>Political Discourse</title>
-      <link>/categories/political-discourse/</link>
+      <title>political communication</title>
+      <link>/categories/political-communication/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>/categories/political-discourse/</guid>
+      <guid>/categories/political-communication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>public opinion</title>
+      <link>/categories/public-opinion/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/public-opinion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inequality</title>
+      <link>/categories/inequality/</link>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/inequality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>language</title>
+      <link>/categories/language/</link>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/language/</guid>
       <description></description>
     </item>
     
@@ -36,20 +81,29 @@
     </item>
     
     <item>
-      <title>teaching</title>
-      <link>/categories/teaching/</link>
+      <title>public opinions</title>
+      <link>/categories/public-opinions/</link>
       <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>/categories/teaching/</guid>
+      <guid>/categories/public-opinions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>public policy</title>
       <link>/categories/public-policy/</link>
-      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>/categories/public-policy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>/categories/teaching/</link>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/teaching/</guid>
       <description></description>
     </item>
     

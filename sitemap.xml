@@ -23,13 +23,22 @@
     <loc>/course/teaching-assistant/02-principles_of_politics/</loc>
     <lastmod>2021-05-19T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/categories/active-audience/</loc>
+    <lastmod>2023-01-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
+    <lastmod>2023-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/natural-language-processing/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/official-discourse/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/political-discourse/</loc>
+    <loc>/categories/political-communication/</loc>
+    <lastmod>2023-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/project/political_communication/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/political_discourse/</loc>
@@ -38,10 +47,22 @@
     <loc>/project/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/categories/public-opinion/</loc>
+    <lastmod>2023-01-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/course/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/project/democracy_in_modern_china/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/inequality/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/language/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/series/method-courses-for-non-math-students/</loc>
@@ -51,6 +72,15 @@
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/methodology/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/public-opinions/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/public-policy/</loc>
+    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/project/sdg_localization/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/series/</loc>
@@ -66,9 +96,6 @@
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/hugo-site/</loc>
-    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/public-policy/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>

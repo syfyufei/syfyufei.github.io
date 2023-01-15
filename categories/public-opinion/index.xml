@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Sun Yufei</title>
-    <link>/project/</link>
-    <description>Recent content in Projects on Sun Yufei</description>
+    <title>public opinion on Sun Yufei</title>
+    <link>/categories/public-opinion/</link>
+    <description>Recent content in public opinion on Sun Yufei</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023</copyright>
-    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/public-opinion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Political Communication</title>
       <link>/project/political_communication/</link>
@@ -18,17 +18,6 @@
     </item>
     
     <item>
-      <title>Political Discourse</title>
-      <link>/project/political_discourse/</link>
-      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/project/political_discourse/</guid>
-      <description>In studies of official political discourse in non-Western electoral democracies, scholars have focused disproportionately on government discourse itself. Less research explores what happens next.
-However, in real politics, the governments often fall into the curse that official discourse is unacceptable, ironic (KUSO), or misused by the public.
-I unbox this puzzle by investigating how the public responds to the government officail discourse. Several focused questions include: How do official forms of government discourse (the &amp;ldquo;official voice&amp;rdquo;) spread through different levels of government?</description>
-    </item>
-    
-    <item>
       <title>Democracy in Modern China</title>
       <link>/project/democracy_in_modern_china/</link>
       <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
@@ -36,16 +25,6 @@ I unbox this puzzle by investigating how the public responds to the government o
       <guid>/project/democracy_in_modern_china/</guid>
       <description>Socioeconomic inequality includes systematic discrepancies among citizens in income, assets, mobility, accessible resources, etc. I am interested in this structural property&amp;rsquo;s effects, paths, and mechanisms on individual and group political decisions and behaviors. In particular, how do people recognize inequality (what aspects of inequality)? How does their awareness and understanding of inequality affect their political cognition, preferences, and decisions? Even more interestingly, what (or&amp;hellip;who) forms the masses&amp;rsquo; inequality perceptions?
 Selected Publications     Solt, Frederick, Yue Hu, Kevan Hudson, Jungmin Song, Dong &amp;lsquo;Erico&amp;rsquo; Yu.</description>
-    </item>
-    
-    <item>
-      <title>SDG localization</title>
-      <link>/project/sdg_localization/</link>
-      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/project/sdg_localization/</guid>
-      <description>Language is the fundamental feature of human beings. The debate of whether does language shapes thoughts or the other way around has inspires the greatest theorists and scientists throughout the human history. Nevertheless, the importance of language in political lives has not been well studied yet.
-Cutting in from an empirical angle, I strive to identify the influences of linguistic relativity and language planning in the government-mass relationship and the (re)construction of mass political cognition.</description>
     </item>
     
   </channel>

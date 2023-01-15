@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Natural Language Processing on Sun Yufei</title>
+    <link>/categories/natural-language-processing/</link>
+    <description>Recent content in Natural Language Processing on Sun Yufei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023</copyright>
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Political Communication</title>
+      <link>/project/political_communication/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/political_communication/</guid>
+      <description>People do not merely respond to the outside world; they recognize, process, and make choices. I am interested in how this psychological process is achieved within media interactions among the sender, carrier, and receiver. This also makes my research different from the prevalent political-communication studies that focus on the content and means of the media. Instead, I focus more on how people respond to them, for instance, what the audience actually feels, understands, and does when they are exposed to a political message from the government.</description>
+    </item>
+    
+    <item>
+      <title>Political Discourse</title>
+      <link>/project/political_discourse/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/political_discourse/</guid>
+      <description>In studies of official political discourse in non-Western electoral democracies, scholars have focused disproportionately on government discourse itself. Less research explores what happens next.
+However, in real politics, the governments often fall into the curse that official discourse is unacceptable, ironic (KUSO), or misused by the public.
+I unbox this puzzle by investigating how the public responds to the government officail discourse. Several focused questions include: How do official forms of government discourse (the &amp;ldquo;official voice&amp;rdquo;) spread through different levels of government?</description>
+    </item>
+    
+  </channel>
+</rss>
