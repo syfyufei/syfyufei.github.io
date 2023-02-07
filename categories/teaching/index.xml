@@ -104,16 +104,5 @@ To install:
  the latest release version: install.packages(&amp;quot;drhur&amp;quot;).   the latest version: remotes::install_github(&amp;quot;sammo3182/drhur&amp;quot;).</description>
     </item>
     
-    <item>
-      <title>drhutools</title>
-      <link>/software/drhutools/</link>
-      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/software/drhutools/</guid>
-      <description>A toolbox for writing an academic paper with rmarkdown. The tools includes data analyses, visualization, and documenting.
-To install:
- the latest released version: install.packages(&amp;quot;drhutools&amp;quot;). the latest developing version: remotes::install_github(&amp;quot;sammo3182/drhutools&amp;quot;).  </description>
-    </item>
-    
   </channel>
 </rss>
