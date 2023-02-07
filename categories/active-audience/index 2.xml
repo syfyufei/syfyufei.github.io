@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Active Audience on Sun Yufei</title>
+    <link>/categories/active-audience/</link>
+    <description>Recent content in Active Audience on Sun Yufei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023</copyright>
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/active-audience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Political Discourse</title>
+      <link>/project/political_discourse/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/project/political_discourse/</guid>
+      <description>In studies of official political discourse in non-Western electoral democracies, scholars have focused disproportionately on government discourse itself. Less research explores what happens next.
+However, in real politics, the governments often fall into the curse that official discourse is unacceptable, ironic (KUSO), or misused by the public.
+I unbox this puzzle by investigating how the public responds to the government officail discourse. Several focused questions include: How do official forms of government discourse (the &amp;ldquo;official voice&amp;rdquo;) spread through different levels of government?</description>
+    </item>
+    
+  </channel>
+</rss>
