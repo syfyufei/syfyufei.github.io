@@ -51,7 +51,7 @@
       
       <guid>/course/teaching-assistant/03-urban-politics/</guid>
       <description>This course concentrates on the dominant force of human modernization&amp;mdash;the cities. From a view of political science, the course discuss the macro and micro politics among heterogeneous cities together with specific topics of urban governance. The course is on building. More information will be available soon.
-Preview Slides     TBA</description>
+Preview Slides TBA</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ Preview Slides     TBA</description>
       
       <guid>/course/method-series/02-goverance_big_data/</guid>
       <description>Course about how to use big data to investigate governance issues. This is an advanced method course. Recommend students who already finished Analysis of Political Data (70700173) or basic statistics/econometric to take. I co-instructed the course with Dr. MENG Tianguang. The following list are the lectures I usually give for this course:
- Research Principles and Method Basis for Big Data Analysis Leading the Focus: Data Visualization Latent Variable Basic Latent Variable Advanced Duration Analysis Foundations of Text Analysis Text Analysis in Practice Network Analysis: A Methodological Shift Network Analysis: Ego and Complete Network Analysis  本课程拟开设出面向全校社会科学和管理学专业研究生层次的大数据分析应用型课程。课程内容将横跨社会科学和数据科学两个研究领域，涵盖政治学、社会学、管理学、统计学、数据科学等多个学科的理论知识和实用技术。课程目的在于提高大数据时代学生的数据应用意识、建立数据思维、了解前沿方法，以及掌握有关数据采集、处理、分析和解释的基本原理和方法。课程将结合公共管理、司法开放、政治传播、社会治理等政务大数据应用的实际案例，提升学生对大数据方法的应用能力，为学生将大数据方法应用于具体研究打下基础。</description>
+Research Principles and Method Basis for Big Data Analysis Leading the Focus: Data Visualization Latent Variable Basic Latent Variable Advanced Duration Analysis Foundations of Text Analysis Text Analysis in Practice Network Analysis: A Methodological Shift Network Analysis: Ego and Complete Network Analysis 本课程拟开设出面向全校社会科学和管理学专业研究生层次的大数据分析应用型课程。课程内容将横跨社会科学和数据科学两个研究领域，涵盖政治学、社会学、管理学、统计学、数据科学等多个学科的理论知识和实用技术。课程目的在于提高大数据时代学生的数据应用意识、建立数据思维、了解前沿方法，以及掌握有关数据采集、处理、分析和解释的基本原理和方法。课程将结合公共管理、司法开放、政治传播、社会治理等政务大数据应用的实际案例，提升学生对大数据方法的应用能力，为学生将大数据方法应用于具体研究打下基础。</description>
     </item>
     
     <item>
@@ -71,16 +71,19 @@ Preview Slides     TBA</description>
       
       <guid>/course/teaching-assistant/02-principles_of_politics/</guid>
       <description>This is the &amp;ldquo;Political Culture&amp;rdquo; section of the &amp;ldquo;Principles of Politics&amp;rdquo; course led by Dr. MENG Tianguang. The lecture is still an ongoing project. More materials will be available soon.
-Preview Slides     TBA</description>
+Preview Slides TBA</description>
     </item>
     
     <item>
-      <title>Method Courses for &#34;Non-Math&#34; Students</title>
-      <link>/course/method-series/</link>
-      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      <title>drhur</title>
+      <link>/software/drhur/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/course/method-series/</guid>
-      <description>** No content below YAML for the series _index. This file is a leaf bundle, and provides settings for the listing page layout and sidebar content.**</description>
+      <guid>/software/drhur/</guid>
+      <description>Yue Hu. 2016. drhur: Learning R with Dr. Hu. The Comprehensive R Archive Network (CRAN).
+drhur is pedagogical software make the R learners&amp;rsquo; life a little bit easier and more happily and a supplementary courseware for Dr. Yue Hu&amp;rsquo;s R program lectures. The tutorials included are crystallized during Dr. Hu&amp;rsquo;s online and offline R workshop.
+To install:
+the latest release version: install.packages(&amp;quot;drhur&amp;quot;). the latest version: remotes::install_github(&amp;quot;sammo3182/drhur&amp;quot;). More details are available at here:</description>
     </item>
     
     <item>
@@ -93,15 +96,12 @@ Preview Slides     TBA</description>
     </item>
     
     <item>
-      <title>drhur</title>
-      <link>/software/drhur/</link>
-      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      <title>Method Courses for &#34;Non-Math&#34; Students</title>
+      <link>/course/method-series/</link>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>/software/drhur/</guid>
-      <description>Yue Hu. 2016. drhur: Learning R with Dr. Hu. The Comprehensive R Archive Network (CRAN).
-  drhur is pedagogical software make the R learners&amp;rsquo; life a little bit easier and more happily and a supplementary courseware for Dr. Yue Hu&amp;rsquo;s R program lectures. The tutorials included are crystallized during Dr. Hu&amp;rsquo;s online and offline R workshop.
-To install:
- the latest release version: install.packages(&amp;quot;drhur&amp;quot;).   the latest version: remotes::install_github(&amp;quot;sammo3182/drhur&amp;quot;).</description>
+      <guid>/course/method-series/</guid>
+      <description>** No content below YAML for the series _index. This file is a leaf bundle, and provides settings for the listing page layout and sidebar content.**</description>
     </item>
     
   </channel>

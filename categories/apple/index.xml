@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple on Sun Yufei</title>
+    <link>/categories/apple/</link>
+    <description>Recent content in Apple on Sun Yufei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023</copyright>
+    <lastBuildDate>Mon, 22 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/apple/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AssistantCook</title>
+      <link>/software/appleshortcutwithchatgpt/</link>
+      <pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/software/appleshortcutwithchatgpt/</guid>
+      <description>Apple shortcut with ChatGPT(OpenAI-GPT3.5) base on S-GPT
+More details are available at Github Repo:
+https://github.com/syfyufei/AssistantCook</description>
+    </item>
+    
+  </channel>
+</rss>
