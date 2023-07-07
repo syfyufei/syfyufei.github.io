@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Packages on Sun Yufei</title>
+    <link>/global_local/</link>
+    <description>Recent content in R Packages on Sun Yufei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023</copyright>
+    <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/global_local/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Malaysia</title>
+      <link>/global_local/malaysia/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/global_local/malaysia/</guid>
+      <description>Apple shortcut with ChatGPT(OpenAI-GPT3.5) base on S-GPT
+More details are available at Github Repo:
+https://github.com/syfyufei/AssistantCook</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,26 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/course/method-series/01-analysis_of_poli_data/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/course/teaching-assistant/01-analysis_of_public_policy/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/course/teaching-assistant/01-understanding_public_policy/</loc>
+    <loc>/course/teaching-assistant/02-understanding_public_policy/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/course/method-series/03-r-workshop/</loc>
+    <loc>/course/tutoring/01-r-workshop/</loc>
     <lastmod>2021-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/course/teaching-assistant/03-urban-politics/</loc>
-    <lastmod>2021-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/course/method-series/02-goverance_big_data/</loc>
-    <lastmod>2021-05-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/course/teaching-assistant/02-principles_of_politics/</loc>
-    <lastmod>2021-05-19T00:00:00+00:00</lastmod>
+    <loc>/course/method-series/01-r-workshop/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/apple/</loc>
     <lastmod>2023-05-22T00:00:00+00:00</lastmod>
@@ -40,6 +31,18 @@
   </url><url>
     <loc>/</loc>
     <lastmod>2023-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/2023/</loc>
+    <lastmod>2023-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/global_local/malaysia/</loc>
+    <lastmod>2023-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/global_local/</loc>
+    <lastmod>2023-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/southeast-asia/</loc>
+    <lastmod>2023-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/local_governance_in_china/</loc>
     <lastmod>2023-02-07T00:00:00+00:00</lastmod>
@@ -74,9 +77,6 @@
     <loc>/categories/public-opinion/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/course/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/project/democracy_in_modern_china/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -84,12 +84,6 @@
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/language/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/series/method-courses-for-non-math-students/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/course/method-series/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/methodology/</loc>
@@ -104,11 +98,8 @@
     <loc>/project/sdg_localization/</loc>
     <lastmod>2021-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/series/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/teaching/</loc>
-    <lastmod>2021-07-29T00:00:00+00:00</lastmod>
+    <loc>/course/</loc>
+    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/series/as-a-teaching-assistant/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
@@ -119,8 +110,23 @@
     <loc>/tags/hugo-site/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/series/</loc>
+    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/teaching/</loc>
+    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/series/method-courses-for-non-math-students/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/course/method-series/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/course/tutoring/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/cleaning/</loc>
     <lastmod>2020-10-01T00:00:00+00:00</lastmod>
