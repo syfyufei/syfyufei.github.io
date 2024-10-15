@@ -50,6 +50,7 @@ enableEmoji = true
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
   #         poppy / sky / violet / water 
+  #         poppy / sky / violet / water 
   theme = "grayscale"
   
   # or, leave theme empty & make your own palette
