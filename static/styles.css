@@ -8,8 +8,8 @@ body {
 
 .main-header {
     text-align: center;
-    padding: 20px;
     background-color: #fff;
+    padding-bottom: 20px;
 }
 
 .main-nav {
@@ -22,8 +22,13 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 20px;
+    font-size: 1.2em;
+    font-family: 'Arial', sans-serif;
+    color: #4A4A4A;
+    letter-spacing: 0.05em; /* 调整字母间距 */
 }
 
 .nav-list li {
@@ -32,18 +37,35 @@ body {
 
 .nav-list a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: #4A4A4A;
+}
+
+.nav-list a:hover {
+    color: #000000;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
 }
 
 .hero {
-    max-width: 800px;
+    position: relative;
+    width: 80%;
     margin: 0 auto;
+    height: 0;
+    padding-top: 18%; /* 50:9 aspect ratio */
+    overflow: hidden;
 }
 
 .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 h1 {
@@ -54,6 +76,24 @@ h1 {
 p {
     font-size: 1.2em;
     color: #666;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.hero-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.hero-buttons button:hover {
+    background-color: #0056b3;
 }
 
 .product {
