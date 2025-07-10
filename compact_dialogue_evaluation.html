@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 对话能力评测 - 紧凑版</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        .header .subtitle {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* 数据概览 - 紧凑布局 */
+        .overview {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .stats-summary {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .stats-summary h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        .stats-summary p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        /* 模型卡片 - 水平布局 */
+        .model-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .model-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .model-card.qwen3 { border-top-color: #FF6B6B; }
+        .model-card.qwen2_awq { border-top-color: #4ECDC4; }
+        .model-card.qwen2 { border-top-color: #45B7D1; }
+        .model-card h4 {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .model-card .score {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .model-card .details {
+            font-size: 0.75em;
+            color: #666;
+            line-height: 1.3;
+        }
+        .score-high { color: #28a745; }
+        .score-medium { color: #ffc107; }
+        .score-low { color: #dc3545; }
+
+        /* 图表区域 - 紧凑网格 */
+        .charts-section {
+            padding: 20px;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+        .chart-title {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        .radar-container {
+            grid-column: 1 / -1;
+            height: 350px;
+        }
+
+        /* 维度说明 - 紧凑表格 */
+        .dimensions-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .dimensions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+        .dimensions-table th,
+        .dimensions-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .dimensions-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        .dimensions-table tr:hover {
+            background: #f1f3f4;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .overview {
+                grid-template-columns: 1fr;
+            }
+            .model-cards {
+                grid-template-columns: 1fr;
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            .chart-container {
+                height: 250px;
+            }
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页头 -->
+        <div class="header">
+            <h1>💬 对话能力评测报告</h1>
+            <div class="subtitle">Keeta BD外呼场景 - 三模型对比分析</div>
+        </div>
+
+        <!-- 数据概览 -->
+        <div class="overview">
+            <div class="stats-summary">
+                <h3>📊 评测概况</h3>
+                <p><strong>测试场景:</strong> 35个</p>
+                <p><strong>评测模型:</strong> 3个</p>
+                <p><strong>评估维度:</strong> 5个</p>
+                <p><strong>评测时间:</strong> 2025-07-10</p>
+                <p><strong>评估方式:</strong> 分离式架构</p>
+            </div>
+
+            <div class="model-cards">
+                <div class="model-card qwen3">
+                    <h4>🤖 qwen3_32b</h4>
+                    <div class="score score-medium">0.548</div>
+                    <div class="details">
+                        流程: 0.219<br>
+                        自然度: 0.658<br>
+                        目标: 0.723
+                    </div>
+                </div>
+                <div class="model-card qwen2_awq">
+                    <h4>🤖 qwen2_5_72b_awq</h4>
+                    <div class="score score-high">0.574</div>
+                    <div class="details">
+                        流程: 0.219<br>
+                        自然度: 0.600<br>
+                        目标: 0.771
+                    </div>
+                </div>
+                <div class="model-card qwen2">
+                    <h4>🤖 qwen2_5_72b</h4>
+                    <div class="score score-low">0.481</div>
+                    <div class="details">
+                        流程: 0.219<br>
+                        自然度: 0.600<br>
+                        目标: 0.543
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts-section">
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <div class="chart-title">📊 总分对比</div>
+                    <canvas id="overallChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">📈 维度对比</div>
+                    <canvas id="dimensionChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container radar-container">
+                <div class="chart-title">🎯 能力雷达图</div>
+                <canvas id="radarChart"></canvas>
+            </div>
+
+            <!-- 维度说明 -->
+            <div class="dimensions-info">
+                <h3 style="margin-bottom: 10px; color: #667eea;">📋 评估维度说明</h3>
+                <table class="dimensions-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>权重</th>
+                            <th>说明</th>
+                            <th>qwen3_32b</th>
+                            <th>qwen2_5_72b_awq</th>
+                            <th>qwen2_5_72b</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>流程遵循度</td>
+                            <td>30%</td>
+                            <td>按照BD外呼流程执行</td>
+                            <td>0.219</td>
+                            <td>0.219</td>
+                            <td>0.219</td>
+                        </tr>
+                        <tr>
+                            <td>对话自然度</td>
+                            <td>25%</td>
+                            <td>葡语表达自然流畅</td>
+                            <td>0.658</td>
+                            <td>0.600</td>
+                            <td>0.600</td>
+                        </tr>
+                        <tr>
+                            <td>目标达成度</td>
+                            <td>25%</td>
+                            <td>完成预期对话目标</td>
+                            <td>0.723</td>
+                            <td>0.771</td>
+                            <td>0.543</td>
+                        </tr>
+                        <tr>
+                            <td>错误处理</td>
+                            <td>10%</td>
+                            <td>处理用户困惑和异常</td>
+                            <td>1.000</td>
+                            <td>1.000</td>
+                            <td>1.000</td>
+                        </tr>
+                        <tr>
+                            <td>专业性</td>
+                            <td>10%</td>
+                            <td>保持商务专业风格</td>
+                            <td>0.372</td>
+                            <td>0.660</td>
+                            <td>0.300</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            🚀 Keeta BD外呼评测系统 | 生成时间: 2025-07-10 10:30 | 评估模型: SOTA (GPT-4)
+        </div>
+    </div>
+
+    <script>
+        // 图表数据
+        const chartData = {
+            "models": [
+                {
+                    "name": "qwen3_32b",
+                    "dialogue_score": 0.5480309523809523,
+                    "flow_compliance": 0.21904761904761905,
+                    "naturalness": 0.6575714285714285,
+                    "goal_achievement": 0.7228571428571429,
+                    "error_handling": 1.0,
+                    "professionalism": 0.3720952380952381
+                },
+                {
+                    "name": "qwen2_5_72b_awq",
+                    "dialogue_score": 0.5744666666666667,
+                    "flow_compliance": 0.21904761904761905,
+                    "naturalness": 0.5997142857142856,
+                    "goal_achievement": 0.7714285714285715,
+                    "error_handling": 1.0,
+                    "professionalism": 0.6596666666666666
+                },
+                {
+                    "name": "qwen2_5_72b",
+                    "dialogue_score": 0.48142857142857143,
+                    "flow_compliance": 0.21904761904761905,
+                    "naturalness": 0.6,
+                    "goal_achievement": 0.5428571428571429,
+                    "error_handling": 1.0,
+                    "professionalism": 0.3
+                }
+            ]
+        };
+
+        // 颜色配置
+        const colors = [
+            { bg: 'rgba(255, 107, 107, 0.7)', border: '#FF6B6B' },
+            { bg: 'rgba(78, 205, 196, 0.7)', border: '#4ECDC4' },
+            { bg: 'rgba(69, 183, 209, 0.7)', border: '#45B7D1' }
+        ];
+
+        // 通用图表配置
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { boxWidth: 12, font: { size: 11 } }
+                }
+            }
+        };
+
+        // 1. 总分对比图
+        new Chart(document.getElementById('overallChart'), {
+            type: 'bar',
+            data: {
+                labels: chartData.models.map(m => m.name.replace('qwen', 'Q').replace('_', '')),
+                datasets: [{
+                    label: '对话能力评分',
+                    data: chartData.models.map(m => m.dialogue_score),
+                    backgroundColor: colors.map(c => c.bg),
+                    borderColor: colors.map(c => c.border),
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { beginAtZero: true, max: 1 }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // 2. 维度对比图
+        new Chart(document.getElementById('dimensionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['流程', '自然度', '目标', '错误处理', '专业性'],
+                datasets: chartData.models.map((model, index) => ({
+                    label: model.name.replace('qwen', 'Q').replace('_', ''),
+                    data: [
+                        model.flow_compliance,
+                        model.naturalness,
+                        model.goal_achievement,
+                        model.error_handling,
+                        model.professionalism
+                    ],
+                    backgroundColor: colors[index].bg,
+                    borderColor: colors[index].border,
+                    borderWidth: 1
+                }))
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { beginAtZero: true, max: 1 }
+                }
+            }
+        });
+
+        // 3. 雷达图
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['流程遵循度', '对话自然度', '目标达成度', '错误处理', '专业性'],
+                datasets: chartData.models.map((model, index) => ({
+                    label: model.name.replace('qwen', 'Q').replace('_', ''),
+                    data: [
+                        model.flow_compliance,
+                        model.naturalness,
+                        model.goal_achievement,
+                        model.error_handling,
+                        model.professionalism
+                    ],
+                    backgroundColor: colors[index].bg,
+                    borderColor: colors[index].border,
+                    borderWidth: 2,
+                    pointBackgroundColor: colors[index].border,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }))
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 1,
+                        ticks: { stepSize: 0.2, font: { size: 10 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
