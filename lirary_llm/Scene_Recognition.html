@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; 场景识别（Scene Recognition） – 智慧化知识服务技术研究</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ar.html" rel="next">
+<link href="./agent.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./Scene_Recognition.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">智慧化知识服务技术研究</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">任务要求</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">诸技术项</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./LLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">智能体 Agent / 代理型AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Scene_Recognition.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#场景识别的定义" id="toc-场景识别的定义" class="nav-link active" data-scroll-target="#场景识别的定义"><span class="header-section-number">4.1</span> 场景识别的定义</a></li>
+  <li><a href="#场景识别技术的起源和关键发展阶段" id="toc-场景识别技术的起源和关键发展阶段" class="nav-link" data-scroll-target="#场景识别技术的起源和关键发展阶段"><span class="header-section-number">4.2</span> 场景识别技术的起源和关键发展阶段</a></li>
+  <li><a href="#当前场景识别的发展趋势和技术瓶颈" id="toc-当前场景识别的发展趋势和技术瓶颈" class="nav-link" data-scroll-target="#当前场景识别的发展趋势和技术瓶颈"><span class="header-section-number">4.3</span> 当前场景识别的发展趋势和技术瓶颈</a>
+  <ul class="collapse">
+  <li><a href="#发展趋势从被动响应到主动智能" id="toc-发展趋势从被动响应到主动智能" class="nav-link" data-scroll-target="#发展趋势从被动响应到主动智能"><span class="header-section-number">4.3.1</span> 发展趋势：从被动响应到主动智能</a></li>
+  <li><a href="#潜在技术瓶颈与挑战" id="toc-潜在技术瓶颈与挑战" class="nav-link" data-scroll-target="#潜在技术瓶颈与挑战"><span class="header-section-number">4.3.2</span> 潜在技术瓶颈与挑战</a></li>
+  </ul></li>
+  <li><a href="#场景识别与图书馆知识服务融合的应用场景" id="toc-场景识别与图书馆知识服务融合的应用场景" class="nav-link" data-scroll-target="#场景识别与图书馆知识服务融合的应用场景"><span class="header-section-number">4.4</span> 场景识别与图书馆知识服务融合的应用场景</a>
+  <ul class="collapse">
+  <li><a href="#知识图谱情境语义关联与知识组织" id="toc-知识图谱情境语义关联与知识组织" class="nav-link" data-scroll-target="#知识图谱情境语义关联与知识组织"><span class="header-section-number">4.4.1</span> 知识图谱：情境语义关联与知识组织</a></li>
+  <li><a href="#语义检索理解意图的情境搜索" id="toc-语义检索理解意图的情境搜索" class="nav-link" data-scroll-target="#语义检索理解意图的情境搜索"><span class="header-section-number">4.4.2</span> 语义检索：理解意图的情境搜索</a></li>
+  <li><a href="#智能问答情境驱动的参考咨询" id="toc-智能问答情境驱动的参考咨询" class="nav-link" data-scroll-target="#智能问答情境驱动的参考咨询"><span class="header-section-number">4.4.3</span> 智能问答：情境驱动的参考咨询</a></li>
+  <li><a href="#个性化推荐情境感知的资源推介" id="toc-个性化推荐情境感知的资源推介" class="nav-link" data-scroll-target="#个性化推荐情境感知的资源推介"><span class="header-section-number">4.4.4</span> 个性化推荐：情境感知的资源推介</a></li>
+  <li><a href="#知识推送场景驱动的主动信息服务" id="toc-知识推送场景驱动的主动信息服务" class="nav-link" data-scroll-target="#知识推送场景驱动的主动信息服务"><span class="header-section-number">4.4.5</span> 知识推送：场景驱动的主动信息服务</a></li>
+  <li><a href="#可视化服务情境感知的交互呈现" id="toc-可视化服务情境感知的交互呈现" class="nav-link" data-scroll-target="#可视化服务情境感知的交互呈现"><span class="header-section-number">4.4.6</span> 可视化服务：情境感知的交互呈现</a></li>
+  </ul></li>
+  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结"><span class="header-section-number">4.5</span> 总结</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./Scene_Recognition.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-scene-recognition" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>当今信息环境下，图书馆的知识服务正在经历深刻变革。用户需求日益多样化且情境化，传统的“以用户检索为中心”的服务模式面临挑战<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 。 用户不仅希望获取所需信息，更期望在<strong>正确的时间、地点和情境</strong>下获得个性化、智能化的知识支持。这就引出了“场景识别”（情境感知）技术在图书馆中的潜在应用：通过识别用户所处的场景（例如地点、时间、身份、任务等上下文），动态调整知识服务内容与方式，从而提升服务相关性和用户体验。</p>
+<p>场景识别源自计算领域的情境感知（Context-Awareness）理念。早在20世纪90年代，中移动计算和泛在计算兴起，一些学者便提出让计算机自动感知环境变化并做出相应适应的愿景<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 。 图书馆界逐渐认识到，这一技术同样可以用于改进知识服务的效率和智慧化程度。<strong>场景识别在图书馆知识服务中的演进与融合</strong>已成为智慧图书馆研究的重要方向之一<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 。 据调查，超过六成的图书馆正计划将人工智能等技术整合到服务中，以实现个性化推荐、智能空间管理等高级应用<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> 。这些趋势体现出，将场景识别融入知识服务已是大势所趋。</p>
+<p>本章报告对场景识别在图书馆知识服务领域的发展进行了系统梳理和展望。首先，我们界定场景识别的含义及其关键要素；其次，回顾场景识别技术的起源和演进脉络，尤其关注其在图书馆知识服务中的应用历程；然后，分析当前场景识别的发展趋势与可能遭遇的技术瓶颈，重点讨论其在图书馆领域适配时面临的难点与挑战；最后，深入探讨场景识别与图书馆知识服务融合的可行性和契合度，并聚焦六大典型应用场景——知识图谱、语义检索、智能问答、个性化推荐、知识推送、可视化服务，结合实际案例展望未来演进方向。报告中将广泛引用国内外权威研究成果与实践案例，涵盖自然语言处理、深度学习、上下文建模、用户建模、图数据库、可视化交互设计等相关技术，以期为智慧图书馆的建设提供有价值的学术参考。</p>
+<section id="场景识别的定义" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="场景识别的定义"><span class="header-section-number">4.1</span> 场景识别的定义</h2>
+<p><strong>场景识别</strong>（Scene Recognition）在图书馆领域一般指对用户所处情境的自动感知与理解，从而辅助系统提供<strong>情境相关</strong>的知识服务。这一概念与计算机科学中的<strong>情境感知</strong>(Context Awareness)高度重合。Dey等人对“情境”（context）做出的经典定义是：_“情境是能够用来刻画某实体（人、地点、对象等）所处情形的任何信息”<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> 。 换言之，场景/情境包括用户、应用以及交互相关的各种要素，如当前的时间、地点、环境、设备、用户身份和需求状态等等<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> 。 基于此，Abowd等人将<strong>情境感知系统</strong>定义为：“能够利用情境信息为用户提供相应的服务或信息的系统，其中服务/信息的相关性取决于用户当前的任务”<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> 。 由此可见，场景识别的本质就是获取和理解用户周围及自身的各种上下文信息，并据此调整系统行为以保证服务内容与用户情境匹配<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> 。</p>
+<p>在图书馆知识服务背景下，场景识别关注的问题包括：<strong>是谁在寻求信息、何时何地提出需求、目的为何、使用什么设备、偏好如何</strong>等。比如，同一读者在工作日白天于图书馆阅览室检索文献，与在深夜通过手机远程访问数据库，其信息需求和期望的服务形式可能截然不同。情境感知技术正是要捕捉这些差异。Wei Gao等（2022）的研究指出，移动图书馆环境下用户的信息活动具有碎片化、临时性和实用性的特征，对应的信息需求往往与时间（何时需要）、空间（何地需要）、用户个人（是谁，需要什么）以及社交情境（他人评价与共享）等维度相关<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> 。 因此，系统需要<strong>感知用户的情境信息，实时分析判断其所处情境，并快速响应</strong>，为用户提供方便快捷、贴合当下情境的知识服务<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> 。 具体而言，情境信息可包括：当前时间（如学期周、节假日）、地点位置（馆内区域或馆外地点）、用户特征（身份角色、学科背景、历史借阅和偏好）、设备终端特性（手机/电脑）以及社交行为（点评、分享）等<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> 。 场景识别技术通过传感器、日志分析、用户画像等手段获取这些数据，经由上下文模型进行理解与推理，最终将结果作用于服务策略上，使系统具备“感知环境、即时适应”的能力。</p>
+<p>简而言之，本报告讨论的场景识别指的就是<strong>情境感知智能</strong>在图书馆知识服务中的应用。它要求图书馆系统像一个经验丰富的馆员一样，能够“察言观色”——感知读者所处的情境，揣摩其潜在需求，并提供恰如其分的知识支撑。例如，一个情境感知的参考咨询系统可以根据读者的专业背景和当前提问主题，自动调整回答的深度与专业术语程度<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> ； 一个情境感知的推荐系统可以考虑读者当前所在地是馆内还是家中，从而决定推荐纸质书还是电子资源。这样的<strong>场景自适应</strong>能力正是智慧图书馆的重要特征之一<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> 。</p>
+<p>需要注意的是，计算机视觉领域也有“场景识别”概念（如识别图像中的场景类型），但在本报告中，我们聚焦的并非视觉场景分析，而是<strong>用户信息行为情境</strong>的识别，即更偏重语义和使用情境的理解。在英文文献中常用“Context Awareness（情境感知）”来表述这一概念。总之，场景识别（情境感知）为图书馆提供了一种<strong>以用户为中心、以情境为线索</strong>的服务新范式，其核心在于让系统理解“此时此地的这个用户真正需要什么”，从而动态调整知识服务内容与交互方式<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> 。</p>
+</section>
+<section id="场景识别技术的起源和关键发展阶段" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="场景识别技术的起源和关键发展阶段"><span class="header-section-number">4.2</span> 场景识别技术的起源和关键发展阶段</h2>
+<p><strong>场景识别（情境感知）技术</strong>的思想由来已久，其起源可以追溯到20世纪末计算机领域的前瞻性研究。1991年Mark Weiser提出“泛在计算”（Ubiquitous Computing）的理念，畅想计算将无处不在、主动感知环境<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> 。 随后在1994年，Schilit等人在移动计算研讨会上首次明确提出“Context-Aware Computing”（情境感知计算）概念，描述了这样一种软件：_“能够根据使用的地点、附近的人和设备集合，以及这些因素随时间的变化来自动调整自身”<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> 。 这被视为场景识别技术的开端。早期的情境感知研究主要集中在<strong>定位感知</strong>（Location-Aware）应用上，例如根据用户位置提供相应服务<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> 。 典型实例是卫星导航系统：它依据当前位置这一主要情境参数，自动调整地图显示并规划路线<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> 。 随着研究深入，人们认识到情境不仅限于位置，还包括时间、环境光线、邻近人物等诸多方面<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a> 。 1999年Schmidt等提出了情境要素空间模型，将情境划分为环境、用户、时间等层次结构，强调应用需针对具体情境特征进行设计<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> 。</p>
+<p>进入21世纪，情境感知计算成为热门课题，相关定义和框架逐步完善。2000年前后，Dey和Abowd等对情境感知做了权威综述和定义<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> 。 Chen &amp; Kotz (2000)发表技术报告对移动情境感知研究进行了全面调查<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> ， 梳理了当时情境建模与推理的各种方法（如基于键值对、基于面向对象、基于ontology的模型等）<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a> 。 这一时期的标志性成果还包括Dey于2001年开发的<strong>Context Toolkit</strong>，为情境感知应用提供了通用的软件支持框架，以及随后出现的各种情境<strong>本体（Ontology）</strong>和中间件，旨在标准化情境信息的表示与交换<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> 。 例如，有研究者提出用OWL本体来表达RFID传感器捕获的情境数据，并基于语义推理实现动态场景管理<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a> 。这些工作为场景识别从理念走向实用奠定了基础。</p>
+<p><strong>图书馆领域对场景识别技术的关注</strong>则在21世纪的第二个十年逐渐兴起，与数字图书馆和智慧图书馆建设的演进紧密相关。早期的数字图书馆侧重资源数字化与网络获取，但服务模式大多仍是被动响应式的。随着Web2.0和移动互联网的发展，图书馆开始探索个性化和泛在服务。2010年前后，“<strong>图书馆2.0</strong>”推动用户参与和社交互联，而进一步的“<strong>图书馆3.0</strong>”概念则引入了<strong>语义网和情境感知</strong>（又称“泛在图书馆”或“智慧图书馆”）<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a> 。 韩国学者Noh在2013年的研究中系统展望了<strong>下一代数字图书馆</strong>的发展方向，明确提出应引入情境感知技术<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> 。 他认为，未来的智慧图书馆应能够识别进入图书馆的用户身份（新用户或老用户），并针对不同情境提供最佳服务；情境感知型图书馆可以实现情境感知的参考咨询、情境感知的借阅服务，以及在阅览空间提供满足当下环境需求的支持<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a> 。 例如，当用户走近某一书架时系统自动推送相关资料指南，或监测用户行为以在紧急情况下提供援助<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a> 。 Noh的研究还指出，当时真正落实情境感知技术的图书馆实例还不多，但情境感知有望极大提升用户便利性和服务品质<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a> 。这一观点鼓舞了随后智慧图书馆实践对场景识别的探索。</p>
+<p>2010年代中期，一些具体的场景识别在图书馆应用的原型系统相继出现。例如，芬兰奥卢市图书馆的“<strong>UbiLibrary</strong>”项目（2014）就开发了一种结合<strong>语义信息</strong>与<strong>情境感知</strong>的大型公共显示屏服务<a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a> 。 该系统聚合了图书馆馆藏数据库和外部网络资源，通过元数据语义增强技术丰富了书目信息，并在图书馆大厅的电子屏上以标签云形式动态呈现<a href="#fn32" class="footnote-ref" id="fnref32" role="doc-noteref"><sup>32</sup></a> 。 值得一提的是，UbiLibrary能够利用计算机视觉识别读者的大致年龄和性别，并据此自适应地调整图书推荐结果<a href="#fn33" class="footnote-ref" id="fnref33" role="doc-noteref"><sup>33</sup></a> 。 比如，当系统检测到屏幕前是一位年轻读者，可能优先推荐其年龄段常读的书目；若是一位年长男性，则推荐不同类别的内容<a href="#fn34" class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a> 。 这是场景识别（用户特征情境）用于图书馆个性化推荐的早期尝试，证明了上下文数据（如读者属性）对改进服务的价值。同一时期还有一些移动图书馆应用尝试利用GPS定位提供附近图书馆分馆信息、馆内导航服务等，也属于情境感知的实践范畴。</p>
+<p>进入2020年代，随着<strong>物联网（IoT）</strong>、<strong>大数据</strong>和<strong>人工智能</strong>的发展，场景识别在图书馆知识服务中的应用更加可行且丰富。大量智能终端和传感器为采集情境数据提供了条件，读者的行为日志、偏好数据经由机器学习模型分析可以推断深层次需求。中国的移动图书馆研究显示，在智能物联网环境下构建情境感知的个性化服务体系已成为热点课题<a href="#fn35" class="footnote-ref" id="fnref35" role="doc-noteref"><sup>35</sup></a> 。Wei Gao等设计了基于UML的情境感知移动图书馆服务模型，通过实验证明用户情境（时间、地点、个人偏好、终端等）与服务接受度存在显著相关<a href="#fn36" class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a> 。 他们提出的体系架构包括情境数据获取层、处理层、推荐服务层和用户交互层等，以分层方式实现情境感知功能<a href="#fn37" class="footnote-ref" id="fnref37" role="doc-noteref"><sup>37</sup></a> 。 另一方面，图书馆实践界开始引入<strong>人工智能驱动</strong>的服务，如智能问答系统和推荐算法。最新的调查表明，全球范围内许多图书馆正积极规划将AI融入服务流程，包括基于AI的个性化推荐和空间利用优化等<a href="#fn38" class="footnote-ref" id="fnref38" role="doc-noteref"><sup>38</sup></a> 。 <strong>大型语言模型</strong>（如OpenAI的ChatGPT）在2022年掀起热潮，其<strong>“上下文对话”</strong>能力使智能问答服务取得突破<a href="#fn39" class="footnote-ref" id="fnref39" role="doc-noteref"><sup>39</sup></a> 。 一些高校图书馆已经试验让读者用自然语言提问，由AI检索馆藏并给出参考答案，这实际上利用了模型对语义和上下文的理解来提升知识服务<a href="#fn40" class="footnote-ref" id="fnref40" role="doc-noteref"><sup>40</sup></a> 。 可以预见，随着AI技术的发展，场景识别将进一步与知识图谱、深度学习等结合，推动图书馆知识服务进入更高智能化阶段。</p>
+<p>纵观其发展历程，场景识别技术经历了从<strong>理论提出（1990s）→基础设施奠定（2000s）→小规模试点（2010s）→融合AI加速发展（2020s）</strong>的进程。在图书馆领域，从最初意识到用户情境重要性，到逐步试验情境感知服务，再到如今将之作为智慧图书馆建设的重要标志，我们看到了明显的演进轨迹<a href="#fn41" class="footnote-ref" id="fnref41" role="doc-noteref"><sup>41</sup></a> 。 这一演进也是多学科技术协同的结果：物联网为情境数据采集提供了手段，知识组织和语义网技术为情境信息的表达和利用提供了语义支持，机器学习使从海量行为数据中识别情境模式成为可能，自然语言处理则让系统更好地理解用户语义上下文。可以说，场景识别正日益成为智慧图书馆不可或缺的关键技术之一，为知识服务的创新拓展了广阔空间。</p>
+</section>
+<section id="当前场景识别的发展趋势和技术瓶颈" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="当前场景识别的发展趋势和技术瓶颈"><span class="header-section-number">4.3</span> 当前场景识别的发展趋势和技术瓶颈</h2>
+<section id="发展趋势从被动响应到主动智能" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="发展趋势从被动响应到主动智能"><span class="header-section-number">4.3.1</span> 发展趋势：从被动响应到主动智能</h3>
+<p><strong>发展趋势1：更加主动的情境感知服务。</strong>传统图书馆服务多为被动式，即读者明确提出请求，系统再响应。而场景识别的引入，使服务逐渐走向<strong>主动推送</strong>和<strong>预判需求</strong>。现代用户习惯了智能助手、推荐引擎那样的体验，期望图书馆服务也能“懂我”。因此，越来越多图书馆尝试基于场景触发提供服务：例如当读者走进图书馆馆舍时，手机自动收到欢迎信息和馆内活动推介（基于定位情境）；当用户在OPAC检索某主题文献时，系统即时推荐相关的数据库或咨询服务（基于行为情境）等。这种由<strong>上下文事件触发服务呈现</strong>的模式，在其他领域已有成功实践。例如旅游领域的CAIPS模型提出通过检测游客位置或行为等上下文事件来触发信息推送<a href="#fn42" class="footnote-ref" id="fnref42" role="doc-noteref"><sup>42</sup></a> 。在图书馆，同理可以构建“情境-事件-响应”规则，实现用户达到某情境就自动提供对应服务。情境感知服务从过去的实验性应用，正走向实际部署。尤其移动端App与馆内物联网基础设施结合，为主动情境服务奠定基础。</p>
+<p><strong>发展趋势2：多源数据融合与深度学习。</strong>当前场景识别技术呈现出融合多模态数据、借助深度学习模型提升精度的趋势<a href="#fn43" class="footnote-ref" id="fnref43" role="doc-noteref"><sup>43</sup></a> 。 过去，情境获取主要依赖单一来源（如RFID定位或用户配置的偏好），而如今传感器网络和大数据使我们能够获取<strong>丰富的上下文线索</strong>：包括地理位置、环境传感器读数、社交媒体痕迹、用户历史行为、文本交互记录等。通过将这些异构数据融合，能够更全面地刻画用户场景。例如，一套情境识别模型可能综合：GPS定位判断用户是否在图书馆内，日历时间推断其可能从事的活动（考试周=复习情境），借阅历史和当前检索关键词分析其研究主题，以及社交平台上关注的话题推测其兴趣热点。深度学习模型（如RNN、Transformer等）可以在这样的多模态输入下学习复杂的情境模式，提高识别准确率<a href="#fn44" class="footnote-ref" id="fnref44" role="doc-noteref"><sup>44</sup></a> 。 有研究利用<strong>循环神经网络</strong>融合室内传感和室外GPS数据，实现高精度的用户场景（室内/室外等活动场景）识别<a href="#fn45" class="footnote-ref" id="fnref45" role="doc-noteref"><sup>45</sup></a> 。 在图书馆语境中，深度学习也可用于用户意图识别和需求预测。例如，通过对大量查询日志训练模型，预测用户在某情境下最可能需要哪类资源，以便提前准备或推荐。</p>
+<p><strong>发展趋势3：知识图谱与语义情境的结合。</strong>随着知识图谱（Knowledge Graph）技术的发展，利用图谱丰富的语义关联来辅助情境理解成为一大趋势<a href="#fn46" class="footnote-ref" id="fnref46" role="doc-noteref"><sup>46</sup></a> 。 知识图谱可视为连接实体及概念的网络，当用户的行为与某些知识节点相关时，我们可以拓展出其语义“上下文”。例如，若系统识别用户当前研究主题是“机器学习”，通过知识图谱联想，可以得知其相关概念还有“人工智能、深度学习、数据挖掘”等，那么服务可扩展推荐这些相关领域的新资源。在智能制造领域已有将知识图谱用于生成情境感知服务的案例<a href="#fn47" class="footnote-ref" id="fnref47" role="doc-noteref"><sup>47</sup></a> 。同样地，在图书馆，可构建<strong>读者知识图谱</strong>或<strong>书目知识图谱</strong>，将用户背景、兴趣与文献语义网连接，用于增强场景识别的语义层面。例如，郑州大学的研究者构建了“图书知识图谱”并开发知识服务系统，实现了智能语义检索、知识问答等功能<a href="#fn48" class="footnote-ref" id="fnref48" role="doc-noteref"><sup>48</sup></a> 。这提示我们，通过知识图谱的推理能力，系统可以更好地理解用户询问背后的语义场景，并提供关联知识的推送。知识图谱还可以积累情境与服务效果的关联数据，供日后分析和改进情境模型。</p>
+<p><strong>发展趋势4：大型语言模型助力情境对话和问答。</strong>近年来的生成式预训练模型（如GPT系列）展现出强大的<strong>上下文理解和生成</strong>能力，对图书馆智能服务产生重大影响<a href="#fn49" class="footnote-ref" id="fnref49" role="doc-noteref"><sup>49</sup></a> 。 ChatGPT等模型可以依据对话上下文连贯地回答复杂问题，具备一定的<strong>对话情境记忆</strong>和推理能力。这类模型引入图书馆后，一方面在用户前端可以提供更为自然的对话式问答体验，理解用户长问句甚至连续提问的意图<a href="#fn50" class="footnote-ref" id="fnref50" role="doc-noteref"><sup>50</sup></a> ； 另一方面，在系统后台也可用于情境推理——模型可以从非结构化的描述中提取情境信息。例如用户发来邮件咨询“我在准备一篇关于机器学习伦理的综述，目前手头资料不多，有什么推荐吗？”，传统系统很难直接处理，而大型语言模型可以分析出用户身份（可能是研究生）、目的（写综述）、主题（机器学习伦理）等情境，并据此与知识库匹配最佳资源进行回答<a href="#fn51" class="footnote-ref" id="fnref51" role="doc-noteref"><sup>51</sup></a> 。各大图书馆系统厂商也在将LLM整合进发现系统，如Ex Libris的Primo研究助手能够接受自然语言查询并给出引用了馆藏文献的回答<a href="#fn52" class="footnote-ref" id="fnref52" role="doc-noteref"><sup>52</sup></a> 。 可以预见，未来大型语言模型将成为情境感知的重要引擎之一，让机器对用户所处场景“领会得更灵敏”。</p>
+<p><strong>发展趋势5：用户隐私与伦理考量。</strong>在技术快速推进的同时，越来越多关注点落在用户隐私和伦理上。场景识别不可避免地涉及对用户行为和环境的广泛数据收集，这引发了隐私保护的讨论。未来的发展趋势之一是<strong>隐私敏感的情境感知</strong>设计，即在保障服务智能化的同时，严格控制对用户私密数据的使用。例如，通过在终端设备上进行情境计算，避免将原始数据上传云端，或采用差分隐私技术对数据进行模糊处理。图书馆作为公共机构，更需注重在智慧服务中保护读者隐私和数据安全。此外，还有<strong>算法透明度</strong>和<strong>公平性</strong>的问题：情境感知算法如何做出决策应当有迹可循，以便获得用户信任；算法不应因利用某些情境数据而产生对特定群体的歧视性结果（例如过度推送某类信息）。这些都成为趋势中需要平衡的重要方面<a href="#fn53" class="footnote-ref" id="fnref53" role="doc-noteref"><sup>53</sup></a> 。 未来，图书馆情境感知服务的设计将融入更多伦理规范，确保技术应用符合“以人为本、公平公正”的原则。</p>
+</section>
+<section id="潜在技术瓶颈与挑战" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="潜在技术瓶颈与挑战"><span class="header-section-number">4.3.2</span> 潜在技术瓶颈与挑战</h3>
+<p>尽管场景识别在图书馆知识服务中的前景令人期待，但在实际落地过程中仍面临诸多<strong>技术瓶颈和挑战</strong>：</p>
+<ul>
+<li><p><strong>数据获取与整合困难：</strong>情境感知依赖多源数据，但许多图书馆目前的数据基础仍相对分散、孤立。例如，读者借阅数据在集成库系统(ILS)中，数字资源使用数据在数据库平台，门禁出入数据在安防系统，用户在线行为在网站或App日志。这些数据彼此缺乏联通，情境分析需要的<strong>全局用户画像</strong>难以建立。此外，有些情境信息（如读者当前位置、实时行为）需通过传感器或移动设备获取，但部署这些硬件对于经费有限的图书馆而言也是挑战。即使获取了多种数据，如何将异构数据清洗、关联，形成统一的情境表示也是一大技术难点<a href="#fn54" class="footnote-ref" id="fnref54" role="doc-noteref"><sup>54</sup></a> 。 没有高质量的数据，“巧妇难为无米之炊”，场景识别算法将无从发挥。</p></li>
+<li><p><strong>情境建模与推理复杂：</strong>即便有了数据，如何对情境进行有效的<strong>建模与推理</strong>也是瓶颈之一。情境具有高度的动态性和不确定性，同样的信号在不同情况下可能意义迥异。例如，用户深夜登录数据库可能意味着他正在加班写论文，也可能只是失眠随便浏览。要让系统正确“读懂”情境，需要强大的推理机制和上下文知识。尽管语义网技术和机器学习提供了部分解决方案，但目前的情境建模仍不够成熟，缺乏统一标准和易用的开发框架<a href="#fn55" class="footnote-ref" id="fnref55" role="doc-noteref"><sup>55</sup></a> 。Wei Gao等指出当前对于情境感知服务模型的研究仍显不足<a href="#fn56" class="footnote-ref" id="fnref56" role="doc-noteref"><sup>56</sup></a> 。 如果模型不准确，可能出现<strong>情境误判</strong>，导致提供不合适的服务，反而降低用户体验。例如系统错将某用户识别为教师从而推送学术资源，但其实是个本科生，收到太深奥的信息会适得其反。</p></li>
+<li><p><strong>跨领域知识融合挑战：</strong>图书馆情境感知涉及图书情报学知识与计算技术的深度融合。这要求馆员和开发者既理解读者服务，又掌握AI、NLP等技术。然而现实中，这样的<strong>复合型人才</strong>相对缺乏，团队协作成本高。很多图书馆依赖外部厂商提供智能服务解决方案，但厂商对图书馆特定业务场景未必有深入理解，导致系统难以<strong>贴合馆情</strong>。例如，一个通用的推荐算法可能不了解图书馆的分类体系和学术资源特点，推荐结果不理想。此外，情境感知系统需要持续调优，本地化定制，传统图书馆IT人员编程或数据分析能力不足也是瓶颈。如何打造<strong>图书馆与技术专家合作</strong>的机制，一起打磨适用的情境模型，是目前的一大挑战。</p></li>
+<li><p><strong>系统集成与实时性能：</strong>在图书馆环境中引入场景识别，需要将情境感知模块与现有业务系统（OPAC、数字图书馆门户、移动App等）进行集成。这可能牵涉不同厂商的软件接口兼容问题，增加实现难度。另外，情境感知往往要求<strong>实时性</strong>：捕捉情境-分析-响应必须在短时间内完成，用户才有良好体验。例如读者走到书架前几秒内就应该收到导引信息。如果情境识别和服务触发耗时太久，用户可能已经离开。这对系统性能、算法效率提出了高要求。大规模并发用户情况下如何保障实时响应，也是技术瓶颈之一。相关硬件投入（如定位基站、边缘计算节点）以及高效算法研究都需要跟进。</p></li>
+<li><p><strong>用户接受度与反馈机制：</strong>从读者角度看，情境感知服务是一柄双刃剑。如果做得好，会被视为体贴聪明的助手；做得不好，可能引起反感甚至隐私担忧。一大挑战在于<strong>用户接受度</strong>：并非所有读者都愿意让系统“随时跟踪”他们的行为。有人会担心个人阅读隐私泄露，或觉得系统干预过多不胜其烦。因此在实现场景识别时需设计<strong>透明、可控</strong>的机制，例如允许用户自主设定愿意开放的情境数据、提供一键开启/关闭情境服务的选项等。此外，需要建立<strong>用户反馈机制</strong>：当系统的情境推断出错或服务不符合预期时，用户能方便地纠正或反馈，这样系统才能持续学习改进。如果缺乏反馈，系统可能一直固守错误的情境模型。用户教育也是瓶颈之一——图书馆需要向读者解释情境感知服务的益处及数据使用边界，争取信任和支持。</p></li>
+<li><p><strong>安全与隐私合规：</strong>前面提到隐私保护，这里强调其带来的技术和制度挑战。情境数据可能包含敏感信息（如身份、行为轨迹），一旦泄露后果严重。图书馆必须确保自身及合作厂商在收集、存储、处理这些数据时遵循严格的安全标准（如数据加密、访问控制）和隐私法规（如《GDPR》等）。技术上，需要实现<strong>数据匿名化和最小化</strong>原则，仅保留服务所需的最低限度信息。例如采用代号而非真实身份记录行为。制度上，要制定明确的隐私政策与应急预案。一旦发生数据泄漏或算法偏见事件，能够及时响应和补救。这些要求对传统图书馆IT是新的课题，需要与法律、安全专家合作解决。</p></li>
+</ul>
+<p>综上，场景识别在图书馆知识服务应用中正处于<strong>机遇与挑战并存</strong>的阶段。一方面，新技术为实现更智能的情境服务提供了可能，另一方面，数据、算法、人才、用户等多方面的瓶颈需一一突破。正如有研究指出的，尽管情境感知的研究成果日益丰富，但真正用于图书馆服务的还不多，主要原因就在于上述困难<a href="#fn57" class="footnote-ref" id="fnref57" role="doc-noteref"><sup>57</sup></a> <a href="#fn58" class="footnote-ref" id="fnref58" role="doc-noteref"><sup>58</sup></a> 。 未来能否成功大规模部署场景识别，取决于我们在技术上逐步完善并在实践中积累经验，找到<strong>平衡智能服务与用户信任、系统复杂度与可靠性的最佳方案</strong>。</p>
+</section>
+</section>
+<section id="场景识别与图书馆知识服务融合的应用场景" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="场景识别与图书馆知识服务融合的应用场景"><span class="header-section-number">4.4</span> 场景识别与图书馆知识服务融合的应用场景</h2>
+<p>场景识别技术的最终价值在于与具体的图书馆知识服务<strong>场景（应用领域）</strong>相融合，产生协同增效的智能服务模式。图书馆知识服务涵盖多个方面，下文将聚焦六大典型应用场景，探讨情境感知（场景识别）如何在每个场景中发挥作用，以及二者融合所带来的可能性与契合度。这六个领域分别是：<strong>知识图谱</strong>、<strong>语义检索</strong>、<strong>智能问答</strong>、<strong>个性化推荐</strong>、<strong>知识推送</strong>和<strong>可视化服务</strong>。每一项都是当前智慧图书馆建设的热点，也是场景识别大显身手的舞台。</p>
+<section id="知识图谱情境语义关联与知识组织" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="知识图谱情境语义关联与知识组织"><span class="header-section-number">4.4.1</span> 知识图谱：情境语义关联与知识组织</h3>
+<p><strong>知识图谱</strong>是一种以语义网络形式组织知识的技术，在图书馆领域通常用于关联馆藏资源、学术概念和实体。将场景识别融入知识图谱，有助于实现<strong>情境化的知识组织与获取</strong>。其契合点主要体现在两个方面：</p>
+<p>一是利用知识图谱增强<strong>情境语义理解</strong>。当系统识别出用户所处的情境（如研究主题或任务），可以在知识图谱中找到与该情境相关的实体和关联关系，作为扩展的语义上下文。例如，若检测到用户在查找“机器学习伦理”的资料，图谱能够提供该主题相关的概念（算法透明度、AI法规、数据隐私等）的网络<a href="#fn59" class="footnote-ref" id="fnref59" role="doc-noteref"><sup>59</sup></a> 。系统据此可以向用户推荐更全面的参考资源，而不是仅局限于字面匹配的结果。实际上，有研究已将领域知识图谱用于提升情境感知服务的智能性，比如在智能制造中构建工业知识图谱来产生情境感知的知识服务<a href="#fn60" class="footnote-ref" id="fnref60" role="doc-noteref"><sup>60</sup></a> 。在图书馆，同理可建立学科知识图谱或馆藏知识图谱，使系统具备“知识背景”，更好地理解用户查询背后的意图和所需知识范围。</p>
+<p>二是利用情境信息动态调节<strong>知识图谱的查询与显示</strong>。知识图谱往往规模庞大，包含错综复杂的关系。场景识别可以帮助<strong>过滤和聚焦</strong>图谱中与当前情境最相关的部分，从而提高知识获取效率。例如，对于一位医学院学生，系统识别其身份和偏好后，在医学知识图谱中优先呈现临床医学相关的知识路径，而对计算机科学领域的节点予以淡化。这就相当于根据用户情境对知识图谱做了<strong>个性化裁剪</strong>。再如，北京大学等机构开发的一些学科知识图谱系统，会根据用户选择的研究主题高亮相关概念和文献网络，让用户在该情境下快速浏览关联知识点。类似地，场景识别可用于<strong>排序</strong>知识图谱的查询结果：如果用户当前处于写毕业论文的场景，系统可优先显示学术性更强、引用次数高的关联文献节点；如果用户只是科普兴趣，则优先显示通俗易懂的概念节点。</p>
+<p>知识图谱与场景识别的融合还体现在新型服务模式上。例如，创建<strong>情境化知识导航</strong>系统：当用户进入某个专题场景时，系统自动生成一张该专题的知识图谱视图，让用户直观看到主要概念和文献的关联脉络（这也是可视化服务的一种体现）。一项针对数字人文遗产的研究已经展示了这种思路：通过知识图谱系统的可视化界面支持用户浏览数字资源<a href="#fn61" class="footnote-ref" id="fnref61" role="doc-noteref"><sup>61</sup></a> 。在图书馆，我们可针对某些热门研究课题预先构建知识脉络图，配合情境感知在用户需要时推送展现。又如<strong>情境问答</strong>（IQ&amp;A）系统，也可以以知识图谱为知识基底，通过情境识别确定用户提问涉及的图谱子域，从而在小范围内精准推理答案，提高问答准确率<a href="#fn62" class="footnote-ref" id="fnref62" role="doc-noteref"><sup>62</sup></a> 。</p>
+<p>当然，这一领域的挑战在于构建和维护高质量的图书馆知识图谱，以及开发高效的情境到语义的映射算法。但总体而言，知识图谱提供了情境感知一个极好的语义支撑平台，使图书馆知识服务更好地“知其然并知其所以然”。情境感知可以赋予知识图谱以“智能滤镜”，让庞杂的知识网络在合适的场景下呈现出恰当的片段与视角。两者结合，将促成一种<strong>语义驱动的智慧知识服务</strong>：既有深厚的知识关联，又有敏锐的情境判断，从而极大提升用户获取知识的效率和体验。</p>
+</section>
+<section id="语义检索理解意图的情境搜索" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="语义检索理解意图的情境搜索"><span class="header-section-number">4.4.2</span> 语义检索：理解意图的情境搜索</h3>
+<p><strong>语义检索</strong>旨在超越传统基于关键词的检索，通过理解用户查询的语义和意图来提供更准确的结果<a href="#fn63" class="footnote-ref" id="fnref63" role="doc-noteref"><sup>63</sup></a> 。在图书馆知识服务中，引入场景识别可以使语义检索更具“语境意识”，从而提升检索精准度和用户满意度。二者融合的契合点包括：</p>
+<ul>
+<li><p><strong>情境增强的意图识别：</strong>语义检索引擎通常利用自然语言处理来解析查询背后的意图和含义。例如，它会将查询词映射到概念、扩展同义词等。然而，仅凭查询词本身有时不足以判断用户真正所求。这时，如果结合用户当前情境，理解就会更准确<a href="#fn64" class="footnote-ref" id="fnref64" role="doc-noteref"><sup>64</sup></a> 。 举例来说，用户输入“java 安全”进行检索，如果知道此用户是计算机专业背景且在校，语义检索应倾向于理解为编程语言Java的安全性；若用户是生态学者，可能是寻找爪哇岛的生态安全研究。<strong>情境信息（领域、身份）</strong>帮助消除歧义。再如，同样是搜索“鼠标”，程序员想找计算机鼠标信息，生物学者则想找实验小鼠资料。通过场景识别预先判断用户所属领域，语义检索就能做出正确的意图识别，从而检索到相关度更高的结果<a href="#fn65" class="footnote-ref" id="fnref65" role="doc-noteref"><sup>65</sup></a> 。国内一些数据库已经开始融合大模型的意图识别能力，比如知网的AI增强检索能够捕捉用户检索意图，简化复杂检索流程<a href="#fn66" class="footnote-ref" id="fnref66" role="doc-noteref"><sup>66</sup></a> 。 这些实践表明，情境感知的意图识别将成为语义检索的重要环节。</p></li>
+<li><p><strong>动态结果排序与过滤：</strong>传统检索结果排序大多根据文本相关度或全局学术影响力排序，而场景融合的语义检索可以根据用户当前任务情境动态调整排序。例如，当识别出用户正处于撰写综述的场景，可以在结果中优先显示该领域的综述性文章或高被引论文；若识别出用户是初学者入门场景，则优先展示基础教材或导论级别的材料。情境信息还可用于<strong>结果过滤</strong>。比如，当用户在馆内终端检索，系统可优先显示馆藏纸本可供借阅的结果（匹配地点情境）；当用户使用手机并且在校外，系统则滤掉无法远程访问的资源，避免用户点击后遭遇权限限制的挫败感。这种情境感知的排序与过滤能极大提升检索体验，让用户更快找到适合自己当下情境的资料。正如Google等搜索引擎在通用领域已经根据用户位置、历史记录调整结果一样，图书馆语义搜索也应因人因时而变。</p></li>
+<li><p><strong>对话式检索与上下文记忆：</strong>情境感知还表现在多轮检索对话中。语义检索越来越多地支持对话查询，即用户可以逐步细化或更改查询。在这种场景下，前文上下文就是用户的情境之一。情境感知技术让检索引擎能够“记住”用户前面的提问，从而正确解析省略词或代词指代的对象。例如：用户先问“有关于人工智能伦理的文献吗？”得到结果后接着问“那它在医疗领域的应用呢？”第二问中的“它”指代人工智能伦理，此类承接需要情境记忆能力。现代AI驱动的检索助手（如Primo Research Assistant）正是通过大型语言模型实现对话理解，能够提供带引用的回答并链接全文<a href="#fn67" class="footnote-ref" id="fnref67" role="doc-noteref"><sup>67</sup></a> 。 这也可以看作语义检索在更高层次上的情境融合——把整个对话视为情境，理解用户逐步澄清需求的过程并及时调整检索策略，给出连贯相关的结果。未来，图书馆用户可能更倾向于这种自然的对话式信息检索，因此情境感知在其中的作用将更加关键。</p></li>
+</ul>
+<p>值得一提的是，语义检索和知识图谱常常结合实现，即利用知识图谱做语义扩展与精排。这一点在上一节已讨论。这里强调的是，无论内部实现如何，引入场景识别都会使检索更加“懂你所需”。图书馆的一些智能检索系统已开始号称支持“深度理解用户检索意图”<a href="#fn68" class="footnote-ref" id="fnref68" role="doc-noteref"><sup>68</sup></a> ，其实质就是情境感知能力的体现——既理解查询，也了解查询者。总而言之，场景识别赋予语义检索以<strong>“因人而异、因境而变”</strong>的智慧，使检索从冷冰冰的匹配行为变成富有人性化的交互过程，为用户提供更<strong>贴合语境的检索体验</strong><a href="#fn69" class="footnote-ref" id="fnref69" role="doc-noteref"><sup>69</sup></a> 。</p>
+</section>
+<section id="智能问答情境驱动的参考咨询" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="智能问答情境驱动的参考咨询"><span class="header-section-number">4.4.3</span> 智能问答：情境驱动的参考咨询</h3>
+<p><strong>智能问答（Intelligent Q&amp;A）</strong>服务是图书馆知识服务的一项重要内容，旨在解答用户各类信息需求和问题咨询。传统的图书馆参考咨询由馆员人工完成，而借助自然语言处理和知识库的智能问答系统正在兴起。场景识别在其中的融合，可以使问答更加<strong>上下文相关和个性化</strong>：</p>
+<ul>
+<li><p><strong>理解提问背后的场景：</strong>用户在提问时往往不会把背景交代清楚，但馆员通常会通过经验猜测提问者的场景，从而给出合适的答案。智能问答系统若具备这种情境理解能力，将更接近真人水平。比如，用户提问：“请问怎么引用参考文献？” 如果识别用户是大一新生且晚上在自习室提问，这可能是基本的学术写作问题，回答可提供引用格式指南；如果提问者是研究生且白天在实验室，很可能需要高级参考管理工具推荐。场景识别通过用户身份（新生/研究生）、时间地点（晚自习/日间科研）等推断提问背景，进而帮助系统<strong>选择回答策略</strong>。再如用户问：“这本书有电子版吗？” 如果检测到其身处馆外且时间是周末，那么更可能希望获得电子版链接；若在馆内，则可能只是没找到纸本，需要馆员帮助。这些情境使得问答系统能“听懂弦外之音”。</p></li>
+<li><p><strong>基于情境的答案定制：</strong>对于同一个问题，不同用户在不同情境下可能需要不同深度或形式的答案。情境感知允许系统<strong>定制回答</strong>。例如，问“什么是量子计算？” 初学者需要通俗易懂的解释<a href="#fn70" class="footnote-ref" id="fnref70" role="doc-noteref"><sup>70</sup></a> ，专业学者则希望听到更严谨甚至数学推导层面的说明。这种差异可以通过用户模型（背景知识水平）作为情境输入来调整答案的专业程度。同样地，馆员回答问题时也会考虑对方是谁。智能系统则可利用情境信息在知识库中<strong>选取适配的答案</strong>：比如对于大众读者引用Wikipedia、科普文章的表述，对于专家则引用期刊文献定义。又如答复形式上，如果用户在手机上询问路线，回答可以直接给地图定位（视觉化的答案）；如果在PC上，可以给详细文字说明和链接。<strong>情境驱动</strong>确保答案对用户而言是实用而友好的<a href="#fn71" class="footnote-ref" id="fnref71" role="doc-noteref"><sup>71</sup></a> 。</p></li>
+<li><p><strong>多轮问答中的上下文关联：</strong>类似前述对话式检索，在智能问答中情境感知也体现在保持多轮对话的上下文。用户可能连续提多个相关问题，此时之前的问题和回答构成了新的情境。系统需要“记住”用户已获得的信息，不重复回答，并据此推断接下来更深层的需求。例如：用户先问“如何查找某期刊论文？”，系统指导了数据库检索。紧接着用户问“这个数据库能调出全文吗？”，系统应该意识到“这个数据库”指的是上文提及的某数据库。这要求系统具备<strong>对话情境记忆</strong>，不然会把第二问当作孤立问题回答不好。大型语言模型令这一能力显著增强<a href="#fn72" class="footnote-ref" id="fnref72" role="doc-noteref"><sup>72</sup></a> 。当前一些图书馆已上线基于GPT的智能助手，可以连续对话解答读者问题，并根据对话进展调整措辞和提供进一步帮助。例如OpenAI模型的上下文关联能力被用于构建馆员对话机器人，可让用户就一个主题逐步深入提问而系统保持连贯。</p></li>
+<li><p><strong>知识库的情境调用：</strong>许多智能问答系统背后有庞大的知识库（FAQ库、知识图谱等）。场景识别可以优化知识库的检索利用。例如，在企业知识库问答中，有学者提出根据提问情境动态选择子知识库以提高准确率。同理，图书馆可能有多个知识库（文献信息、读者服务、规章制度等），情境感知可帮助<strong>路由问题</strong>到最相关的知识源。例如检测到问题涉及馆藏资源，就在馆藏FAQ中查找；涉及图书馆规定，则在规章库中查找。这避免了全库搜索的干扰，提高问答精度。</p></li>
+</ul>
+<p>目前，一些<strong>图书馆智能问答系统</strong>（如ChatLibrary等）开始体现情境元素，如能根据用户提问语言自动切换中英文回答，根据提问类别提供相应风格的答复等<a href="#fn73" class="footnote-ref" id="fnref73" role="doc-noteref"><sup>73</sup></a> 。展望未来，更深入的情境融合将让图书馆智能问答达到“类人”的参考咨询效果。当用户评价这些系统“就像在和真人馆员聊天”时，正是情境感知成功运作的体现<a href="#fn74" class="footnote-ref" id="fnref74" role="doc-noteref"><sup>74</sup></a> 。不过，需要注意的是，问答系统的内容质量和可信度也必须有保证。引入情境后系统变得更复杂，可能出现新的错误类型（例如情境判断失误导致答非所问）。因此在利用情境定制答案的同时，仍需建立<strong>人工审阅</strong>或<strong>用户校正</strong>机制，以确保最终答案准确可靠。这也是图书馆专业精神在智能时代的坚守。</p>
+</section>
+<section id="个性化推荐情境感知的资源推介" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="个性化推荐情境感知的资源推介"><span class="header-section-number">4.4.4</span> 个性化推荐：情境感知的资源推介</h3>
+<p><strong>个性化推荐</strong>服务旨在根据用户的兴趣和行为记录，向其推荐可能感兴趣的书籍、文章、数据库等资源。在图书馆中，推荐系统常用于OPAC的“借阅此书的读者还借了…”或数字图书馆的关联文献推荐等。场景识别的融合使推荐从静态的“千人一面”走向动态的“<strong>因情境而异</strong>”，主要表现在：</p>
+<ul>
+<li><p><strong>Context-Aware 推荐模型：</strong>推荐系统领域早已提出<strong>情境感知推荐系统(CARS)</strong>的概念，即在传统用户-项目矩阵基础上加入情境维度<a href="#fn75" class="footnote-ref" id="fnref75" role="doc-noteref"><sup>75</sup></a> 。其核心思想是：考虑用户在不同情境下对同一资源的喜好可能不同，通过将时间、地点、心情、目的等上下文纳入，生成更相关的推荐<a href="#fn76" class="footnote-ref" id="fnref76" role="doc-noteref"><sup>76</sup></a> 。在图书馆，一个读者平时可能喜欢阅读专业论文，但周末休闲时更倾向借阅小说。如果推荐能识别出当前是周末非工作情境，就可以调整策略推荐轻松读物，而非像工作日那样推专业书。这种做法提高了推荐的接受度。情境感知还能避免不合时宜的推荐，例如凌晨使用移动端的用户，多半不方便读长篇PDF，可推荐短文章或音频资源。通过算法上将情境作为额外约束，推荐结果将对当下场景更友好。研究表明，引入上下文信息的推荐系统能够产生<strong>更有针对性的推荐结果</strong>，提高用户满意度<a href="#fn77" class="footnote-ref" id="fnref77" role="doc-noteref"><sup>77</sup></a> 。</p></li>
+<li><p><strong>实时场景的短期偏好捉取：</strong>传统推荐多基于长期历史偏好，而场景识别可以捕捉用户<strong>短期的瞬时兴趣</strong>并纳入推荐。例如，一个平时借阅历史学的读者某天突然检索了多篇人工智能论文，这可能表示其近期对AI有需求（比如跨学科研究）。情境感知系统可识别出这一“当前兴趣”场景，及时在推荐列表中加入AI领域的热门文献，而不被其长期历史偏好所完全束缚。同样地，季节和事件也是情境：毕业季时，很多读者关注就业和论文写作，推荐系统应顺应这个集体情境多推相关资源。通过情境信号，系统能够对<strong>用户动态兴趣</strong>做出快速反应，令推荐更加鲜活贴切。</p></li>
+<li><p><strong>多源情境提升冷启动：</strong>图书馆常遇到新读者（无历史数据）或老读者涉足新领域的情形，传统推荐难以奏效。情境感知可利用其他信息缓解“冷启动”问题。例如，新读者的专业和年级本身就是强情境，可据此推荐该专业热门教材、基础读物等（因为大多数处于这个学业阶段的人都有相似需求）。又如当读者开始一个新课题，可以根据其检索和浏览行为情境，迅速构建该课题的知识关系图，从而推荐项目相关文献。甚至用户所处的社群情境（比如与其相似背景的用户群阅读趋势）也可用作间接依据。场景识别提供了<strong>额外的侧信息</strong>，帮助推荐系统在缺乏直接偏好数据时仍能给出较合理的推介。实证研究显示，融合情境因素的模型在冷启动场景下效果优于纯协同过滤模型<a href="#fn78" class="footnote-ref" id="fnref78" role="doc-noteref"><sup>78</sup></a> 。</p></li>
+<li><p><strong>Library Use Case实例：</strong>奥卢市图书馆的UbiLibrary项目中，书籍推荐模块正是结合了用户的性别和年龄情境进行过滤<a href="#fn79" class="footnote-ref" id="fnref79" role="doc-noteref"><sup>79</sup></a> 。结果表明，不同年龄、性别组对推荐书目接受度有所差异，通过情境调节后推荐更受欢迎<a href="#fn80" class="footnote-ref" id="fnref80" role="doc-noteref"><sup>80</sup></a> 。另一个例子是许多图书馆移动App在用户进入馆内Wi-Fi范围后，会在首页推荐馆内新到图书或当前热门借阅书籍，这也是利用位置情境提升推荐相关性的一种方式。此外，部分高校图书馆的系统会根据学科情境做推荐：理工科读者登录后首页展示最新SCI论文推荐，人文学科读者则展示人文社科领域的新书通知。这些都体现了<strong>“推荐因场景而变”</strong>的理念。</p></li>
+</ul>
+<p>当然，实现情境感知的个性化推荐也要注意避免“信息茧房”和<strong>过度个性化</strong>。一方面，过于依赖情境可能忽略用户潜在的跨情境兴趣，错失多样性；另一方面，需要在推荐解释上向用户传达为何推荐，以增加信任（比如注明“根据您的当前位置，我们推荐附近馆藏的以下书籍”）。总体而言，场景识别赋予推荐系统<strong>更高的上下文敏感度</strong>和<strong>服务温度</strong>——用户会感觉推荐“恰是时候”地出现。这将有助于图书馆更有效地引导读者发现资源，提升资源利用率和用户粘性，真正实现知识服务的<strong>“千人千面”</strong><a href="#fn81" class="footnote-ref" id="fnref81" role="doc-noteref"><sup>81</sup></a> <a href="#fn82" class="footnote-ref" id="fnref82" role="doc-noteref"><sup>82</sup></a> 。</p>
+</section>
+<section id="知识推送场景驱动的主动信息服务" class="level3" data-number="4.4.5">
+<h3 data-number="4.4.5" class="anchored" data-anchor-id="知识推送场景驱动的主动信息服务"><span class="header-section-number">4.4.5</span> 知识推送：场景驱动的主动信息服务</h3>
+<p><strong>知识推送</strong>指图书馆主动将有价值的信息内容发送给用户的服务模式，例如新书通报、学科动态提醒、定题服务等。传统推送多是周期性或根据预设兴趣进行，场景识别的引入则可以实现<strong>更精细、更实时的触发式推送</strong><a href="#fn83" class="footnote-ref" id="fnref83" role="doc-noteref"><sup>83</sup></a> 。融合的契合点包括：</p>
+<ul>
+<li><p><strong>基于情境事件的触发机制：</strong>情境感知允许知识推送采用<strong>“Event-Condition-Action (ECA)”</strong>规则，即一旦检测到特定情境事件发生，就触发相应推送<a href="#fn84" class="footnote-ref" id="fnref84" role="doc-noteref"><sup>84</sup></a> 。例如，当识别到用户进入图书馆某专题阅览室时，立即向其推送该专题最新资源指南；当检测到用户首次使用某数据库后，推送该数据库使用攻略或培训信息（事件=首次使用情境）。这类似旅游领域的情境信息推送服务，在检测到游客到达某景点时自动推送讲解<a href="#fn85" class="footnote-ref" id="fnref85" role="doc-noteref"><sup>85</sup></a> 。图书馆可以设置许多情境触发，如_时间事件_（每晚10点向仍在学习的用户推送休息提醒或相关轻松读物推荐）、<em>位置事件</em>（用户经过新书架时推送新书介绍）、<em>行为事件</em>（检索多次未果时推送寻求参考咨询帮助的提示）等。通过场景识别实现这些ECA规则，让知识服务更加主动及时。</p></li>
+<li><p><strong>推送内容的情境相关性：</strong>除了触发，更重要的是确保推送内容与用户当下情境紧密相关，否则容易被视为垃圾信息。情境感知可帮助<strong>精准匹配推送内容</strong>。例如，系统得知某用户正在撰写毕业论文（可根据其近来大量下载文献且使用文献管理软件的情境推断），那么推送的内容应聚焦于论文写作辅导、学术规范提醒等<a href="#fn86" class="footnote-ref" id="fnref86" role="doc-noteref"><sup>86</sup></a> 。又如深夜使用电子资源的用户可能需要的是在线服务支持而非馆内活动通知。情境信息可以为推送内容打标签，只有当标签与用户场景吻合时才发送推送。这提高了推送的<strong>命中率</strong>和<strong>价值</strong>。近期有技术实现了利用情境规则过滤推送信息的尝试，如针对旅游者的系统会依据游客当前活动（开车/步行等）调整推送的信息量和形式<a href="#fn87" class="footnote-ref" id="fnref87" role="doc-noteref"><sup>87</sup></a> 。类比地，图书馆可对不同场景设定不同推送策略：学习场景推送学习资源，娱乐场景推送休闲阅读等等。</p></li>
+<li><p><strong>交互与反馈闭环：</strong>场景识别还可以完善推送服务的反馈机制。当用户接收到推送后，其后续行为（如是否点击、是否忽略）又形成新的情境信号，系统可以学习这一反馈，优化日后的推送策略。例如某用户经常无视凌晨推送，则系统应减少他深夜场景下的推送频率，或调整内容以更符合其潜在需求。这样形成<strong>感知-推送-再感知-调整</strong>的闭环，不断提高推送服务的有效性。</p></li>
+</ul>
+<p>当前许多图书馆已经有一定的知识推送服务，例如新书通报邮件、微信服务号定阅推送等。但这些推送往往是批量同质的，没有考虑个体情境差异，因而信息噪音较大。应用场景识别后，推送将朝着<strong>精准化</strong>和<strong>即时化</strong>方向演进。例如，“选择性推送”代替“全体群发”，只把医学新书通知推送给医学领域相关的读者；“即时推送”代替“定时推送”，根据情境需要在恰当时机送达，而不是一刀切的固定时间。需要强调的是，虽然情境驱动推送威力巨大，但也要有<strong>频度控制和尊重用户意愿</strong>的机制，否则可能引起用户反感甚至选择退订。这就要求系统能识别过度推送的负面情境（如用户长时间未响应任何推送），从而自动降低推送频率，或提供简便的推送偏好设置供用户调整。只要把握好度，场景识别赋能的知识推送将成为图书馆服务的一大利器，将<strong>合适的知识在合适的场景主动送达</strong>给需要的读者，真正实现“知识的及时雨”。</p>
+</section>
+<section id="可视化服务情境感知的交互呈现" class="level3" data-number="4.4.6">
+<h3 data-number="4.4.6" class="anchored" data-anchor-id="可视化服务情境感知的交互呈现"><span class="header-section-number">4.4.6</span> 可视化服务：情境感知的交互呈现</h3>
+<p><strong>可视化服务</strong>在图书馆中指利用信息可视化技术来呈现知识、数据或服务界面，以帮助用户更直观地理解和使用信息。场景识别可以与可视化手段相结合，实现<strong>情境自适应的界面与信息呈现</strong>：</p>
+<ul>
+<li><p><strong>界面布局随情境自适应：</strong>根据用户的设备、环境亮度、使用偏好等情境，动态调整图书馆系统的界面显示，是提升可用性的重要途径。比如，当检测到用户使用手机且带宽较低时，系统可视化界面应切换到简洁模式，减少高分辨率图片展示，突出核心检索框和结果列表；反之在桌面宽屏上，则可以展示更多图形化内容如知识图谱可视化或数据分析图表。再如，夜间使用时，可自动切换界面为暗色模式以保护视力，这也是根据时间情境进行可视化调整的一例。情境感知还能针对特殊人群优化界面，比如识别出用户可能有色觉障碍，则调整配色方案以提高对比度。这些<strong>无障碍和自适应设计</strong>都属于场景识别和可视化融合的应用，让每个用户都能在其情境下获得最佳视觉体验。</p></li>
+<li><p><strong>情境驱动的信息可视化内容：</strong>图书馆拥有丰富的数据（借阅量、浏览趋势、学科热点等），通过可视化可以揭示模式、提供洞察。而场景识别可以帮助确定在何时何地向何人展示哪些可视化内容。例如，在学科馆员讨论会上（情境：馆员群体、场合专业讨论），系统可以投影显示近期馆藏利用统计图、读者满意度调查图等专业数据；而在普通读者进入大厅时（情境：读者群体、场合欢迎），电子屏幕上显示的可视化内容应是动态的新书推荐封面墙或活动宣传海报。这体现了<strong>可视化内容的情境适配</strong>。又如读者个人使用时，如果识别出其在进行科研选题，可以提供某学科知识领域图谱的交互可视化界面供其探索<a href="#fn88" class="footnote-ref" id="fnref88" role="doc-noteref"><sup>88</sup></a> ；而如果用户只是随便浏览小说，则不需要复杂知识图，可简单以封面瀑布流方式可视化展示热门小说。IBM等公司曾提出“<strong>情境可视化</strong>”概念，强调根据用户任务阶段实时更新可视化呈现。图书馆完全可以借鉴，将可视化服务做得更加敏捷智能。</p></li>
+<li><p><strong>环境和空间的可视化互动：</strong>随着AR/VR技术的发展，图书馆开始探索混合现实的服务，如AR导览、VR虚拟展厅等。这些应用极大依赖情境感知。例如AR导览需要知道用户所在位置和朝向，然后在其视野中叠加方向指引或书架信息。已有智慧图书馆案例中，当读者携带PDA靠近某书架，系统可提供该区域藏书的地图和导引，这是融合了定位情境的服务cflms.lib.sjtu.edu.cn。在这种场景下，可视化内容（地图、箭头）仅在用户需要时才出现，并且与物理空间对齐cflms.lib.sjtu.edu.cn。情境识别确保AR信息的正确时间和地点呈现。另一方面，VR展厅则可以根据用户交互行为情境调整场景，比如用户多次凝视某件展品，可自动弹出该展品的背景知识图谱以可视化形式呈现，供其深入了解。可以预见，未来智慧图书馆的物理与数字空间将高度融合，环境本身成为交互界面，而情境感知就是驱动这种<strong>空间可视化交互</strong>的关键，使之做到“你来即显，你走即隐”，增强用户的沉浸体验。</p></li>
+</ul>
+<p>简言之，可视化服务与场景识别的融合使图书馆界面从静态走向动态，从“一视同仁”走向“因境制宜”。它让系统界面和展示内容像水一样适应容器，适应环境。<strong>信息可视化本身是一种增强认知的手段，加入情境因素后，其认知辅助作用将更为显著</strong><a href="#fn89" class="footnote-ref" id="fnref89" role="doc-noteref"><sup>89</sup></a> 。当然，实现情境自适应可视化也面临挑战，如需要设计多种界面模板、高效的实时渲染等。不过其收益显而易见：用户将更舒适高效地获取信息，图书馆的数据价值得以更充分地传达。例如，以前静态的数据报告可能无人问津，但现在通过一个根据读者兴趣实时变化的可视化仪表板，大家随时可以了解图书馆动态。可以说，情境感知为图书馆的信息可视化注入了“生命力”，让其随用户的脚步和需要而舞动起来，为知识服务增色不少。</p>
+</section>
+</section>
+<section id="总结" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="总结"><span class="header-section-number">4.5</span> 总结</h2>
+<p>场景识别（情境感知）作为人工智能时代的重要技术，在图书馆知识服务领域展现出广阔的应用前景。本章通过对场景识别的定义、发展历程、趋势瓶颈和六大典型应用场景的深入探讨，可以看到情境感知技术正在引领图书馆从传统服务范式向智慧服务范式演进。情境感知让图书馆系统具备了一定程度的“<strong>洞察力</strong>”与“<strong>适应力</strong>”：能够洞察用户所处的具体情境与隐含需求，并动态适应服务内容与方式，使知识供给更加贴合用户实际<a href="#fn90" class="footnote-ref" id="fnref90" role="doc-noteref"><sup>90</sup></a> 。</p>
+<p>从历史演进看，情境感知理念从计算机领域萌芽，经由数字图书馆的融合逐步渗透进图书馆服务。早期的理论和模型为我们奠定了基础，近期的发展和实践又为情境感知在图书馆落地扫清障碍。当前，移动互联和物联网技术提供了丰富的数据源，深度学习和知识图谱提升了情境理解的深度，生成式AI拓展了情境交互的边界。这些进步共同推动场景识别成为智慧图书馆的重要支柱之一。然而，我们也必须清醒认识到，技术瓶颈和应用挑战依然存在，包括数据整合难题、模型准确率和实时性能、用户隐私保护等方面。只有通过持续的研发投入、跨学科合作和实践反馈迭代，才能不断完善情境感知服务的可靠性和用户体验。</p>
+<p>六大典型应用场景的分析表明，场景识别与<strong>知识图谱、语义检索、智能问答、个性化推荐、知识推送、可视化服务</strong>等技术模块均有高度融合的契合点，融合后能够产生“1+1&gt;2”的效应。例如，情境感知让知识图谱真正活起来，为不同用户呈现恰如其分的知识网络；让语义检索读懂弦外之音，返回更符合用户意图的结果；让智能问答有了类人人情味，回答因人而异；让推荐服务更懂场合，推送恰逢其时；让信息推送变得精准不扰民，做到润物细无声；也让可视化界面随环境变化而优雅自适应。这一系列融合的成果，最终指向一个共同的目标：<strong>以用户为中心、以知识为本体的智慧服务</strong>。</p>
+<p>可以预见，在未来的高水平图书馆中，场景识别技术将无处不在地融入服务链条。当读者跨入图书馆的一刻，系统已识别其身份和意图，定制化的知识导航悄然展开；当研究者在线检索文献，智能助手已根据其课题背景筛选优化结果；当管理者决策馆藏发展，数据仪表板实时地根据场景展示关键指标。一切服务将更加<strong>主动、精准、人性化</strong>，而这背后正是情境感知的强大支撑。诚然，实现这一愿景仍有大量工作要做，但趋势已不可逆转。正如Noh在其研究中所指出的，引入情境感知的下一代数字图书馆将能为用户提供<strong>最佳可能的服务</strong>，极大提升图书馆服务的便利性和效能<a href="#fn91" class="footnote-ref" id="fnref91" role="doc-noteref"><sup>91</sup></a> 。</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>https://paginaspersonales.deusto.es/dipina/papers/ucami2011_submission_55.pdf<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>https://paginaspersonales.deusto.es/dipina/papers/ucami2011_submission_55.pdf<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn32"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref32" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn33"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref33" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn34"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref34" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn35"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref35" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn36"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref36" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn37"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref37" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn38"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref38" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn39"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref39" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn40"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref40" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn41"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref41" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn42"><p>https://link.springer.com/article/10.1007/s007790200028<a href="#fnref42" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn43"><p>https://www.sciencedirect.com/science/article/abs/pii/S0263224119312874<a href="#fnref43" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn44"><p>https://www.sciencedirect.com/science/article/abs/pii/S0263224119312874<a href="#fnref44" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn45"><p>https://www.sciencedirect.com/science/article/abs/pii/S0263224119312874<a href="#fnref45" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn46"><p>https://www.sciencedirect.com/science/article/pii/S1474034621002433<a href="#fnref46" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn47"><p>https://www.sciencedirect.com/science/article/pii/S1474034621002433<a href="#fnref47" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn48"><p>https://dl.acm.org/doi/10.1145/3677389.3702556<a href="#fnref48" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn49"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref49" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn50"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref50" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn51"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref51" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn52"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref52" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn53"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref53" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn54"><p>https://paginaspersonales.deusto.es/dipina/papers/ucami2011_submission_55.pdf<a href="#fnref54" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn55"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref55" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn56"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref56" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn57"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref57" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn58"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref58" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn59"><p>https://www.sciencedirect.com/science/article/pii/S1474034621002433<a href="#fnref59" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn60"><p>https://www.sciencedirect.com/science/article/pii/S1474034621002433<a href="#fnref60" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn61"><p>https://ital.corejournals.org/index.php/ital/article/view/16719<a href="#fnref61" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn62"><p>https://ascelibrary.org/doi/10.1061/JCEMD4.COENG-15230<a href="#fnref62" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn63"><p>https://cloud.google.com/discover/what-is-semantic-search<a href="#fnref63" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn64"><p>https://cloud.google.com/discover/what-is-semantic-search<a href="#fnref64" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn65"><p>https://cloud.google.com/discover/what-is-semantic-search<a href="#fnref65" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn66"><p>https://www.lib.dicp.ac.cn/info/1063/2062.htm<a href="#fnref66" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn67"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref67" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn68"><p>https://chatlibrary.newacademic.net/<a href="#fnref68" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn69"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref69" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn70"><p>https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/context-aware-computing-context-awareness-context-aware-user-interfaces-and-implicit-interaction?srsltid=AfmBOorXfODm3_bxP8bKSjXQyHyy2qXny9XjwWifLUxTP6rF7AHz-pMg<a href="#fnref70" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn71"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref71" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn72"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref72" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn73"><p>https://chatlibrary.newacademic.net/<a href="#fnref73" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn74"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref74" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn75"><p>https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2364<a href="#fnref75" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn76"><p>https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2364<a href="#fnref76" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn77"><p>https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2364<a href="#fnref77" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn78"><p>https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2364<a href="#fnref78" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn79"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref79" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn80"><p>https://oulurepo.oulu.fi/bitstream/handle/10024/39921/nbnfioulu-201406091704.pdf?sequence=1&amp;isAllowed=y<a href="#fnref80" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn81"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref81" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn82"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref82" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn83"><p>https://link.springer.com/article/10.1007/s007790200028<a href="#fnref83" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn84"><p>https://link.springer.com/article/10.1007/s007790200028<a href="#fnref84" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn85"><p>https://link.springer.com/article/10.1007/s007790200028<a href="#fnref85" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn86"><p>https://www.libraryjournal.com/story/ais-role-in-the-future-of-library-services-250501<a href="#fnref86" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn87"><p>https://www.sciencedirect.com/science/article/pii/S1474034624007377<a href="#fnref87" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn88"><p>https://ital.corejournals.org/index.php/ital/article/view/16719<a href="#fnref88" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn89"><p>https://ital.corejournals.org/index.php/ital/article/view/16719<a href="#fnref89" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn90"><p>https://www.techscience.com/iasc/v33n3/47092/html<a href="#fnref90" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn91"><p>https://www.ingentaconnect.com/content/mcb/238/2013/00000031/00000002/art00004<a href="#fnref91" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./agent.html" class="pagination-link" aria-label="智能体 Agent / 代理型AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">智能体 Agent / 代理型AI</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ar.html" class="pagination-link" aria-label="增强现实（AR）与混合现实（MR）">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

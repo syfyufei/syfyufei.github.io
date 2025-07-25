@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; 增强现实（AR）与混合现实（MR） – 智慧化知识服务技术研究</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Scene_Recognition.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./ar.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">智慧化知识服务技术研究</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">任务要求</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">诸技术项</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./LLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">智能体 Agent / 代理型AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Scene_Recognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ar.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#定义ar与mr的概念原理和界定标准" id="toc-定义ar与mr的概念原理和界定标准" class="nav-link active" data-scroll-target="#定义ar与mr的概念原理和界定标准"><span class="header-section-number">5.1</span> 定义：AR与MR的概念、原理和界定标准</a></li>
+  <li><a href="#起源与关键发展阶段ar与mr的发展历程" id="toc-起源与关键发展阶段ar与mr的发展历程" class="nav-link" data-scroll-target="#起源与关键发展阶段ar与mr的发展历程"><span class="header-section-number">5.2</span> 起源与关键发展阶段：AR与MR的发展历程</a></li>
+  <li><a href="#演进趋势与技术瓶颈现状分析与未来展望" id="toc-演进趋势与技术瓶颈现状分析与未来展望" class="nav-link" data-scroll-target="#演进趋势与技术瓶颈现状分析与未来展望"><span class="header-section-number">5.3</span> 演进趋势与技术瓶颈：现状分析与未来展望</a>
+  <ul class="collapse">
+  <li><a href="#armr发展的现状与态势" id="toc-armr发展的现状与态势" class="nav-link" data-scroll-target="#armr发展的现状与态势"><span class="header-section-number">5.3.1</span> AR/MR发展的现状与态势</a></li>
+  <li><a href="#未来演进趋势展望" id="toc-未来演进趋势展望" class="nav-link" data-scroll-target="#未来演进趋势展望"><span class="header-section-number">5.3.2</span> 未来演进趋势展望</a></li>
+  <li><a href="#技术瓶颈与挑战" id="toc-技术瓶颈与挑战" class="nav-link" data-scroll-target="#技术瓶颈与挑战"><span class="header-section-number">5.3.3</span> 技术瓶颈与挑战</a></li>
+  </ul></li>
+  <li><a href="#armr与知识服务场景融合应用的可能性评估" id="toc-armr与知识服务场景融合应用的可能性评估" class="nav-link" data-scroll-target="#armr与知识服务场景融合应用的可能性评估"><span class="header-section-number">5.4</span> AR/MR与知识服务场景融合应用的可能性评估</a>
+  <ul class="collapse">
+  <li><a href="#知识图谱场景" id="toc-知识图谱场景" class="nav-link" data-scroll-target="#知识图谱场景"><span class="header-section-number">5.4.1</span> 知识图谱场景</a></li>
+  <li><a href="#语义搜索场景" id="toc-语义搜索场景" class="nav-link" data-scroll-target="#语义搜索场景"><span class="header-section-number">5.4.2</span> 语义搜索场景</a></li>
+  <li><a href="#智能问答场景" id="toc-智能问答场景" class="nav-link" data-scroll-target="#智能问答场景"><span class="header-section-number">5.4.3</span> 智能问答场景</a></li>
+  <li><a href="#个性化推荐场景" id="toc-个性化推荐场景" class="nav-link" data-scroll-target="#个性化推荐场景"><span class="header-section-number">5.4.4</span> 个性化推荐场景</a></li>
+  <li><a href="#知识推送场景" id="toc-知识推送场景" class="nav-link" data-scroll-target="#知识推送场景"><span class="header-section-number">5.4.5</span> 知识推送场景</a></li>
+  <li><a href="#可视化服务场景" id="toc-可视化服务场景" class="nav-link" data-scroll-target="#可视化服务场景"><span class="header-section-number">5.4.6</span> 可视化服务场景</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./ar.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="定义ar与mr的概念原理和界定标准" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="定义ar与mr的概念原理和界定标准"><span class="header-section-number">5.1</span> 定义：AR与MR的概念、原理和界定标准</h2>
+<p><strong>增强现实（Augmented Reality, AR）</strong>通常是指一种将虚拟信息叠加到真实世界的技术，使用户能够同时感知现实环境和叠加其上的数字内容<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ul>
+<li><p><strong>虚实结合</strong>：将计算机生成的虚拟对象与现实场景融合同步呈现。</p></li>
+<li><p><strong>实时交互</strong>：系统能在用户操作时实时更新，实现对虚拟内容的即时响应。</p></li>
+<li><p><strong>三维配准</strong>：虚拟对象与真实环境中的位置和姿态精确对齐（注册）在三维空间中。</p></li>
+</ul>
+<p>这一定义避免将AR限制于特定设备（如头戴显示器），强调的是功能特征而非硬件形式<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><strong>混合现实（Mixed Reality, MR）</strong>概念最早由Milgram和Kishino在1994年提出，用于描述介于完全现实和完全虚拟之间的连续统<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>需要注意的是，AR与MR概念存在交叉和演变。许多文献曾将AR与MR近似同义使用<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p><strong>核心原理方面</strong>，AR/MR系统一般包含以下关键技术：1）<strong>显示技术</strong>：如光学透视式头戴显示器（透过式眼镜）或视频透视技术，将虚拟影像叠加到用户视野<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p>
+</section>
+<section id="起源与关键发展阶段ar与mr的发展历程" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="起源与关键发展阶段ar与mr的发展历程"><span class="header-section-number">5.2</span> 起源与关键发展阶段：AR与MR的发展历程</h2>
+<p>增强现实与混合现实技术的发展可以追溯数十年，其间经历了从概念萌芽、实验室原型到商业应用的多个阶段，涌现出许多重要<strong>里程碑事件</strong>和<strong>代表性产品</strong>。下面按照时间顺序梳理AR/MR发展的关键阶段和突破：</p>
+<ul>
+<li><p><strong>1968年：基础奠定</strong> – Ivan Sutherland开发了第一台头戴式显示器（HMD）原型“Sword of Damocles”，可在用户视野中显示简单的计算机图形，被视为AR/VR的开端[en.wikipedia.org](https://en.wikipedia.org/wiki/Augmented_reality](h](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full</p></li>
+<li><p><strong>1990年：术语诞生</strong> – 美国波音公司的研究员Thomas Caudell首次提出“Augmented Reality”概念，用于描述一种利用头戴式显示器辅助飞机装配工人工作的方法 <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p></li>
+<li><p><strong>1992年：首批AR系统</strong> – 路易斯·罗森伯格（Louis Rosenberg）在美国空军研究实验室开发出<strong>Virtual Fixtures</strong>系统，利用机械臂和立体显示将虚拟指导信息叠加到操作任务中，被认为是第一个功能完善的AR原型<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p></li>
+<li><p><strong>1994年：混合现实概念</strong> – Paul Milgram发表经典论文《现实-虚拟连续统的显示分类》，系统提出了<strong>Mixed Reality（混合现实）</strong>的概念框架，将AR和<strong>增强虚拟</strong>（Augmented Virtuality）统一在混合现实范畴内<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></p></li>
+<li><p><strong>后1990年代：AR技术奠基</strong> – 这一时期的学术界和工业界相继攻克了AR的关键技术难题，包括<strong>跟踪注册</strong>（如UMass 1995年用计算机视觉改进物体跟踪<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> <a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> <a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a></p></li>
+<li><p><strong>2000年代初：军工与企业应用</strong> – 2000年左右，AR开始在工业和军事领域试点应用。例如2000年，美国海军研究实验室启动了“战场增强现实系统 (BARS)”项目，研制可穿戴AR系统用于士兵态势感知训练[en.wikipedia.org](https://en.wikipedia.org/wiki/Augmented_reality](https://en.wikipedia.org/wiki/Augmented_reality</p></li>
+<li><p><strong>2008年：移动AR兴起</strong> – 随着智能手机的普及，AR跨入大众消费领域。<strong>2008年10月</strong>，全球首款商用移动AR应用<strong>Wikitude AR Travel Guide</strong>在Android手机（G1）上发布，它利用手机GPS和摄像头，在旅游者手机屏幕上叠加兴趣点信息<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a></p></li>
+<li><p><strong>2012年：谷歌眼镜</strong> – Google推出了开创性的头戴式设备<strong>Google Glass</strong>（谷歌眼镜），将智能手机功能集成进眼镜框架，实现基本的“眼前”信息提示。尽管Google Glass更接近于头戴HUD（抬头显示）而非严格的沉浸式AR，但它引发了大众对AR可穿戴设备的想象，也暴露出隐私等社会问题，成为AR发展历程中具有标志意义的产品。</p></li>
+<li><p><strong>2013年：AR游戏初露锋芒</strong> – Niantic公司发布了基于地理位置的AR手游<strong>Ingress</strong>，玩家需要在现实地图上争夺虚拟据点<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a></p></li>
+<li><p><strong>2015年：MR设备问世</strong> – <strong>微软在2015年宣布HoloLens</strong>，这是一款完全自含的透视式头戴显示器，配备深度传感器和空间映射功能，能够将全息影像叠加于现实并进行交互<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a></p></li>
+<li><p><strong>2016年：AR现象级应用</strong> – <strong>任天堂与Niantic合作推出手游《Pokémon GO》</strong>，将AR与LBS（基于位置服务）结合，在全球引发空前热潮<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a></p></li>
+<li><p><strong>2017-2018年：生态完善</strong> – 主要移动平台相继推出原生AR开发框架：<strong>苹果发布ARKit (2017)</strong>，<strong>谷歌推出ARCore (2018)</strong>，为iOS和Android设备提供了强大的SLAM（即时定位与地图构建）跟踪和环境理解功能。这些SDK降低了AR应用开发门槛，催生了大量移动AR应用。硬件方面，2018年创业公司Magic Leap发布了<strong>Magic Leap One</strong>头显，这是继HoloLens之后又一款备受关注的MR眼镜<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a></p></li>
+<li><p><strong>2019年：第二代MR头显</strong> – 微软发布<strong>HoloLens 2</strong>，改进了视场角和佩戴舒适度等问题<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a></p></li>
+<li><p><strong>2020-2021年：元宇宙热潮</strong> – 随着“元宇宙”（Metaverse）概念兴起，AR/MR重新成为科技投资热点。Facebook（后更名Meta）等公司投入巨资开发AR/MR技术，认为其将是未来元宇宙的重要接口。2021年前后，Niantic等提出了“AR云”理念，即构建全球共享的AR坐标和内容空间，使多人设备可以协同感知同一虚拟对象。这些趋势推动AR从单机应用向<strong>大规模联网、多人交互</strong>方向发展。</p></li>
+<li><p><strong>2022年：政策与行业推动</strong> – 中国政府工信部等五部门发布《虚拟现实与行业应用融合发展行动计划（2022—2026年）》，将<strong>增强现实、混合现实</strong>纳入虚拟现实产业重点，提出到2026年实现关键技术突破、终端产品丰富和规模化应用的目标<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a></p></li>
+<li><p><strong>2023年：消费级MR设备登场</strong> – 元宇宙概念进一步落实到产品：Meta发布了支持彩色<strong>透视AR的Quest 3</strong>混合现实VR头显，同年<strong>苹果发布Apple Vision Pro</strong>，定位为高端MR头显<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a></p></li>
+</ul>
+<p>综上，增强现实技术从概念提出到如今，已经走过了半个多世纪的演进。<strong>里程碑式事件</strong>如AR术语的提出（1990年）、Virtual Fixtures系统（1992年）、ARToolKit开源发布（1999年）、移动AR应用问世（2008年）、HoloLens发布（2015年）、Pokemon GO爆红（2016年）等，每一步都推动AR/MR从科幻走向现实<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> <a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a></p>
+</section>
+<section id="演进趋势与技术瓶颈现状分析与未来展望" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="演进趋势与技术瓶颈现状分析与未来展望"><span class="header-section-number">5.3</span> 演进趋势与技术瓶颈：现状分析与未来展望</h2>
+<section id="armr发展的现状与态势" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="armr发展的现状与态势"><span class="header-section-number">5.3.1</span> AR/MR发展的现状与态势</h3>
+<p>当前，AR和MR技术正处于<strong>快速发展与产业布局期</strong>。根据最新市场预测，全球AR/VR行业收入将从2022年的约138亿美元增长到2026年的约509亿美元，年均复合增长率超过30%<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a></p>
+<p>从消费市场看，智能手机依然是AR应用最主要的平台，数以亿计的智能终端已经支持AR功能（通过ARKit/ARCore等）<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a></p>
+<p>产业方面，各大科技公司纷纷加码AR/MR。<strong>苹果</strong>于2023年发布Vision Pro标志其正式进军MR领域，后续可能推出面向大众的轻量级AR眼镜；<strong>Meta</strong>和<strong>微软</strong>则持续优化各自的MR硬件和生态（如Meta Reality系列、HoloLens系列）。<strong>中国</strong>也出现了多家AR硬件创业公司，诸如亮风台、蚂可、雷鸟创新等，推出面向工业和消费者的AR眼镜产品。此外，内容生态正在丰富：越来越多开发者和内容创作者利用Unity、Unreal等平台为AR/MR开发应用，涵盖游戏、教育、导览、社交媒体等各个类别。这种<strong>软硬件生态的完善</strong>为AR/MR大规模应用奠定了基础。</p>
+</section>
+<section id="未来演进趋势展望" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="未来演进趋势展望"><span class="header-section-number">5.3.2</span> 未来演进趋势展望</h3>
+<p><strong>（1）硬件演进：轻量化与高性能并重。</strong>未来AR/MR设备将朝着更轻便时尚的形态发展，实现从目前笨重的头显向普通眼镜外观的过渡[frontiersin.org](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://ronaldazuma.com/papers/Presence_AR_challenge.pdf](https://ronaldazuma.com/papers/Presence_AR_challenge.pdf</p>
+<p><strong>（2）软件与内容：AR云与AI赋能。</strong>未来AR/MR体验的重要方向是<strong>环境智能化</strong>，即设备对真实世界具有深度的理解和记忆能力。这离不开人工智能（AI）和语义技术的融合。目前AR应用需要持续采集用户周围环境的各种数据（图像、深度、语音等），并借助复杂算法加以理解[radiantvisionsystems.com](https://www.radiantvisionsystems.com/blog/future-looks-bright-ar/vr/mr-2023-beyond](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.sciencedirect.com/science/article/pii/S2468502X20300012](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://daolan.info/?p=1228](https://ronaldazuma.com/papers/Presence_AR_challenge.pdf</p>
+<p><strong>（3）应用场景拓展：从专用到大众。</strong>当前AR/MR已在游戏娱乐和营销领域率先取得成功，未来将进一步向<strong>专业和日常</strong>领域扩展。一方面，在<strong>工业制造、医疗、教育培训</strong>等专业领域，AR/MR因其直观可视化和解放双手的优势，将发挥更大作用，如远程专家指导、手术辅助、虚拟装配验证等[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p>
+</section>
+<section id="技术瓶颈与挑战" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="技术瓶颈与挑战"><span class="header-section-number">5.3.3</span> 技术瓶颈与挑战</h3>
+<p>尽管前景诱人，AR和MR技术目前仍面临诸多<strong>技术瓶颈</strong>和<strong>难题</strong>亟待解决[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p>
+<ul>
+<li><p><strong>硬件限制</strong>：现有AR/MR头显设备普遍存在<strong>视场角（FOV）小、分辨率有限、体积笨重</strong>等问题[frontiersin.org](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+<li><p><strong>功耗与续航</strong>：AR/MR设备的能耗高、续航短也是实际应用的掣肘[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+<li><p><strong>跟踪与交互精度</strong>：高精度、鲁棒的<strong>位置追踪</strong>和<strong>交互控制</strong>始终是AR系统的关键技术挑战[frontiersin.org](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://ronaldazuma.com/papers/Presence_AR_challenge.pdf](https://ronaldazuma.com/papers/Presence_AR_challenge.pdf](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full</p></li>
+<li><p><strong>内容制作与生态</strong>：AR/MR的价值很大程度上依赖于<strong>丰富的应用内容</strong>，但目前内容生态仍显不足[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+<li><p><strong>标准化与兼容性</strong>：由于AR/MR产业仍处早期，各家公司生态相对封闭，缺乏统一的<strong>技术标准和协议</strong>。这导致不同设备和平台之间内容互通困难，用户体验不连贯[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+<li><p><strong>用户体验与接受度</strong>：技术之外，<strong>用户层面的挑战</strong>也不可忽视。首先是<strong>舒适度</strong>和<strong>安全性</strong>，长时间佩戴头显可能引起眩晕、视觉疲劳等（尤其光学透视AR容易造成焦距调节冲突问题）[frontiersin.org](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full</p></li>
+<li><p><strong>隐私与伦理</strong>：AR/MR涉及对现实世界信息的采集和呈现，带来了新的<strong>隐私、安全和伦理</strong>问题[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+</ul>
+<p>概括而言，AR/MR要真正成熟落地，必须突破<strong>“硬件—软件—内容—用户”</strong>全链条上的瓶颈[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full</p>
+</section>
+</section>
+<section id="armr与知识服务场景融合应用的可能性评估" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="armr与知识服务场景融合应用的可能性评估"><span class="header-section-number">5.4</span> AR/MR与知识服务场景融合应用的可能性评估</h2>
+<p>图书馆等知识服务机构正积极探索将增强现实和混合现实技术融入其服务与环境中，以提升用户体验和知识获取效率。以下结合<strong>六大典型场景</strong>（知识图谱、语义搜索、智能问答、个性化推荐、知识推送、可视化服务），评估AR/MR在其中的技术适配性、现有案例、未来前景和潜在落地模式。</p>
+<section id="知识图谱场景" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="知识图谱场景"><span class="header-section-number">5.4.1</span> 知识图谱场景</h3>
+<p><strong>知识图谱</strong>是以语义关联构建的知识网络，用于揭示概念与实体之间的关系。在图书馆和知识服务中，知识图谱被广泛用于组织馆藏知识、辅助信息检索和推理。AR/MR技术与知识图谱融合，有望实现对<strong>抽象知识网络的直观可视化</strong>和交互展示。</p>
+<p><strong>技术适配性：</strong>AR/MR擅长将不可见的数字信息形象地呈现于物理空间，非常适合展示知识图谱这种复杂的关联数据[daolan.info](https://daolan.info/?p=1228</p>
+<p><strong>现有案例：</strong>目前直接针对知识图谱的AR应用案例还不多见，但相关研究和概念验证已有所探索。例如，有研究提出将<strong>语义网本体</strong>与AR结合，使AR应用可以访问知识图谱数据，在现实场景中提供知识性叠加信息[sciencedirect.com](https://www.sciencedirect.com/science/article/pii/S2468502X20300012](https://www.sciencedirect.com/science/article/pii/S2468502X20300012</p>
+<p><strong>未来前景：</strong>随着知识图谱在图书情报领域的深入应用，我们可以预见<strong>AR知识图谱可视化</strong>将成为智慧图书馆的一项创新服务。一方面，知识图谱可以作为AR内容的重要来源，为每一本书、每个主题提供结构化的背景知识。另一方面，AR提供了一个突破屏幕限制的展示维度，使复杂的知识网络以更符合人脑认知的方式呈现（如3D关系图谱、动态漫游等）。未来的智慧图书馆中，读者可能戴上AR眼镜漫步书库，只需凝视某本书的封面或书脊，书本相关的知识网络就会在眼前铺展开来，包括作者生平、相关主题分类、推荐书目等；读者可进一步点击虚拟节点查看详细信息或借阅其他相关资料。这种沉浸式的知识图谱导航将极大增强探索性学习的趣味和效率[daolan.info](https://daolan.info/?p=1228</p>
+<p><strong>契合度评估：</strong>总体而言，AR/MR与知识图谱场景<strong>高度契合</strong>。知识图谱解决“有什么知识、它们如何关联”的问题，AR/MR解决“如何直观呈现和交互这些知识”的问题。两者结合，可将传统上静态的知识网络转化为动态的“增强知识空间”，符合读者的认知习惯，激发探索兴趣。从技术上看，实现AR知识图谱需要解决大规模知识数据的可视化布局和交互效率问题，但这些在大数据可视化领域已有研究基础。可以预期，随着三维可视化技术和图形硬件的进步，数以千计节点规模的知识图谱都可在AR中流畅呈现。特别是MR设备能允许用户“走进”知识图谱，在空间中环顾知识网络的各个部分，无疑将把知识服务提升到一个全新的维度。</p>
+</section>
+<section id="语义搜索场景" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="语义搜索场景"><span class="header-section-number">5.4.2</span> 语义搜索场景</h3>
+<p><strong>语义搜索</strong>旨在超越传统基于关键词匹配的检索方式，通过理解用户查询的语义和意图，更精准地找到相关信息。在图书馆的数字资源查找中，语义搜索利用本体和知识关联来提高检索的精准度和智能性。将AR/MR融入语义搜索，可以创造<strong>更加自然直观的人机检索交互</strong>，提升搜索效率和用户体验。</p>
+<p><strong>技术适配性：</strong>AR/MR可以为搜索提供全新的交互界面和反馈形式。传统检索是在屏幕上以文本列表呈现结果，而在AR环境下，检索过程和结果都可通过<strong>虚实融合的方式</strong>展现。例如，用户可以直接对着馆藏实体（如某个书架区域）提出语音或手势查询，AR系统理解其意图后，将相关结果以可视化方式在现实空间中显示——如把匹配的书籍虚拟高亮在书架上，或在用户眼前浮现与查询相关的主题词云、3D图表等。这种<strong>“所见即所得”的语义搜索</strong>让用户无需苦思检索词或浏览冗长的结果列表，而是通过与周围实物和AR界面的互动，自然地缩小搜索范围[daolan.info](https://daolan.info/?p=1228</p>
+<p><strong>现有案例：</strong>早期已有图书馆尝试将AR用于搜索导航。中国美术学院图书馆开发过基于AR的<strong>图书导航系统</strong>[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p>
+<p><strong>未来前景：</strong>在未来智慧图书馆，AR/MR有望与语义搜索深度融合，实现“<strong>所问即所见</strong>”的知识获取体验。具体展望如下：</p>
+<ul>
+<li><p><strong>自然语言与多模态查询：</strong>用户可以直接用语音向AR系统提问，例如“请给我推荐关于量子计算的最新论文”，AR系统将解析语义后在视野中显示一组论文的封面缩略图，甚至按主题、年份在空间中分布排列，供用户进一步筛选[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p></li>
+<li><p><strong>可视化检索结果：</strong>利用AR的图形渲染能力，检索结果不再局限于文本列表。用户可以选择多种可视化形式来浏览结果——比如以<strong>知识图谱</strong>形式展现检索到的知识点关联（结合4.1节所述的知识网络），或用图表/3D模型呈现统计信息（如检索结果按年代、类别的分布）[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p></li>
+<li><p><strong>动态语境感知：</strong>AR语义搜索还可以结合用户的<strong>位置、环境和上下文</strong>，提供契合场景的检索体验[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p></li>
+</ul>
+<p><strong>落地模式：</strong>短期内，可通过馆内安装的AR导览终端或读者自备手机AR应用实现语义搜索。例如，读者在图书馆APP中使用AR摄像头扫描书架标签，直接对APP说出需求；APP即时在画面上标记出相关书籍的位置，或显示数字资源的链接。长远看，随着AR眼镜普及，读者戴着智能眼镜即可随时随地调用图书馆的语义搜索服务。图书馆需要确保自身OPAC系统、数字馆藏支持<strong>语义查询接口</strong>（如支持SPARQL查询知识库），并与AR交互模块对接。</p>
+<p><strong>契合度评估：</strong>AR/MR为语义搜索提供了<strong>革命性的交互方式</strong>，使搜索过程更符合人类自然的交流和认知习惯。语义技术负责理解用户意图、挖掘隐性知识，而AR负责友好地呈现和交互反馈[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p>
+</section>
+<section id="智能问答场景" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="智能问答场景"><span class="header-section-number">5.4.3</span> 智能问答场景</h3>
+<p><strong>智能问答</strong>（智能参考咨询）是图书馆为用户提供解答问题、提供信息的一项传统且重要的服务。随着AI的发展，越来越多图书馆引入了自动问答系统或聊天机器人来承担部分咨询工作。AR/MR技术可以将智能问答从二维屏幕延伸到三维空间，构建沉浸式、互动性的<strong>虚拟咨询服务</strong>。</p>
+<p><strong>技术适配性：</strong>AR/MR可以为智能问答提供一个<strong>拟人化、具身化</strong>（Embodied）的交互界面，例如以“虚拟馆员”的形象出现[daolan.info](https://daolan.info/?p=1228</p>
+<p><strong>现有案例：</strong>一些图书馆已尝试构建AR虚拟角色来辅助服务。国外有博物馆利用AR投影出历史人物的虚拟讲解员，回答游客问题。在图书馆领域，国内有研究提出“<strong>虚拟交互式咨询空间</strong>”概念：用户通过AR设备进入一个由虚拟馆员服务的咨询界面，系统能识别和分析用户的问题，从后台知识库检索答案即时反馈[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p>
+<p><strong>未来前景：</strong>可以预见，未来的智慧图书馆中，<strong>AR智能问答</strong>将成为读者咨询服务的重要一环：</p>
+<ul>
+<li><p><strong>24小时虚拟馆员：</strong>通过MR眼镜或手机AR，无论读者何时何地都能调出一个虚拟馆员形象获取帮助。这相当于一个随身的图书馆助手。深夜在家写论文的学生，如遇资料瓶颈，可唤出图书馆的虚拟助理寻求推荐相关文献。虚拟馆员依托AI问答引擎和图书馆知识库，能够理解口语化的问题并给出专业解答，大大突破了实体图书馆时间和空间的限制。</p></li>
+<li><p><strong>场景化咨询：</strong>AR智能问答还能结合场景，提供所见即所问的咨询服务。例如读者在馆内看到一幅画作，不知道其背景，可以用AR设备指向画作提问“这幅画是谁画的？有什么典故？”，虚拟馆员立刻出现在画旁边，讲解作品信息并显示相关资料。这种场景感知功能让知识获取更加即时、直观，满足用户随时随地的求知欲。</p></li>
+<li><p><strong>主动推送与个性化：</strong>未来AR馆员会越来越“聪明”，通过分析用户的查询历史和行为偏好，能够<strong>预判用户需求</strong>并主动提供帮助[daolan.info](https://daolan.info/?p=1228</p></li>
+</ul>
+<p><strong>实现模式：</strong>构建AR智能问答需要<strong>AI技术与AR界面</strong>的结合。关键组件包括：自然语言理解与生成（用于解析问题、生成回答），后端知识库/FAQ数据库（提供权威答案），以及前端AR渲染（用于显示虚拟形象和多模态内容）。目前已经比较成熟的聊天机器人系统可以作为后端基础，再开发AR前端接入。对于硬件，可以在移动App中实现基础版本，例如用户通过手机摄像头看到一个AR馆员3D模型，与之语音对话。随着MR眼镜普及，可升级为真正的全息虚拟助手悬浮在用户视野中。关键是保证<strong>知识准确性</strong>和<strong>自然交互</strong>：图书馆应维护高质量的问答知识库，AI应能引用权威出处，必要时给出文献来源[slideshare.net](https://www.slideshare.net/slideshow/smart-libraries-and-information-institutions-karen-makkeh-m1pptx/267436197</p>
+<p><strong>契合度评估：</strong>AR/MR与智能问答场景<strong>高度匹配</strong>，能极大丰富图书馆参考咨询服务的形式和效果。从提升<strong>可获得性</strong>（随时随地咨询）、<strong>交互性</strong>（面对面交流体验）、<strong>主动性</strong>（提前满足需求）等方面来看，AR虚拟馆员都比传统网页问答有优势[daolan.info](https://daolan.info/?p=1228</p>
+</section>
+<section id="个性化推荐场景" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="个性化推荐场景"><span class="header-section-number">5.4.4</span> 个性化推荐场景</h3>
+<p><strong>个性化推荐</strong>是基于用户的兴趣偏好和行为历史，为其推荐可能需要的资源或服务。在数字图书馆中，常见如向读者推荐相关书籍、论文，或根据借阅历史推送新书讯等。AR/MR技术可将个性化推荐嵌入用户的现实情境，提供<strong>情境感知的动态推荐</strong>服务。</p>
+<p><strong>技术适配性：</strong>AR的突出优势在于能够将数字信息叠加到现实场景中。对于个性化推荐，这意味着系统可以<strong>在恰当的时间和地点，将恰当的信息直接呈现给用户</strong>，而无需用户主动去检索[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p>
+<p><strong>现有案例：</strong>当前个性化推荐主要在网页/App界面上呈现（如图书馆主页的推荐列表）。但已有研究设想了AR环境下的推荐方式。如上文提到的虚拟馆员不仅用于问答，也能<strong>分析用户行为实时推送感兴趣内容</strong>[daolan.info](https://daolan.info/?p=1228</p>
+<p><strong>未来前景：</strong>AR/MR有望使个性化推荐达到<strong>“润物细无声”</strong>的效果，即推荐内容<strong>精准</strong>且<strong>时机合宜</strong>，用户接受度高：</p>
+<ul>
+<li><p><strong>环境感知推荐：</strong>未来图书馆的AR系统会综合考虑用户所处的<strong>物理环境</strong>和<strong>上下文</strong>，提供动态推荐[daolan.info](https://daolan.info/?p=1228</p></li>
+<li><p><strong>跨场景连续推荐：</strong>MR设备可以让推荐服务贯穿用户在馆内外的整个过程。例如用户在家通过AR眼镜阅读文献，当看到有用内容做了标记；第二天来到图书馆时，AR系统已经为他将相关主题的馆藏书籍准备好路线指引或座位上的数字推送。又或者用户在馆内借出一本书，离馆后在公交车上通过手机AR收到一段与该书内容相关的短视频推荐。这种跨场景的延续，使图书馆的服务无缝融入用户的日常学习生活。</p></li>
+<li><p><strong>深度个性化与社交推荐：</strong>AR允许引入更多用户偏好维度，比如结合用户的<strong>社交圈</strong>或群体行为进行推荐。如果某用户的朋友最近都在阅读某个话题，AR眼镜或应用可以在合适的时候提醒他“您的3位好友近期都在关注XX主题，图书馆有新到的一本该主题热门书籍，您可能也感兴趣”。这种带有社交元素的推荐通过AR推送，可能比冷冰冰的系统推荐更容易引起用户共鸣，因为其形式更贴近人与人交流的感觉（AR界面可以显示好友头像或读后评价）。</p></li>
+</ul>
+<p><strong>落地模式：</strong>实现AR个性化推荐需建立<strong>用户模型</strong>并实时匹配内容。图书馆已积累用户借阅史、检索史等数据，可用于偏好分析；结合即时的环境感知（通过用户定位、浏览对象识别等），就能判断何时何地推荐何种内容最合适。实际落地时，可在移动端通过推送通知+AR界面的方式先试验。例如，当用户经过某书架，手机振动并在AR取景中显示“这里有一本可能对你有用的书”。待AR眼镜普及，可升级为更自动化的提示（用户视野边缘出现提示图标等）。需要注意<strong>隐私保护</strong>：个性化意味着对用户行为的跟踪分析，必须确保这些数据的使用透明和用户可控，AR界面上的推荐也应支持反馈机制（用户可以标记不感兴趣，避免以后类似推送）。</p>
+<p><strong>契合度评估：</strong>AR/MR可以赋能个性化推荐，使之达到<strong>“对的内容以对的方式在对的时刻”</strong>触达用户的理想状态[daolan.info](https://daolan.info/?p=1228</p>
+</section>
+<section id="知识推送场景" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="知识推送场景"><span class="header-section-number">5.4.5</span> 知识推送场景</h3>
+<p><strong>知识推送</strong>广义上指向用户主动发送其可能需要的知识信息，包括通知、警报、更新等服务。在图书馆，典型如新书通告、预约到书提醒、学科动态推送等。AR/MR可以通过全新的感官渠道来执行知识推送，使信息传达更<strong>直观及时</strong>且<strong>上下文相关</strong>。</p>
+<p><strong>技术适配性：</strong>与个性化推荐类似，知识推送在AR/MR中不再局限于文字消息，而可以利用视觉、听觉、甚至触觉提示来传达信息。AR知识推送的一个关键优势是<strong>上下文关联</strong>：推送内容可以与用户当前所见的现实对象绑定在一起。这让信息获取的语境更加明确、减少认知开销。例如，当馆员在后台更新了某本图书的数字化版本，读者正好在浏览这本书的实体书架位置时，AR眼镜可以叠加一个提示在该书位置：“本书有最新数字版，可线上阅读”。读者一目了然，立刻明白推送所指，无需再从短信或邮件中费力关联。</p>
+<p><strong>现有案例：</strong>目前图书馆常用的知识推送手段包括电子邮件通知、手机APP推送等，尚未见专门AR化的实践。但在其他领域有AR推送的雏形。例如商场使用AR导航时，会在用户路过某店铺时弹出优惠券信息，算是一种情境推送。又如汽车AR抬头显示，会在驾驶员眼前弹出道路危险警告，也是将信息直接推送在环境中。移植到图书馆情境，我们可以想象：当用户走近馆内公告栏时，戴着AR眼镜会自动显示“本周新书通告”的摘要，不必驻足阅读纸质公告；或者某研讨会将在会议室召开，参会用户进入图书馆时就收到AR弹出的提醒卡片。这些都是AR用于知识推送的场景，有些馆舍已经通过数字标牌实现类似功能，但AR能让提示<strong>以用户为中心</strong>，更加个性化。</p>
+<p><strong>未来前景：</strong>在未来智慧知识服务中，AR/MR将使知识推送更具<strong>实时交互性</strong>和<strong>环境融合感</strong>：</p>
+<ul>
+<li><p><strong>实时学术资讯推送：</strong>对于科研型用户，图书馆可结合AR推送最新的学科资讯和动态。例如，某用户是人工智能领域研究者，当他步入实验室或图书馆时，AR眼镜自动推送一条当天AI领域重要论文发表或会议截稿日期的信息，以弹窗或语音形式呈现。这相当于一个随身的“学术秘书”，时刻用AR提醒用户关注领域进展。</p></li>
+<li><p><strong>物理空间触发的推送：</strong>图书馆的每个物理空间都可以与数字信息关联。用户走进某主题阅览室，AR推送该主题最新的馆藏推荐书目；在自习室久坐后，AR建议用户休息并推送馆内咖啡吧优惠信息等。这种“智慧空间”与知识推送结合，被认为是未来图书馆的重要特征[calsp.cn](https://www.calsp.cn/2023/06/20/bulletin-202306-01/](https://www.lis.ac.cn/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=23200</p></li>
+<li><p><strong>跨平台全方位推送：</strong>MR设备有潜力整合视觉、听觉提示。例如重要通知（如借阅到期警告）时，AR眼镜不仅弹出文字，还可伴随轻声提示音或语音说明，确保用户注意到。甚至未来AR戒指等可穿戴可以提供轻微震动，形成多模态的提醒体系。在图书馆这样强调安静的场所，视觉AR提示尤其有用，避免了广播喇叭的打扰。总之，知识推送将从二维的消息框走向<strong>环绕用户360度</strong>的信息环境。</p></li>
+</ul>
+<p><strong>落地模式：</strong>图书馆需建立<strong>推送规则和用户偏好管理</strong>机制，以免过犹不及。AR推送可分层级：极重要的信息（如安全疏散警报）则强制显现在用户视野中心，其它一般通知则以小图标或角落弹窗方式呈现，由用户选择是否展开查看。这些在AR界面设计时要考虑周全。初期，可通过手机AR应用实现地理围栏式的推送（用户进出某区域触发），或者扫描式获取（用户用AR扫某二维码以订阅对应板块通知）。随着设备智能化，可转为后台自动触发。一个关键是<strong>精准投递</strong>：利用大数据分析，避免向不需要的人推送无关信息。例如儿童读者不会收到学术讲座通知，而研究人员不被打扰推送少儿活动讯息。AR推送结合用户画像，可实现<strong>定向播报</strong>而非“大喇叭”。</p>
+<p><strong>契合度评估：</strong>知识推送与AR/MR融合能显著提升信息分发的<strong>效率</strong>和<strong>用户体验</strong>。相比传统邮件公告，AR推送的信息<strong>位置感</strong>和<strong>即时性</strong>更强——它在用户眼前出现，就发生在用户所在情境，这本身就是一种筛选，保证了相关性。对于知识服务机构而言，这是提供<strong>“精准知识供给”</strong>的重要手段，有助于防止信息遗漏和提高服务触达率。当然也要慎防信息过载，一旦AR推送过于频繁，用户可能视而不见甚至反感。因此需要借助语义和AI制定推送策略，确保<strong>少而精</strong>。综合来看，这一场景与AR/MR的技术能力高度吻合，也是智慧图书馆建设的一个亮点方向，能让读者真正感受到“处处有知识,时时受启发”的氛围。</p>
+</section>
+<section id="可视化服务场景" class="level3" data-number="5.4.6">
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="可视化服务场景"><span class="header-section-number">5.4.6</span> 可视化服务场景</h3>
+<p><strong>可视化服务</strong>指利用图形化方式呈现数据和信息，帮助用户更直观地理解知识内容。在图书馆，典型的可视化包括数据仪表盘（如馆藏利用率图）、知识地图、学科发展图谱等。AR/MR为可视化服务提供了一个<strong>三维、沉浸</strong>的新媒体，可以突破屏幕，将信息直接呈现在用户周围环境中。</p>
+<p><strong>技术适配性：</strong>AR/MR在可视化方面具有两个显著优势：<strong>空间维度</strong>和<strong>交互维度</strong>。一方面，传统可视化受屏幕尺寸限制，而AR可利用整个现实空间来排列和展现信息。例如，在MR眼镜中，用户查询某主题的发展史，可以看到时间轴沿着房间地板延伸，每个节点上竖立着对应年份的代表文献封面3D模型，走近某节点时，还能弹出详览。这种空间化展示比平面图表更具沉浸感和可探索性。另一方面，AR可视化是可交互的：用户可以移动、缩放可视化内容，甚至用手势“抓取”某一数据点以获得细节，或通过注视一个元素触发关联变化。这使得可视化从被动浏览变为主动探索，更契合<strong>探索式数据分析</strong>的需求。</p>
+<p><strong>现有案例：</strong>许多研究已将AR用于科学数据可视化和教育。如Nature等报道过利用AR展示复杂分子结构，学生戴AR设备可以从各个角度观察分子3D模型，加强理解。同理，图书馆领域有尝试用AR来可视化馆藏分布或利用情况。例如通过AR应用在地图上重现图书借阅热力图：用户站在大厅中央，用AR看到整个楼层的借阅密度以不同颜色覆盖在各区域上，红色表示热门区。这给馆员直观的空间统计认识。另一个例子是知识关联的3D可视化：早年有项目使用AR投影出“三维知识树”，让用户用手柄选择展开哪个分支，对应地墙上投射出该主题的文献列表。虽然这些案例还比较基础，但展现了AR在增强可视化理解上的潜力。</p>
+<p><strong>未来前景：</strong>AR/MR可视化服务有广阔的前景：</p>
+<ul>
+<li><p><strong>复杂数据的沉浸分析：</strong>未来图书馆积累的大数据（如海量学术文献、用户行为日志等）可以通过MR进行可视分析。决策者可以走进一个“数据作战室”，四周墙面和桌面都是AR投影的数据可视化：某面墙显示本馆各学科文献增长曲线，另一面墙显示读者流量热图，桌面上悬浮着预算分配3D饼图。管理者可通过手势点击某年份曲线，所有相关图表动态联动更新。这种沉浸式可视化有助于多维数据关联洞察，比看报告或屏幕切换高效得多。</p></li>
+<li><p><strong>知识结构可视化：</strong>对于读者，很多深奥知识如果以3D形式展现会更易理解。例如历史学科的谱系，如果用MR在空中展示一棵3D树状图（时间为纵轴，地域为横轴，人物事件为节点），读者可以“走”进这棵知识树细看细枝末节。这比平面年表更生动。再如文献引用网络，用AR展示成节点-连线的三维网络，重要论文在中心高亮，引用关系如光带连接，读者可以拖拽节点查看邻近网络结构。这其实就是知识图谱的AR可视化，是4.1场景的具体延伸应用。</p></li>
+<li><p><strong>教育培训可视化：</strong>图书馆常有信息素养教育任务。AR可用于教学，比如教新生如何使用馆藏检索系统，不再停留于PPT讲解，而是让学生戴AR眼镜实际演练：眼前浮现一个虚拟OPAC终端，导师演示检索过程，同时墙上出现检索流程图和结果排名可视化。这比传统投影更具参与感，也能增加趣味性和理解力。</p></li>
+</ul>
+<p><strong>落地模式：</strong>实现AR可视化需要良好的软件支持。目前Unity等引擎已提供3D图表的制作能力，一些数据可视化库也开始支持VR/AR输出。图书馆应探索将自身数据接口（如借阅统计、馆藏元数据）与AR前端结合，开发一些<strong>试验性应用</strong>。起步可以从简单的如“AR馆藏导航图”“AR借阅统计投影”等入手，以增强馆员和读者对馆藏和服务的理解。未来，如有条件，可设置专门的AR可视化体验室或在馆内举办AR数据可视化展览，让用户亲身感受知识以新颖方式展现的魅力。</p>
+<p><strong>契合度评估：</strong>可视化服务是AR/MR的天然用武之地。信息可视化旨在借助人类视觉直觉来传达复杂数据，与AR将数字内容嵌入现实的理念不谋而合。AR的三维显示、互动操控和上下文融合能力可以将可视化的效果提升到<strong>前所未有</strong>的高度，使抽象知识“看得见，摸得着”[daolan.info](https://daolan.info/?p=1228</p>
+<hr>
+<p><strong>结语：</strong>增强现实（AR）和混合现实（MR）技术正逐步从科幻走进现实，并展现出与知识服务领域深度融合的巨大潜力。本文通过对AR/MR的定义厘清和发展脉络回顾，分析了当前技术演进趋势与瓶颈挑战，进而结合图书馆六大典型知识服务场景，全面讨论了AR/MR的融合应用可能性与价值。可以看到，<strong>AR/MR能够为知识服务带来更直观的感知、更智能的交互和更主动的服务</strong>：从虚实结合的知识图谱、沉浸对话的智能问答，到情境驱动的推荐推送、三维交互的数据可视化，AR/MR有望革新传统图书馆服务模式，提升信息获取的效率和体验[slideshare.net](https://www.slideshare.net/slideshow/smart-libraries-and-information-institutions-karen-makkeh-m1pptx/267436197](https://www.gov.cn/zhengce/2022-11/01/content_5723274.htm](https://www.gov.cn/zhengce/2022-11/01/content_5723274.htm</p>
+<p><strong>参考文献：</strong></p>
+<ol type="1">
+<li><p>Azuma, R. (1997). <em>A Survey of Augmented Reality</em>. Presence: Teleoperators and Virtual Environments, 6(4), 355–385<a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a></p></li>
+<li><p>Milgram, P., &amp; Kishino, F. (1994). <em>A Taxonomy of Mixed Reality Visual Displays</em>. IEICE Transactions on Information and Systems, 77(12), 1321–1329<a href="#fn32" class="footnote-ref" id="fnref32" role="doc-noteref"><sup>32</sup></a></p></li>
+<li><p>Billinghurst, M. (2021). <em>Grand Challenges for Augmented Reality</em>. Frontiers in Virtual Reality, 2, 578080[frontiersin.org](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full</p></li>
+<li><p>李晓娟等. (2015). 国外高校图书馆应用增强现实技术的案例研究. <em>图书情报工作</em>, 59(11), 73-81[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p></li>
+<li><p>赵鑫等. (2021). AR技术在智慧图书馆中的应用探析[daolan.info](https://daolan.info/?p=1228](https://daolan.info/?p=1228</p></li>
+<li><p>IFLA. (2020). <em>Augmented Reality in Libraries</em>[slideshare.net](https://www.slideshare.net/slideshow/smart-libraries-and-information-institutions-karen-makkeh-m1pptx/267436197</p></li>
+<li><p>Rinf Tech. (2024). <em>Mixed Reality Use Cases and Challenges in 2024</em>[rinf.tech](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/](https://www.rinf.tech/mixed-reality-use-cases-and-challenges-in-2024/</p></li>
+<li><p>Radiant Vision Systems. (2022). <em>The Future Looks Bright for AR/VR/MR in 2023 &amp; Beyond</em>[radiantvisionsystems.com](https://www.radiantvisionsystems.com/blog/future-looks-bright-ar/vr/mr-2023-beyond</p></li>
+<li><p>ScienceDirect. (2020). <em>Integration of deep learning, semantic web and knowledge graphs into AR</em>[sciencedirect.com](https://www.sciencedirect.com/science/article/pii/S2468502X20300012</p></li>
+<li><p>工业和信息化部等. (2022). <em>虚拟现实与行业应用融合发展行动计划（2022—2026年）</em>[gov.cn](https://www.gov.cn/zhengce/2022-11/01/content_5723274.htm](https://www.gov.cn/zhengce/2022-11/01/content_5723274.htm</p></li>
+</ol>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://www.cs.unc.edu/~azuma/ARpresence.pdf<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.cs.unc.edu/~azuma/ARpresence.pdf<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://zh.wikipedia.org/zh-hans/%E6%93%B4%E5%A2%9E%E5%AF%A6%E5%A2%83<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>https://arinsider.co/2022/11/18/staging-reality-the-ar-vr-mr-continuum/<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>https://www.researchgate.net/publication/254057138_Here_We_Are_Where_Are_We_Locating_Mixed_Reality_in_The_Age_of_the_Smartphone<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>https://arinsider.co/2022/11/18/staging-reality-the-ar-vr-mr-continuum/<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>https://www.cs.unc.edu/~azuma/ARpresence.pdf<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>https://arinsider.co/2022/11/18/staging-reality-the-ar-vr-mr-continuum/<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>ttps://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>https://zh.wikipedia.org/zh-hans/%E6%93%B4%E5%A2%9E%E5%AF%A6%E5%A2%83<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>https://www.gerardfriel.com/ar/the-history-of-ar/<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>https://fekki.io/blogs/a-historical-overview-of-ar-vr-development-and-key-milestones/<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>https://www.gov.cn/zhengce/2022-11/01/content_5723274.htm<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>https://en.wikipedia.org/wiki/Augmented_reality<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>https://www.radiantvisionsystems.com/blog/future-looks-bright-ar/vr/mr-2023-beyond<a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p>https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2021.578080/full<a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p>https://www.cs.unc.edu/~azuma/ARpresence.pdf<a href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn32"><p>https://zh.wikipedia.org/zh-hans/%E6%93%B4%E5%A2%9E%E5%AF%A6%E5%A2%83<a href="#fnref32" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Scene_Recognition.html" class="pagination-link" aria-label="场景识别（Scene Recognition）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
