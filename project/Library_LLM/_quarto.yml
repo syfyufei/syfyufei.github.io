@@ -1,0 +1,24 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "智慧化知识服务技术研究"
+  date: "2025-07-15"
+  chapters:
+    - index.qmd
+    - part: "诸技术项"
+      chapters:
+        - LLM.qmd
+        - agent.qmd
+        - Scene_Recognition.qmd
+        - ar.qmd
+#    - part: "应用场景"
+#      chapters:
+#        - Scene_Recognition.qmd
+
+
+format:
+  html:
+    number-sections: true
+    repo-actions: [edit, issue]

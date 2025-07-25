@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; 大语言模型（Large Language Models） – 智慧化知识服务技术研究</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./agent.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./LLM.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">智慧化知识服务技术研究</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">任务要求</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">诸技术项</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./LLM.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">智能体 Agent / 代理型AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Scene_Recognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">场景识别（Scene Recognition）</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">增强现实（AR）与混合现实（MR）</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#定义" id="toc-定义" class="nav-link active" data-scroll-target="#定义"><span class="header-section-number">2.1</span> 定义</a></li>
+  <li><a href="#起源和关键发展阶段" id="toc-起源和关键发展阶段" class="nav-link" data-scroll-target="#起源和关键发展阶段"><span class="header-section-number">2.2</span> 起源和关键发展阶段</a>
+  <ul class="collapse">
+  <li><a href="#transformer的诞生与预训练范式的兴起2017-2018年" id="toc-transformer的诞生与预训练范式的兴起2017-2018年" class="nav-link" data-scroll-target="#transformer的诞生与预训练范式的兴起2017-2018年"><span class="header-section-number">2.2.1</span> Transformer的诞生与预训练范式的兴起（2017-2018年）</a></li>
+  <li><a href="#模型规模扩张与文本生成能力突破2019-2020年" id="toc-模型规模扩张与文本生成能力突破2019-2020年" class="nav-link" data-scroll-target="#模型规模扩张与文本生成能力突破2019-2020年"><span class="header-section-number">2.2.2</span> 模型规模扩张与文本生成能力突破（2019-2020年）</a></li>
+  <li><a href="#功能多元化对话代理多模态与推理2021-2022年" id="toc-功能多元化对话代理多模态与推理2021-2022年" class="nav-link" data-scroll-target="#功能多元化对话代理多模态与推理2021-2022年"><span class="header-section-number">2.2.3</span> 功能多元化：对话代理、多模态与推理（2021-2022年）</a></li>
+  <li><a href="#爆发与竞逐生成式ai浪潮下的多极化竞争2023年至今" id="toc-爆发与竞逐生成式ai浪潮下的多极化竞争2023年至今" class="nav-link" data-scroll-target="#爆发与竞逐生成式ai浪潮下的多极化竞争2023年至今"><span class="header-section-number">2.2.4</span> 爆发与竞逐：生成式AI浪潮下的多极化竞争（2023年至今）</a></li>
+  </ul></li>
+  <li><a href="#演进趋势与潜在技术瓶颈" id="toc-演进趋势与潜在技术瓶颈" class="nav-link" data-scroll-target="#演进趋势与潜在技术瓶颈"><span class="header-section-number">2.3</span> 演进趋势与潜在技术瓶颈</a>
+  <ul class="collapse">
+  <li><a href="#演进趋势和展望" id="toc-演进趋势和展望" class="nav-link" data-scroll-target="#演进趋势和展望"><span class="header-section-number">2.3.1</span> 演进趋势和展望</a></li>
+  <li><a href="#潜在技术瓶颈分析" id="toc-潜在技术瓶颈分析" class="nav-link" data-scroll-target="#潜在技术瓶颈分析"><span class="header-section-number">2.3.2</span> 潜在技术瓶颈分析</a></li>
+  </ul></li>
+  <li><a href="#暂时的结论" id="toc-暂时的结论" class="nav-link" data-scroll-target="#暂时的结论"><span class="header-section-number">2.4</span> 暂时的结论</a></li>
+  <li><a href="#与知识服务场景的融合应用可能性契合度" id="toc-与知识服务场景的融合应用可能性契合度" class="nav-link" data-scroll-target="#与知识服务场景的融合应用可能性契合度"><span class="header-section-number">2.5</span> 与知识服务场景的融合应用可能性、契合度</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./LLM.html">诸技术项</a></li><li class="breadcrumb-item"><a href="./LLM.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-llm" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">大语言模型（Large Language Models）</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="定义" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="定义"><span class="header-section-number">2.1</span> 定义</h2>
+<p>大语言模型（Large Language Models, LLMs）是一种基于海量文本数据训练的超大规模深度学习模型，具备理解和生成自然语言内容的能力，可执行多种任务。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> LLM通常采用自监督学习，从大规模语料中学习语言模式，尤其擅长语言生成等自然语言处理任务，其核心在于利用Transformer架构，通过自监督学习捕捉语言的深层规律，从而具备强大的自然语言理解（NLU）和生成（NLG）能力。 斯坦福大学以人为本人工智能研究所（HAI）将LLM定义为一种基础模型（Foundation Model），特指那些在广泛的、未标记数据上进行预训练，并能适应（如通过微调）多种下游任务的模型。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 这些模型拥有数以十亿乃至万亿计的参数，使其能够存储和处理关于世界的大量“参数化知识”，并执行包括问答、摘要、翻译、内容创作和代码生成在内的复杂任务。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 简单的来说，可以把大语言模型定义为“包含数百亿或更多参数的、基于Transformer的神经语言模型”。<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> 这一定义的关键在于，它明确地将LLM与早期的PLM区分开来，其核心区别在于涌现能力的存在，这些能力“在小规模语言模型中是不存在的” 。 值得注意的是，尽管LLM在语言任务上表现出色，但它们本质上是基于概率的文本序列预测器，可能产生不符合事实的“幻觉”（Hallucination），并且其知识截止于训练数据的时间点，这使其在处理需要实时性或高事实性信息的场景时面临挑战。<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> 下表总结了现有研究对LLM的定义要点和突出特征：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>研究来源</th>
+<th>定义要点</th>
+<th>突出特征</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Zhao等(2303.18223)</td>
+<td>大规模预训练语言模型</td>
+<td>• 涌现能力<br>• 规模效应<br>• 预训练-微调-提示范式</td>
+</tr>
+<tr class="even">
+<td>Minaee等(2402.06196)</td>
+<td>基于Transformer的十亿级参数模型</td>
+<td>• 主流模型家族<br>• 涌现能力<br>• 先进训练方法</td>
+</tr>
+<tr class="odd">
+<td>Stanford CRFM</td>
+<td>基于大规模数据训练的多任务适应模型</td>
+<td>• 能力涌现<br>• 模型同质化</td>
+</tr>
+<tr class="even">
+<td>OpenAI</td>
+<td>基于词元预测的文本映射函数</td>
+<td>• 预测机制<br>• 文本学习<br>• 少样本能力</td>
+</tr>
+<tr class="odd">
+<td>Google</td>
+<td>语言预测与生成模型</td>
+<td>• Transformer结构<br>• 注意力机制<br>• 涌现特性</td>
+</tr>
+</tbody>
+</table>
+<p>综合以上所有分析，我们可以给出一个全面而严谨的定义： 大型语言模型（LLM）是一种由以下三个核心属性共同定义的语言模型：</p>
+<p>1.架构基础：它构建于Transformer架构之上 ，利用自注意力机制的并行化能力，实现了前所未有的训练规模。<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a><br>
+&nbsp; 2.训练范式：它通过在海量的、多样化的文本数据（并越来越多地包括代码、图像等多模态数据）上进行大规模自监督预训练，学习语言和世界知识的通用表示 。<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p>3.规模诱导的能力：其规模（通常指拥有数百亿乃至更多的参数）足以跨越一个质变阈值，从而涌现出在小型模型中不存在的特殊能力。这些涌现能力，如情境学习和复杂的逐步推理（如思维链），是区分LLM与传统PLM的决定性特征。<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+</section>
+<section id="起源和关键发展阶段" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="起源和关键发展阶段"><span class="header-section-number">2.2</span> 起源和关键发展阶段</h2>
+<p>自2017年以来，人工智能领域迎来了“大语言模型”（Large Language Models, LLM）的突破性进展。2017年谷歌提出Transformer架构，使得模型可以通过“自注意力”机制高效地建模序列数据，为大语言模型的崛起奠定了技术基石<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> 。 与之前的深度学习模型相比，大语言模型可以在极其庞大且多样的非结构化数据上进行训练，并凭借统一的架构执行多种任务，这是人工智能发展中的一次“跨越式演进”<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> 。 基于Transformer的预训练模型（即“基础模型”）通过自监督方式在海量文本上学习，拥有极其庞大的参数规模，能够在下游以少量示例完成多样化任务<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> 。 得益于此，新一代生成式人工智能应用（如ChatGPT、GitHub Copilot、Stable Diffusion等）展现出前所未有的通用性——几乎任何人都可以利用它们进行交流和创作。这种广泛实用性以及近似与人对话的能力使其受到全球公众的热烈关注，影响力远超此前AlphaGo等专门AI系统<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> 。 例如，ChatGPT自2022年底推出以来，迅速累积了亿万用户，成为技术史上用户增长最快的应用之一，引发了社会各界对生成式AI的高度关注和讨论<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> 。</p>
+<p>随着大语言模型在文本生成、对话交互、知识问答等方面展现出强大性能，各大科技公司和研究机构纷纷投入竞争，包括OpenAI、Google DeepMind、Meta、Anthropic、Mistral等在内的机构相继推出一系列具有代表性的模型系统，推动了大语言模型技术的快速演进。 本节将梳理2017年至今大语言模型技术的发展脉络与关键阶段，分析不同模型在内容创作、对话代理、多模态处理、增强推理等功能方向上的侧重与代表性进展。</p>
+<section id="transformer的诞生与预训练范式的兴起2017-2018年" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="transformer的诞生与预训练范式的兴起2017-2018年"><span class="header-section-number">2.2.1</span> Transformer的诞生与预训练范式的兴起（2017-2018年）</h3>
+<p>2017年可以视作大语言模型发展的起点。这一年，谷歌研究员在论文《Attention Is All You Need》中提出了Transformer模型架构<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> 。 Transformer通过多头自注意力机制显著提升了序列建模能力，摆脱了传统循环神经网络在长程依赖建模上的性能桎梏。 Transformer架构的出现，使得训练更大规模的语言模型成为可能，也为后来的预训练-微调范式奠定了基础。</p>
+<p>基于Transformer的预训练模型很快展现出卓越的性能。2018年，谷歌发布了BERT（Bidirectional Encoder Representations from Transformers）模型<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> 。 BERT采用Transformer的编码器，对海量文本进行双向特征表征预训练，然后再微调用于下游任务。这一创新在阅读理解、问答、文本分类等自然语言理解任务上取得当时最先进的效果，引发了NLP领域对预训练模型的热情。同年，OpenAI提出了生成式预训练模型GPT的早期版本（通常被称为GPT-1）。与BERT不同，GPT采用Transformer的解码器进行单向语言模型预训练，重点在于生成自然语言文本的能力<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a> 。 GPT-1在无监督预训练后，再通过有监督微调适应具体任务的做法，验证了预训练模型在文本生成和理解上的巨大潜力<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> 。</p>
+<p>2018年前后还出现了ELMo等预训练模型，它通过双向LSTM从文本中学习词表示。但Transformer架构的优势很快使其成为主流。不论是BERT等偏重理解的模型，还是GPT等偏重生成的模型，都证明了通过在海量语料上的自监督预训练，模型可以掌握广泛的语言知识，并以较少任务特定数据达到优异性能。这一阶段奠定了“基础模型”的概念：即拥有海量参数、在海量数据上自监督训练、可适应多任务的大模型<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> 。 正如Gartner的分析所指出的，这类基础模型代表了深度学习的一次范式转变<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> 。 从技术起源来看，Transformer和自监督预训练是大语言模型演化的原点。</p>
+</section>
+<section id="模型规模扩张与文本生成能力突破2019-2020年" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="模型规模扩张与文本生成能力突破2019-2020年"><span class="header-section-number">2.2.2</span> 模型规模扩张与文本生成能力突破（2019-2020年）</h3>
+<p>2019年至2020年间，大语言模型最显著的趋势是参数规模的急剧扩张和生成文本质量的飞跃式提升。OpenAI在2019年发布了GPT-2模型，以15亿参数的规模生成连贯文本，被认为在通用文本生成上取得了突破。GPT-2展示出强大的续写文章和模拟对话的能力，引起学界和业界震惊。OpenAI最初出于安全考虑没有公开GPT-2的全部模型，担心其可能被用于大规模生成虚假信息，这从侧面证明了模型生成能力之强大<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a> 。GPT-2的出现标志着“内容创作”型语言模型开始展露锋芒——模型能够根据提示自动续写故事、新闻，甚至模仿特定风格的文本。这为日后诸多文本生成应用（如智能写作助手、自动对话机器人）的兴起打下基础。</p>
+<p>同一时期，谷歌等也在探索更大的预训练模型。2019年底，谷歌发布了T5（Text-to-Text Transfer Transformer）模型，它将所有任务统一表示为文本到文本的转换，并以110亿参数在C4海量语料上训练<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> 。T5在翻译、摘要等生成任务上取得当时最好成绩。可以说，2019年的这些模型表明，提升参数规模和训练数据规模，能显著提高模型生成多样化文本的能力。这一认识推动“规模化”成为大语言模型发展的主要方向之一。</p>
+<p>2020年是大语言模型史上的里程碑：OpenAI发布了GPT-3模型。GPT-3拥有惊人的1750亿参数<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a> （比GPT-2大两个数量级），在通用文本生成和理解任务上展现出跨越性提升。 GPT-3最引人注目之处在于它的<strong>少样本学习</strong>能力：无需任务特定微调，只需给出几个示例，GPT-3就能在翻译、问答、写作等各种任务上产生相当可靠的结果<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a> 。 这表明模型参数和训练数据的规模一旦达到一定阈值，预训练模型本身即可蕴含解决多种任务的通用能力，被视作人工智能发展中的重大突破。GPT-3在发布后引起广泛关注和研究热潮，一方面因为其性能优异，另一方面也因为如此规模模型的训练涉及巨大的算力和成本（据估计GPT-3训练成本高达数百万美元）<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> 。 麦肯锡的研究指出，ChatGPT（基于GPT-3.5）的横空出世和GPT-4的推出仅相隔数月，这种技术演进速度在AI史上前所未有<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a> 。总的来看，2019-2020阶段，OpenAI的GPT系列和谷歌的T5等模型将大语言模型推向“超大规模”时代，模型在通用<strong>内容创作</strong>方面的能力获得极大提升。</p>
+</section>
+<section id="功能多元化对话代理多模态与推理2021-2022年" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="功能多元化对话代理多模态与推理2021-2022年"><span class="header-section-number">2.2.3</span> 功能多元化：对话代理、多模态与推理（2021-2022年）</h3>
+<p>经历了早期规模驱动的发展后，2021年至2022年的大语言模型开始在<strong>功能多元化</strong>方向取得进展，包括更好的对话能力、更强的推理计算，以及跨模态的扩展等。同时，多家公司和机构加入竞争，推出各具特色的模型体系，使这一阶段成为大语言模型百花齐放的时期。</p>
+<p><strong>对话代理方面</strong>：谷歌在2021年公布了LaMDA（Language Model for Dialogue Applications）模型，专门针对对话进行优化<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a> 。LaMDA具有1370亿参数，通过在大量对话数据上微调，显著提升了上下文对话的连贯性和针对开放性话题的应答能力。谷歌演示了LaMDA就任意话题进行富有创造力的对话，如扮演“冥王星”与用户交流。这代表大语言模型开始从“一次性文本生成”向<strong>持续对话</strong>方向延伸。Facebook（后更名Meta）也在此期间研发对话模型，例如BlenderBot系列，尝试让聊天机器人展现类似人类的个性与长期记忆。然而，这些早期对话模型依然面临上下文缺失、易产生不当言论等问题，提示需要在安全和连贯性上进一步改进。</p>
+<p><strong>推理能力与工具使用</strong>：大型语言模型在2021-2022年展现出初步的推理和复杂任务解决能力。例如，DeepMind在2021年底发布了Gopher模型（2800亿参数）和2022年的Chinchilla模型（700亿参数）<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a> 。 特别是Chinchilla通过实验发现，在固定算力下适当减少参数规模、增加训练语料量，可以让模型在推理问答等任务上达到比更大模型（如Gopher）更好的效果<a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a> 。 这被称为<em>“Chinchilla 策略”</em>，说明参数数量并非无限制地越大越好，数据量和模型规模需平衡以提升推理表现。同时，研究者开始探索利用提示工程让模型进行链式推理（Chain-of-Thought）。2022年谷歌等工作的结果显示，给模型示例如何分步思考、逐步推导，可以显著提高模型解决数学推算、逻辑推理等任务的正确率。类似地，Prompting策略ReAct让模型在回答问题时先产生思考步骤、并可调用工具（例如检索互联网或计算），增强了复杂问答的准确性。这些方法丰富了大语言模型的<strong>增强推理</strong>能力，也预示着未来模型与外部工具结合的方向。</p>
+<p><strong>代码生成</strong>也是此阶段的重要突破之一。2021年OpenAI推出了Codex模型，它在GPT-3的基础上继续在海量源代码上训练，使其能够根据自然语言描述生成对应的代码。这一模型被用作GitHub Copilot的底层引擎，为开发者提供自动补全和代码生成功能。DeepMind则研发了AlphaCode，通过生成候选程序并测试筛选，成功在编程竞赛问题上达到中等水平选手的水准<a href="#fn32" class="footnote-ref" id="fnref32" role="doc-noteref"><sup>32</sup></a> 。代码生成模型实质上也是大语言模型的一种特殊应用（将代码视为一种语言），它体现了大模型在<strong>领域专用</strong>方向的威力。</p>
+<p><strong>多模态融合</strong>方面，研究者开始尝试将图像、文本等不同模态的信息结合。虽然严格来说许多图像生成模型（如2021年的DALL-E、2022年的DALL-E 2和Stable Diffusion）并非语言模型，但语言模型技术也被用于图文结合的场景。例如，2022年DeepMind发布Flamingo模型，它能够将视觉信息融入语言模型，以图文对话的形式回答有关给定图像的问题。这预示着未来的大模型将不局限于单一文本模态，而是朝<strong>多模态AI</strong>方向演进。</p>
+<p><strong>开放社区的参与</strong>也是2022年的一大亮点。面对少数巨头掌控超大模型的局面，学术和开源社区发起了“大模型民主化”运动。2022年5月，Meta开源了OPT-175B模型（1750亿参数），这是当时与GPT-3体量相当的模型，虽然性能略有差距但开放获得使用。在7月，多国研究者合作的BigScience项目发布了BLOOM模型（1760亿参数），支持包括中文在内的46种语言并开放研究使用。这些举措降低了研究者接触超大模型的门槛。此外，Anthropic等初创公司在2022年也开始亮相，其关注点在于大模型的<strong>安全和对齐（Alignment）</strong>，他们训练的模型（Claude的早期版本）探索了通过“宪法”引导模型行为的训练方法，以减少有害输出。总的来说，2021-2022阶段，大语言模型在纵向上继续扩大规模、提升性能，在横向上拓展出对话、代码、多模态、推理等多种功能方向，技术生态更加丰富多元。</p>
+</section>
+<section id="爆发与竞逐生成式ai浪潮下的多极化竞争2023年至今" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="爆发与竞逐生成式ai浪潮下的多极化竞争2023年至今"><span class="header-section-number">2.2.4</span> 爆发与竞逐：生成式AI浪潮下的多极化竞争（2023年至今）</h3>
+<p>2023年被广泛认为是“大语言模型全面走向主流”的年份<a href="#fn33" class="footnote-ref" id="fnref33" role="doc-noteref"><sup>33</sup></a> 。这一年里，大语言模型不仅在技术上继续演进，更通过产品化走进公众视野，行业竞争格局也更加多极化。主要体现在：</p>
+<p><strong>ChatGPT引爆大众市场</strong>：虽然ChatGPT在2022年11月问世，但其影响真正发酵于2023年。ChatGPT基于OpenAI的GPT-3.5模型，并经过人类反馈强化学习（RLHF）的微调，使其能够更贴近人类指令行事。由于ChatGPT可以以对话形式回答几乎任何提问、撰写文章、编写代码，甚至进行一定的推理分析，它迅速风靡全球，短短两个月用户即突破一亿。Gartner报告指出，ChatGPT等对话式大模型的流行使生成式AI在各行业引发了根本性冲击：企业开始重新思考业务流程，人力资源价值也受到重新评估，大模型热潮已达到炒作周期的顶峰<a href="#fn34" class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a> 。 各国政府也注意到这股趋势，纷纷研究其影响并准备相应的监管措施<a href="#fn35" class="footnote-ref" id="fnref35" role="doc-noteref"><sup>35</sup></a> 。 ChatGPT的成功标志着<strong>对话代理</strong>型大语言模型的成熟，也证明了通过大规模人机交互微调（如RLHF）可以极大提升模型的实用性和安全性。</p>
+<p><strong>新一代模型的发布</strong>：2023年3月，OpenAI发布了GPT-4模型。这是GPT系列的最新力作，参数规模虽未公开但据推测可能近万亿级。GPT-4在一系列专业和学术基准上达到人类水平表现，包括模拟法学院考试、医师资格考试等，展示出令人惊异的推理和理解能力<a href="#fn36" class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a> 。更重要的是，GPT-4首次引入<strong>多模态</strong>能力，能够接受图像和文本输入，并输出文本<a href="#fn37" class="footnote-ref" id="fnref37" role="doc-noteref"><sup>37</sup></a> 。这意味着用户可以给GPT-4提供一张图片，让模型根据图中内容回答问题，实现视觉和语言的融合。OpenAI在技术报告中称GPT-4为“大规模多模态模型”，其推出标志大语言模型进入“文本+视觉”时代<a href="#fn38" class="footnote-ref" id="fnref38" role="doc-noteref"><sup>38</sup></a> 。GPT-4在生成质量、知识范围、推理连贯性等方面较前代有显著提升，被广泛认为是当前最强大的语言模型之一。</p>
+<p>谷歌与DeepMind在这一年也加强了投入。谷歌于2023年5月的I/O大会上发布了PaLM 2模型，并将其整合进对话机器人Bard中<a href="#fn39" class="footnote-ref" id="fnref39" role="doc-noteref"><sup>39</sup></a> 。 PaLM 2在代码理解、数学推理、多语言能力上较前代PaLM有改进，支持谷歌全线产品的AI功能升级。同年，DeepMind与谷歌Brain合并为新的Google DeepMind，预告将推出名为Gemini的下一代大模型，被寄望融合AlphaGo系列的强化学习长处与语言能力。据报道，Gemini将是一种从设计上即具备多模态和工具使用能力的模型，定位为GPT-4的竞争者。可见，<strong>OpenAI与谷歌</strong>的“双强”竞争在2023年达到白热化，双方都将大语言模型作为AI战略的核心。</p>
+<p><strong>开源与社区力量</strong>：Meta在2023年2月开放发布了LLaMA模型（共有7B、13B、33B、65B四种规模）。尽管LLaMA仅限研究用途，但其泄漏的权重意外地在社区传播开来，引发了开源界前所未有的创新活力。研究人员和开发者基于LLaMA，迅速开发出各种精调变体，例如Stanford的Alpaca（在LLaMA上进行指令微调），以及诸如Vicuna、ChatGLM等高性能的对话模型。7月，Meta干脆顺势发布了<strong>LLaMA 2</strong>模型，并提供较宽松的开源许可（允许商用），进一步推动了开放生态的发展。LLaMA 2在70B参数规模上据称已接近GPT-3.5水平，并提供了对话优化版。在开源社区努力下，模型蒸馏、量化等技术层出不穷，使得在消费级硬件上运行中等规模的大模型成为现实。Forrester在2024年的报告中指出，开源LLM正在重新定义市场格局，尽管训练和维护顶尖LLM需要庞大数据和基础设施投入，但开放社区的贡献为企业提供了新的选择<a href="#fn40" class="footnote-ref" id="fnref40" role="doc-noteref"><sup>40</sup></a> 。</p>
+<p>2023年还涌现了<strong>新创公司</strong>的身影。其中Anthropic公司推出了Claude模型，与OpenAI的ChatGPT直接竞争。Claude采用“宪法式AI”训练策略，强调在不引入人类偏见的情况下通过AI自我调整来实现对齐，其第二版Claude 2在安全性和性能上都有提升，并提供了最高可达10万tokens的超长上下文窗口<a href="#fn41" class="footnote-ref" id="fnref41" role="doc-noteref"><sup>41</sup></a> 。这一100K上下文长度的实现使Claude能够消化一本小说长度的文本，在商业应用中具有吸引力<a href="#fn42" class="footnote-ref" id="fnref42" role="doc-noteref"><sup>42</sup></a> 。此外，创业公司如<strong>Mistral AI</strong>在模型效率上取得进展。Mistral于2023年9月发布了仅有70亿参数的Mistral 7B模型，但通过架构改进实现了对更大模型的性能超越：据称Mistral&nbsp;7B在各项基准上全面超越了LLaMA&nbsp;2的130亿参数模型，甚至媲美LLaMA&nbsp;1的340亿参数模型<a href="#fn43" class="footnote-ref" id="fnref43" role="doc-noteref"><sup>43</sup></a> 。它采用分组查询注意力和滑动窗口机制，不仅提升了推理速度，也可在较小计算开销下处理较长序列<a href="#fn44" class="footnote-ref" id="fnref44" role="doc-noteref"><sup>44</sup></a> 。Mistral&nbsp;7B的开源发布（Apache&nbsp;2.0许可）表明，小型高效模型可能成为大模型发展的另一重要方向<a href="#fn45" class="footnote-ref" id="fnref45" role="doc-noteref"><sup>45</sup></a> 。</p>
+<p>整体而言，截至2023年，大语言模型领域呈现群雄并立的局面：OpenAI、谷歌（DeepMind）、Meta等科技巨头引领着最前沿的大模型研发与应用落地；Anthropic、Mistral等新锐公司通过差异化路线（安全对齐、效率优化等）参与竞争；开源社区更是以前所未有的热情繁荣发展。在内容创作、对话交互、多模态理解、复杂推理等各方面，都涌现出代表性系统。从技术演进脉络看，Transformer架构引领下的大模型经历了从<strong>规模驱动</strong>到<strong>能力拓展</strong>再到<strong>应用爆发</strong>的阶段性演变。下一步，它将走向何方？面临哪些挑战？以下将深入探讨。</p>
+</section>
+</section>
+<section id="演进趋势与潜在技术瓶颈" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="演进趋势与潜在技术瓶颈"><span class="header-section-number">2.3</span> 演进趋势与潜在技术瓶颈</h2>
+<section id="演进趋势和展望" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="演进趋势和展望"><span class="header-section-number">2.3.1</span> 演进趋势和展望</h3>
+<p><strong>模型规模的扩展与高效化</strong></p>
+<p>自“大规模预训练”范式确立以来，不断增加模型参数和训练数据量是提升语言模型性能的主要途径之一。从GPT-2的15亿参数到GPT-3的1750亿参数，再到GPT-4传闻中近万亿的参数规模，模型大小呈指数级增长。然而，规模扩展带来收益的同时也面临边际效用递减和资源受限的问题。因此未来在“更大”与“更高效”两方面都会出现趋势。</p>
+<p>一方面，<strong>追求更大规模</strong>仍将持续。更大的模型有望拥有更强的知识记忆和推理能力，在复杂任务上取得更接近人类的表现。业界普遍认为，参数规模尚未达到认知智能的上限，尤其是当配以足够训练数据时，性能可能进一步提升。例如，OpenAI等在训练GPT-4时就投入了前所未有的计算资源，以期探索规模效应的极限<a href="#fn46" class="footnote-ref" id="fnref46" role="doc-noteref"><sup>46</sup></a> 。可以预见，未来或将出现参数量以万亿计的超大语言模型，具备更深的理解力和更少的统计偏差。</p>
+<p>另一方面，“<strong>小而精</strong>”成为新的关注点。正如Forrester报告所强调的，训练和维护顶尖LLM需要巨量数据和基础设施，非少数巨头外的参与者难以企及<a href="#fn47" class="footnote-ref" id="fnref47" role="doc-noteref"><sup>47</sup></a> 。因此业界开始寻求在更小模型上实现接近大模型的性能。这包括通过更高效的架构和训练策略来提升单位参数的能力。例如Mistral 7B模型仅靠70亿参数便达到比肩数十亿参数模型的效果<a href="#fn48" class="footnote-ref" id="fnref48" role="doc-noteref"><sup>48</sup></a> ，证明了模型效率优化的巨大潜力。又如DeepMind的Chinchilla方案，在算力固定情况下缩减模型规模而增加训练量，反而取得更佳效果<a href="#fn49" class="footnote-ref" id="fnref49" role="doc-noteref"><sup>49</sup></a> 。未来，我们将看到更多技术用于提升<strong>参数效率</strong>：模型蒸馏让小模型学习大模型行为，稀疏MoE（专家混合）架构通过条件激活部分网络以节省计算，量化和剪枝降低模型复杂度而性能损失最小化等等。这些方向旨在缓解模型规模带来的高成本壁垒，使大语言模型更加普惠可用。正如麻省理工《科技评论》所述，业界已经出现“<strong>小模型的大作为</strong>”的趋势：较小的模型训练更快、部署更廉价，并可在本地设备上运行<a href="#fn50" class="footnote-ref" id="fnref50" role="doc-noteref"><sup>50</sup></a> 。综上，未来大语言模型的发展在规模上将呈两极：一极冲刺更大、更通用的“巨无霸”模型，另一极打磨更小、更高效的专业模型。两者相辅并存，满足不同应用场景的需求。</p>
+<p><strong>多模态集成</strong></p>
+<p><strong>多模态人工智能</strong>被广泛认为是AI演进的下一前沿。人类智能的体现往往是多感官协同的，类人AI也需要能理解和生成不同形式的信息。大语言模型正朝这一方向扩展，其核心是将文本、图像、音频乃至视频等模态的信息表示统一融合，从而在一个模型中处理多样输入输出。</p>
+<p>目前的探索已经初显成果。OpenAI的GPT-4率先实现了图文多模态能力：该模型能够将图像作为输入，与文本共同处理，然后生成文本输出<a href="#fn51" class="footnote-ref" id="fnref51" role="doc-noteref"><sup>51</sup></a> 。实例如：用户上传一张含复杂内容的图片并提问，GPT-4可以理解图中场景并给出文字回答。这种视觉-语言结合使模型具备基本的“看图说话”能力，也被视为通往通用人工智能（AGI）的重要一步。Google DeepMind正在研发的Gemini据报道将天然支持多模态，有望在单个模型中同时具备视觉、语言甚至动作控制能力。可以想见，不久的将来数字助理不仅能对话，还能“看见”用户所见、“听到”语音，甚至控制机器实体互动，实现更加自然的人机交互。</p>
+<p>多模态集成带来的一个直接好处是模型具备<strong>跨领域知识融合</strong>的能力。比如，模型可以读懂一张医学影像并结合病历文字给出诊断建议，或在观看视频后用文字总结其内容。在这一过程中，大语言模型作为核心起到综合推理和生成的作用。麻省理工的研究发现，大型语言模型在处理多模态数据时，会倾向于在内部形成一种抽象的通用语义表示，这种机制与人脑处理不同感官信息的方法类似<a href="#fn52" class="footnote-ref" id="fnref52" role="doc-noteref"><sup>52</sup></a> 。这提示多模态模型有潜力达到对世界更全面的认知。当然，实现真正统一的多模态模型仍有挑战，包括模型架构如何高效处理图像/音频张量，与文本表示对齐训练，以及不同模态间的权衡等。不过总体趋势是明确的：<strong>单一模态的AI模型将让位于多才多艺的综合模型</strong>。</p>
+<p>在应用层面，多模态大模型将开创许多新场景。例如，营销领域可借助模型自动生成图文搭配的广告创意；教育领域的AI导师可以分析学生表情肢体（视觉）与口头回答（语音）来提供反馈；机器人领域则能让AI同时处理摄像头画面和指令，从而更智能地感知环境与执行操作。Gartner在2023年将多模态AI视为创新技术趋势的一部分，预期未来2-5年内多模态生成与理解将走向成熟<a href="#fn53" class="footnote-ref" id="fnref53" role="doc-noteref"><sup>53</sup></a> 。因此，多模态集成无疑是大语言模型演进的关键路径之一，未来的模型将不再局限于“语言”，而是真正意义上的多模态大模型。</p>
+<p><strong>上下文扩展与持续对话</strong></p>
+<p>增强<strong>上下文记忆和对话持续性</strong>是提升大语言模型实用性的重要方向。传统语言模型有固定的上下文长度限制（如GPT-3约4096个token），超出窗口的内容将无法被模型记忆。这限制了模型处理长文档或进行长程对话的能力。因此，扩大上下文窗口乃大势所趋。Anthropic公司在2023年率先推出了扩展上下文的Claude模型，将上下文长度从原来的9000 token增加到惊人的100000 token<a href="#fn54" class="footnote-ref" id="fnref54" role="doc-noteref"><sup>54</sup></a> 。这一扩展意味着模型一次可以阅读约75,000字的内容，相当于一本中篇小说的长度，并可在几乎不丢失细节的情况下进行总结和问答<a href="#fn55" class="footnote-ref" id="fnref55" role="doc-noteref"><sup>55</sup></a> 。OpenAI的GPT-4也提供了长上下文版本（最大支持32k tokens），支持用户提交长篇文章、程序代码等进行分析。上下文长度的提升使得<strong>长文档理解</strong>、<strong>多轮长对话</strong>成为可能：模型可以在对话中“记住”用户更早提出的信息或要求，不会像过去那样在对话稍长后就遗忘前文。对于企业应用，这一能力尤为关键，因为商业报告、法律合同等往往篇幅巨大，模型需要有“长记性”才能胜任辅助手的角色。</p>
+<p>除了扩展静态的上下文窗口，另一个方向是在架构上赋予模型<strong>持续记忆</strong>或<strong>外部存储</strong>机制，让对话可以真正无限延续。研究者正在探索将神经网络与外部知识库或记忆模块结合，使模型能从之前的对话中不断累积知识。例如，有方法使用向量数据库实时记录对话要点，必要时检索出来提供给模型参考（这被称为检索增强型对话）。还有研究尝试用循环神经网络或Transformer的变体，使模型具备类似RNN那样的持久状态，突破固定窗口限制。但这些尚处于早期实验阶段。</p>
+<p>上下文持续性的改进，不仅体现在对话长度上，也意味着模型能够保持<strong>人格一致性</strong>和<strong>多轮推理连贯性</strong>。对于聊天机器人来说，如果模型能“记住”用户以往的喜好和语气，那么交互体验将更趋近真人助手。同时，在需要分步骤思考的问题上，模型能在内部长期保留中间推理结果，避免因为上下文窗口滑动而丢失前提。这些改进都将显著提高大语言模型在对话代理场景下的实用性和智能程度。</p>
+<p><strong>推理能力和工具使用的增强</strong></p>
+<p><strong>推理能力</strong>是当前大语言模型与真正智能体之间的鸿沟之一。传统的语言模型主要通过模式匹配来生成答案，缺乏可靠的逻辑推导过程。这导致模型有时会产生前后矛盾或不合常理的回应。因此，提升模型的推理和规划能力，使其不仅能“看起来合理”地回答，而且有真正可靠的逻辑依据，成为研究热点。</p>
+<p>未来在提升推理方面有多个路径：</p>
+<ul>
+<li><p><strong>链式推理（Chain-of-Thought）内化</strong>：在模型训练或推理时，引导其先生成中间推理步骤，再给出最终答案。这一技术在数学和复杂问答任务上已被证明有效，人们希望将其融入模型，使之成为默认行为。OpenAI的GPT-4据称在训练中已经加入了大量这样的示例，从而在推理题上表现出色。进一步，模型可以学习自己反复检查和验证推理过程（自我一致性），以降低错误率。</p></li>
+<li><p><strong>符号融合与程序执行</strong>：所谓<em>“神经-符号”</em>融合思路是让大语言模型调用符号计算模块完成其不擅长的精确推理。这包括数学计算、逻辑证明、数据库查询等。实践中，出现了如Toolformer之类的方法，模型可以在回答过程中自动决定调用计算器或搜索引擎等工具<a href="#fn56" class="footnote-ref" id="fnref56" role="doc-noteref"><sup>56</sup></a> 。例如，在需要计算“2025年比2023年多几天”这类问题时，模型可委托外部工具算出准确答案，而非凭内部权重猜测。Gartner将这种AI与外部工具协作的系统称为“复合AI”的一种形式，认为其能拓宽AI解决问题的范围<a href="#fn57" class="footnote-ref" id="fnref57" role="doc-noteref"><sup>57</sup></a> <a href="#fn58" class="footnote-ref" id="fnref58" role="doc-noteref"><sup>58</sup></a> 。</p></li>
+<li><p><strong>内置知识与常识推理</strong>：大语言模型有海量参数，可以储存海量事实。但单纯记忆不足以推理，还需对知识点建立因果或类比联系。未来模型可能通过强化学习或预训练任务，习得基本物理常识、社会常识，从而在推理时更有“常识约束”，不会轻易给出荒谬结论。一些研究正尝试在训练中加入基于知识图谱的约束或监督，让模型显式掌握实体及其关系<a href="#fn59" class="footnote-ref" id="fnref59" role="doc-noteref"><sup>59</sup></a> 。</p></li>
+<li><p><strong>自主Agent与规划</strong>：2023年兴起了让大模型扮演自主智能体的探讨，如AutoGPT等概念，即由模型自我循环产生行动计划并执行，不断反馈直至完成复杂任务。这实际上考验模型的长期规划和上下文管理能力。尽管目前这些自主Agent还不成熟，但随着大模型推理与记忆增强，将来有望胜任一定程度的自主决策任务。</p></li>
+</ul>
+<p>强化推理能力的本质，是希望大语言模型从“概率式写作”进化为“可信赖的思考者”。McKinsey的报告称，当前最先进的大模型依然缺乏对自身知识边界的认知，经常不知道自己何时不懂<a href="#fn60" class="footnote-ref" id="fnref60" role="doc-noteref"><sup>60</sup></a> 。提升推理能力可以部分缓解这一问题，因为模型将更严格地推敲问题而非随意生成。此外，推理增强也能减少模型产生不正确答案（幻觉）的概率，提高回答的可靠性。</p>
+<p>值得一提的是，推理能力的提升与<strong>模型解释性</strong>息息相关。如果模型能输出中间推理过程，人类便可以检查其思路是否正确，从而增加信任度。这对在高风险领域应用AI（如医疗、法律）尤为重要。因此，可以预见未来的大模型在回答时可能自带解释或依据引用，使其行为更透明可验。</p>
+<p><strong>实时学习与知识更新</strong></p>
+<p>当前的大语言模型大多属于离线训练范式：模型训练完毕后参数固定，对训练后出现的新知识、新事实无能为力。这就导致所谓<em>“知识截止”（Knowledge Cutoff）</em>问题。例如，ChatGPT的基础模型GPT-3.5其知识截止于2021年，因而对之后发生的事件一无所知，需要通过额外检索才能回答。这种静态知识库模式显然无法满足很多实时需求，因此<strong>让模型具备实时更新知识的能力</strong>成为重要研究方向。</p>
+<p>一种直接思路是在模型架构中融入外部检索，即<strong>检索增强生成（RAG）</strong>技术<a href="#fn61" class="footnote-ref" id="fnref61" role="doc-noteref"><sup>61</sup></a> 。当模型收到查询时，先通过检索模块从知识库中提取相关最新信息，再将信息与查询一同送入模型生成答案。这样，模型的输出就能够反映训练后发生的新情况<a href="#fn62" class="footnote-ref" id="fnref62" role="doc-noteref"><sup>62</sup></a> 。例如，问“今年诺贝尔奖得主是谁”，模型可以实时搜索新闻，然后基于检索结果作答，而不用受限于旧知识。微软Bing整合GPT-4的方案正是类似思路，通过联网搜索赋予模型实时问答能力。实践证明，RAG能够有效降低模型幻觉率，并显著扩展信息的时效性<a href="#fn63" class="footnote-ref" id="fnref63" role="doc-noteref"><sup>63</sup></a> 。Forrester的报告也指出，企业在规划部署生成式AI时必须考虑训练数据质量和模型偏差，以及如何缓解模型幻觉等问题——融入检索无疑是解决之道之一。<a href="#fn64" class="footnote-ref" id="fnref64" role="doc-noteref"><sup>64</sup></a></p>
+<p>除了检索，另一方向是<strong>持续训练或增量学习</strong>。即让模型在部署阶段继续接受新数据的微调更新，而不必等待下一个大版本。例如，研究者尝试让模型定期吸收新发布的维基百科、新闻等，以小步更新参数。还有一些探索利用在线学习算法，使模型边用边学。然而，大型Transformer模型的在线更新面临灾难性遗忘、分布偏移等挑战，目前效果有限。此外还有混合方法：通过插件或API方式，让模型调用专门维护的最新知识库（如每日财经数据库等），作为回答依据。综上，未来可能出现<strong>“随时可学习”</strong>的大语言模型：基本能力由大规模预训练给出，但同时连接着动态更新的知识源，实现静态能力与动态知识的结合。</p>
+<p>实时更新能力还关联到<strong>个性化定制</strong>。如果模型能持续学习，那么它可以逐步学习某个特定用户的偏好与知识背景，提供量身定制的回答。这对于私人助理类应用将是巨大优势。当然，这涉及隐私与安全，需要妥善处理用户数据。此外，模型持续学习还须警惕<strong>错误传播</strong>：如果用户提供了错误信息而模型学了进去，可能会影响后续表现。因此实时学习技术需搭配严格的验证和过滤机制。</p>
+<p>总的来说，让大语言模型跳出“一次训练成品”的静态模式，迈向“持续学习演化”的动态模式，将是通往更智能AI的重要一步。MIT科技评论的一篇报道曾探讨了一种从MIT提出的方法，使语言模型能够在推理同时不断调整自身参数，实现持续学习<a href="#fn65" class="footnote-ref" id="fnref65" role="doc-noteref"><sup>65</sup></a> 。虽然此类研究尚处起步，但其愿景符合人工智能长期追求的自适应能力。可以预见，未来成熟的大语言模型将如同一直在线的专家，不断吸收新知、纠正自身误差，始终保持其知识库的时效性与准确性。</p>
+</section>
+<section id="潜在技术瓶颈分析" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="潜在技术瓶颈分析"><span class="header-section-number">2.3.2</span> 潜在技术瓶颈分析</h3>
+<p>尽管大语言模型前景光明，但当前技术上仍存在诸多瓶颈和挑战，有待深入研究和攻克。以下针对<strong>模型幻觉、能耗成本、训练数据质量、推理效率、社会伦理</strong>五大问题进行分析。</p>
+<p><strong>模型幻觉与准确性问题</strong></p>
+<p><em>“幻觉”（Hallucination）</em>指模型生成了看似合理但实际上错误或凭空捏造的内容。这是大语言模型普遍存在的顽疾之一。举例来说，模型有时会编造不存在的引文、虚构事实，或者在不确定时给出确切但错误的回答。幻觉产生的根源在于语言模型基于统计相关性生成文本，并不真正“理解”事实真相，也无法像人一样具备何时不懂就不乱说的自知之明<a href="#fn66" class="footnote-ref" id="fnref66" role="doc-noteref"><sup>66</sup></a> 。Forrester研究团队在2024年报告中特别提醒企业注意模型幻觉风险，指出训练数据质量欠佳和偏见会放大不准确输出的频率<a href="#fn67" class="footnote-ref" id="fnref67" role="doc-noteref"><sup>67</sup></a> 。麦肯锡的一项调查也发现，在采用生成式AI的早期阶段，许多公司尚未有效缓解模型输出不准确这一最相关的风险<a href="#fn68" class="footnote-ref" id="fnref68" role="doc-noteref"><sup>68</sup></a> 。</p>
+<p>幻觉问题带来了信任和安全层面的隐忧。例如，在医疗领域，若AI助手胡乱编造诊断依据，后果不堪设想；在资讯领域，模型可能传播谣言或错误信息。为降低幻觉，大模型研发者做出了多种努力。一是<strong>人类反馈对齐</strong>（RLHF）：通过人工标注，让模型学会拒绝回答不知道的问题或在不确定时给出保留态度，从而减少胡编乱造的冲动。OpenAI的ChatGPT显然在这方面较原始GPT-3有所改善——它更常见地在无法确定时回应“不确定”或建议寻求专业帮助。然而RLHF并非万灵药，模型仍可能在知识盲区自信地给出谬误。二是前述<strong>检索增强</strong>策略，通过让模型查资料或验证，其回答可以引经据典、依据事实<a href="#fn69" class="footnote-ref" id="fnref69" role="doc-noteref"><sup>69</sup></a> 。实践证明，有了检索模块辅助，幻觉率明显下降，因为模型不必凭记忆硬撑，可以引用权威来源。不过检索的有效性取决于查询和来源质量，也无法覆盖所有场景。三是模型内部引入<strong>一致性检查</strong>，例如生成多个答案取交集（self-consistency）或者在回答前让模型自己验证一遍逻辑。这类似于数学计算中双重核对，能一定程度筛除前后不一致或明显错误的输出。DeepMind等研究人员还提出利用外部逻辑推理模块对模型答案进行审核，以发现其中的矛盾。总的来看，幻觉问题远未解决，它是大语言模型可靠落地的最大障碍之一。</p>
+<p>学术界也在探索从根本上提高模型准确性的途径，包括改进训练目标使其更加关注事实匹配，以及在预训练语料中注入更多高质量知识源等。另外，提升模型对自身不确定性的评估能力也是关键，让模型“知道自己不知道”。如前所述，强化推理能力和引入解释机制都有助于此——模型在回答时给出依据出处<a href="#fn70" class="footnote-ref" id="fnref70" role="doc-noteref"><sup>70</sup></a> 、展示推理链条，方便用户自行核实。这种透明度可提高用户对模型输出的信任，同时也反过来促进模型减少随意编造，因为其过程需要经得起检查。</p>
+<p><strong>能耗成本与算力瓶颈</strong></p>
+<p>大语言模型的训练和部署都极为耗费计算资源和能源。一方面，训练一套数亿参数的模型，需要海量的浮点计算。以GPT-3为例，其训练耗电量估计约为1287兆瓦时（相当于502吨二氧化碳排放），相当于一辆汽油车连续行驶一年的碳排放<a href="#fn71" class="footnote-ref" id="fnref71" role="doc-noteref"><sup>71</sup></a> 。GPT-3训练过程中使用了数千颗GPU协同计算数周时间，经济成本在数百万美元量级<a href="#fn72" class="footnote-ref" id="fnref72" role="doc-noteref"><sup>72</sup></a> 。如此庞大的能源消耗引发了对AI碳足迹的担忧——如果未来模型继续扩大，这种资源开销将呈指数增长，带来环境不可持续性的问题<a href="#fn73" class="footnote-ref" id="fnref73" role="doc-noteref"><sup>73</sup></a> 。另一方面，<strong>推理阶段</strong>（模型部署供用户使用）同样需要大量算力，因为每次生成都要进行深度神经网络运算。Wharton商学院的分析指出，模型推理目前占AI总能耗的约60%，并且随着用户请求的激增而快速累积<a href="#fn74" class="footnote-ref" id="fnref74" role="doc-noteref"><sup>74</sup></a> 。据估计，ChatGPT每回答一个查询所需能量约为普通谷歌搜索的100倍<a href="#fn75" class="footnote-ref" id="fnref75" role="doc-noteref"><sup>75</sup></a> 。有研究进一步测算，如果ChatGPT全年处理750亿次查询，其耗电量约2.3亿千瓦时，足够充满超过300万部电动汽车<a href="#fn76" class="footnote-ref" id="fnref76" role="doc-noteref"><sup>76</sup></a> 。由此可见，大规模部署大语言模型可能对电网和环境带来不小压力。</p>
+<p>算力和能耗瓶颈在一定程度上限制了大语言模型的发展和应用普及。并非所有企业或研究机构都负担得起训练一个GPT-3级别模型的费用与能耗；在应用侧，高昂的计算需求也使模型服务成本居高不下。Forrester报告指出，创建和维护LLM需要显著的数据与基础设施投入，这使许多企业难以自行训练竞争性模型<a href="#fn77" class="footnote-ref" id="fnref77" role="doc-noteref"><sup>77</sup></a> 。因此，提升能效、降低成本成为大模型研究的重要课题。例如，业界正积极采用<strong>专用AI加速芯片</strong>（如谷歌TPU、英伟达A100/H100等）来提高每瓦特算力，从硬件上优化能耗比。同时，软件层面的优化如<strong>混合精度训练</strong>、<strong>张量并行和流水并行</strong>、<strong>高效算子实现</strong>（如FlashAttention）也在减少不必要的计算浪费。据密歇根大学一项研究，优化算法可使训练在同样时间内节省多达30%的能耗<a href="#fn78" class="footnote-ref" id="fnref78" role="doc-noteref"><sup>78</sup></a> 。此外，模型结构优化（如稀疏激活、低秩分解）和<strong>模型压缩</strong>（蒸馏、小模型协作等）也能在推理阶段降低计算开销，从而以更少资源服务更多请求。Mistral&nbsp;7B采用的Grouped-Query Attention和滑动窗口注意力，即是一种通过限制注意力计算范围来降低复杂度的方法<a href="#fn79" class="footnote-ref" id="fnref79" role="doc-noteref"><sup>79</sup></a> 。</p>
+<p>长期来看，算力瓶颈可能通过“更智能的高效算法”与“更强大的计算硬件”双管齐下得到缓解。例如，发展光子计算、量子计算等新技术，或者构建大规模分布式计算网络以分摊训练任务。不过，在可预见的未来，<strong>性价比更高的大模型</strong>将更受青睐：与其盲目扩大参数，不如提高利用率，用单位算力榨取更多AI智能。这既是经济驱动也是环保需要。决策者也开始关注AI的能耗问题，提出绿色AI的理念，要求在追求模型性能的同时衡量其环境成本。可以预见，能耗和算力方面的改进，将决定大语言模型能以多快速度、更大规模走入现实应用。</p>
+<p><strong>训练数据质量与局限</strong></p>
+<p>大语言模型之所以能掌握广博知识，主要仰赖于海量训练数据的喂养。然而，“数据即养料”，其质量高低直接影响模型素质。目前训练大型模型的数据多来自互联网爬取的公开资源，如维基百科、新闻文章、网页文本等。这些数据存在一些内在的问题和局限：</p>
+<p>首先，互联网文本良莠不齐，包含大量不准确、不可靠甚至有害的信息。模型在缺乏分辨的情况下机械地学习这些内容，可能继承偏见和错误。比如，若训练语料中某领域谣言频出，模型可能将其当作事实产出。这也是为何大模型常被批评带有种族、性别偏见的原因——训练数据里的历史偏见在模型中被放大重现<a href="#fn80" class="footnote-ref" id="fnref80" role="doc-noteref"><sup>80</sup></a> 。 Forrester报告特别提到模型训练涉及版权材料和数据偏见的问题，提醒企业关注训练数据质量<a href="#fn81" class="footnote-ref" id="fnref81" role="doc-noteref"><sup>81</sup></a> 。 改善数据质量，避免“垃圾进，垃圾出”，是模型性能提升的前提。近期业界兴起“<strong>数据中心主义</strong>”观点，强调通过精选和改进训练数据来提升AI效果，而非一味依赖更复杂模型<a href="#fn82" class="footnote-ref" id="fnref82" role="doc-noteref"><sup>82</sup></a> 。</p>
+<p>其次，大模型对训练语料存在依赖和<strong>覆盖盲区</strong>。即使给定海量数据，也有模型学不到的知识，因为某些领域的数据可能很稀少或几乎没有。例如在前沿科学、低资源语言、私有知识库等方面，公开数据无法满足需求。这导致模型在这些领域表现不佳。一个典型例子是法律和医学文本风格独特且专业术语繁多，通用网络语料里相对有限，因而模型在法律咨询、医学问诊等任务上经常出错或不够专业。为此，业界开始构建领域专门的数据集对模型进行补充微调，例如大量医学论文、法律条文等，从而弥补通用预训练的不足。然而，专用数据获取本身不易，往往涉及版权或隐私问题。此外，涉及事实更新的领域（如年度统计数据、当代人物动态等），除非频繁再训练，否则模型知识会滞后甚至过时。</p>
+<p>再次，训练数据规模总有极限。随着模型参数数以千亿计增长，所需训练文本近乎天量。目前互联网上高质量、独立的信息文本储量是有限的。OpenAI曾指出，GPT-3基本已经把人类写作的公共文本“读”了个遍，再想在数据量上数量级提升很困难。这意味着未来大模型继续扩大，很可能要依赖<strong>合成数据</strong>（synthetic data）来扩充训练集，例如模型自身生成的新句子、机器翻译的平行语料等。然而，使用模型输出再训练模型可能导致回音室效应，模型逐渐丧失创造性并放大自身错误。这是需要警惕的恶性循环：当网络上充斥模型生成内容，模型又以此为训练素材，会发生何种后果目前尚不明晰。此外还有版权法律层面的挑战——模型训练数据往往未经内容作者授权，由此引发的版权争议开始出现，未来监管可能要求透明公开训练来源，甚至对侵权数据做剔除处理。这些都会对大模型训练提出新的约束。</p>
+<p>为应对数据质量瓶颈，未来有几个可能的方向：一是<strong>更精细的数据过滤与标注</strong>。在预处理阶段通过AI和人协作，将明显低质或有毒的数据剔除，提高语料纯度。二是<strong>数据多样性提升</strong>，增加来自不同文化、不同语言、不同观点的数据比例，减轻模型偏见。三是打造<strong>可控数据集</strong>，明确标注各段文本的来源、可信度、时效等，让模型在训练中就学会区分权威信息和普通信息。Gartner提出的数据中心AI理念正是希望通过强化数据侧的投入，来驱动模型性能改进<a href="#fn83" class="footnote-ref" id="fnref83" role="doc-noteref"><sup>83</sup></a> 。 另外，<strong>小样本学习</strong>能力的提高也可以缓解对巨量数据的需求：如果模型能从少量新数据中泛化习得知识，就不必为每项新技能都准备海量训练集。总之，在模型规模红利渐趋饱和后，数据质量将成为决定模型上限的关键因素之一，未来对大模型的数据构建会朝更加<strong>高质、专业、动态</strong>的方向发展。</p>
+<p><strong>推理效率与延迟</strong></p>
+<p>推理效率指模型在生成响应时的速度和资源占用情况。这一指标直接影响用户体验和部署成本。目前大语言模型在推理阶段仍存在<strong>速度较慢、延迟较高</strong>的问题。原因在于Transformer模型每产生一个词都需要执行一次上百亿参数的矩阵计算，生成一段较长回答可能涉及成千上万次计算循环。即使借助GPU并行，响应复杂问题往往需要数秒到数十秒不等，对实时交互来说仍嫌缓慢。此外，由于模型规模庞大，推理时显存占用极高，一台普通机器难以独立承载完整模型，通常需要分布式部署，这进一步加大了调用开销。</p>
+<p>推理效率低下导致两个直接后果：用户等待时间长和单位请求成本高。这在商业应用中是痛点。例如客户咨询机器人若滞后良久才答复，用户体验会大打折扣；同时每次交互后台烧掉的GPU算力费用也不容小觑。为此，各大公司都在研究提高推理效率的方法：</p>
+<ul>
+<li><p><strong>模型压缩</strong>：包括参数量化（如将模型权重从FP16降低为INT8或INT4表示，可大幅减少内存和计算）、剪枝（移除冗余连接）、知识蒸馏（训练小模型模仿大模型输出）等。Meta的研究表明，适度量化的模型几乎不损失性能却将推理成本降低一半以上，这对于在移动设备等边缘环境运行大模型尤其重要。</p></li>
+<li><p><strong>架构改进</strong>：开发更高效的注意力机制和网络结构。例如使用稀疏注意力让每个token只关注有限邻域而非全局，从而将计算复杂度从平方级降至线性级。先前提到的Mistral 7B应用了滑动窗口注意力，使每一层仅关注固定窗口长度的上下文<a href="#fn84" class="footnote-ref" id="fnref84" role="doc-noteref"><sup>84</sup></a> 。还有一些Transformer替代架构（如Performer, Reformer等）尝试用近似方法加速注意力计算。这些改进可以在保持模型质量的同时，大幅提升推理速度。</p></li>
+<li><p><strong>批量并行和流水线</strong>：在推理服务端，通过并行处理多个请求或对长输出采用流水线生成，最大化硬件利用率。例如OpenAI的服务器可在一张GPU上并行执行多个用户的ChatGPT请求，以减少空闲等待。还有推理引擎如vLLM通过优化缓存管理，实现对大批量请求高效复用计算结果，从而提高整体吞吐量<a href="#fn85" class="footnote-ref" id="fnref85" role="doc-noteref"><sup>85</sup></a> 。</p></li>
+<li><p><strong>专用硬件</strong>：硬件进步也是关键因素。最新的AI芯片针对Transformer运算做了大量优化，如更大显存、更高内存带宽、混合精度支持等，使得同样运算在新GPU/TPU上可比旧设备快数倍。未来FPGA、ASIC等定制加速器甚至光学计算设备，或许将进一步提高推理功耗比，让部署成本降低到可以大规模扩张的地步。</p></li>
+</ul>
+<p>随着上述技术的发展，我们有理由期待大语言模型的响应速度接近实时。例如，目前一些优化后的中等模型已经能在CPU上每秒生成数十个词，这意味着对话级别的应答可以在不到1秒内产出。在高性能GPU上，大模型每秒生成上百词也已实现。不久的将来，通过软硬件协同优化，即使是千亿级参数模型也可能达到毫秒级延迟，为交互式应用铺平道路。此外，推理效率的提升还将使<strong>边缘部署</strong>成为可能——未来智能手机、物联网设备等可能直接运行精简版的大语言模型，在本地为用户提供服务，而不必将所有请求发送云端。这将极大拓展大模型的应用范围。</p>
+<p>总之，提高推理效率是大语言模型从研究走向产业的必由之路。只有当用户几乎无感知地获得AI响应，且服务提供方能以合理成本支持海量请求时，大模型才能真正融入日常应用。正因如此，我们看到各大公司都投入大量资源改进推理框架和算法。例如，OpenAI推出了针对推理优化的GPT-3.5 Turbo版本，单位成本相比原始模型降低数十倍，使得将其集成到日常办公软件、搜索引擎中成为可能。可以预见，未来大语言模型的创新不仅在于提升上限性能，更在于提升<strong>单位能耗/算力的性能</strong>，实现既“聪明”又“高效”。</p>
+</section>
+</section>
+<section id="暂时的结论" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="暂时的结论"><span class="header-section-number">2.4</span> 暂时的结论</h2>
+<p>自2017年Transformer问世以来，大语言模型经过短短数年已走过从技术起步、规模跃升到应用爆发的非凡历程。OpenAI、Google DeepMind、Meta、Anthropic、Mistral等领军机构推出的一系列模型，推动了内容创作、对话交互、多模态理解、复杂推理等人工智能关键能力的飞速发展。在这一过程中，大语言模型逐渐成为新一代“基础设施”式的技术——即所谓<strong>基础模型（Foundation Model）</strong>，能够作为通用平台支持千行百业的智能应用<a href="#fn86" class="footnote-ref" id="fnref86" role="doc-noteref"><sup>86</sup></a> 。 据麦肯锡预测，生成式AI有望每年为全球经济增加2.6至4.4万亿美元价值，占2021年全球GDP的比例约达15%之巨<a href="#fn87" class="footnote-ref" id="fnref87" role="doc-noteref"><sup>87</sup></a> 。 可以说，大语言模型已不仅是实验室里的模型，而是释放生产力的战略工具。</p>
+<p>展望未来，大语言模型的发展将沿着<strong>“更大更通用”</strong>与<strong>“更小更专精”</strong>两条路径同步演进。一方面，研究者将继续探索模型规模和数据极限，融合多模态信息，增强上下文和推理，努力逼近通用人工智能（AGI）的目标；另一方面，模型的实用化要求我们着力提高效率、降低能耗，使其更加经济高效，并针对具体场景进行定制优化。此外，实时学习能力的引入将令模型保持知识新鲜度，长期陪伴用户成长。在这个过程中，我们需要正视并解决模型幻觉、不透明、高算力消耗等<strong>技术鸿沟</strong>，也需未雨绸缪地制定规范来应对偏见、安全、就业冲击等<strong>社会课题</strong>。正如Forrester报告所言，生成式AI浪潮将深刻重塑各行业，既带来前所未有的机遇，也伴随不容忽视的风险<a href="#fn88" class="footnote-ref" id="fnref88" role="doc-noteref"><sup>88</sup></a> 。</p>
+</section>
+<section id="与知识服务场景的融合应用可能性契合度" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="与知识服务场景的融合应用可能性契合度"><span class="header-section-number">2.5</span> 与知识服务场景的融合应用可能性、契合度</h2>
+<p>（关注六大场景：知识图谱、语义搜索、智能问答、个性化推荐、知识推送、可视化服务）</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://www.ibm.com/think/topics/large-language-models<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Bommasani, R., Hudson, D. A., Adeli, E., Altman, R., Arora, S., von Arx, S., … &amp; Liang, P. (2021). On the Opportunities and Risks of Foundation Models. Stanford University Human-Centered Artificial Intelligence (HAI).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>“What are large language models (LLMs)?”. IBM Technology.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>http://arxiv.org/pdf/2303.18223<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., … &amp; Fung, P. (2023). Survey of hallucination in natural language generation. ACM Computing Surveys, 55(12), 1-38.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>https://papers.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>https://arxiv.org/html/2402.06196v3<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>https://www.elastic.co/what-is/large-language-models<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>https://research.google/blog/characterizing-emergent-phenomena-in-large-language-models/<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>https://www.sciencedirect.com/science/article/pii/S0268401223000233<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>https://www.sciencedirect.com/science/article/pii/S0268401223000233<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>https://thegrizzlynews.org/2361/news/large-language-models-carry-enormous-energy-consumption-and-cost<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn32"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref32" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn33"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref33" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn34"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref34" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn35"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref35" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn36"><p>https://arxiv.org/abs/2303.08774<a href="#fnref36" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn37"><p>https://arxiv.org/abs/2303.08774<a href="#fnref37" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn38"><p>https://arxiv.org/abs/2303.08774<a href="#fnref38" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn39"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref39" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn40"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref40" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn41"><p>https://www.anthropic.com/news/100k-context-windows<a href="#fnref41" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn42"><p>https://www.anthropic.com/news/100k-context-windows<a href="#fnref42" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn43"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref43" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn44"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref44" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn45"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref45" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn46"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref46" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn47"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref47" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn48"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref48" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn49"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref49" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn50"><p>https://medium.com/<span class="citation" data-cites="writerdotcom/small-language-models-the-next-big-thing-for-solo-developers-and-entrepreneurs-6dc520fb3bb8">@writerdotcom/small-language-models-the-next-big-thing-for-solo-developers-and-entrepreneurs-6dc520fb3bb8</span><a href="#fnref50" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn51"><p>https://arxiv.org/abs/2303.08774<a href="#fnref51" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn52"><p>https://news.mit.edu/2025/large-language-models-reason-about-diverse-data-general-way-0219<a href="#fnref52" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn53"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref53" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn54"><p>https://www.anthropic.com/news/100k-context-windows<a href="#fnref54" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn55"><p>https://www.anthropic.com/news/100k-context-windows<a href="#fnref55" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn56"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref56" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn57"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref57" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn58"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref58" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn59"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref59" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn60"><p>https://www.linkedin.com/posts/mit-technology-review_large-language-models-can-do-jaw-dropping-activity-7276879508077514752-xn6l<a href="#fnref60" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn61"><p>https://milvus.io/ai-quick-reference/how-does-retrievalaugmented-generation-help-with-the-issue-of-an-llms-static-knowledge-cutoff-or-memory-limitations<a href="#fnref61" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn62"><p>https://milvus.io/ai-quick-reference/how-does-retrievalaugmented-generation-help-with-the-issue-of-an-llms-static-knowledge-cutoff-or-memory-limitations<a href="#fnref62" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn63"><p>https://milvus.io/ai-quick-reference/how-does-retrievalaugmented-generation-help-with-the-issue-of-an-llms-static-knowledge-cutoff-or-memory-limitations<a href="#fnref63" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn64"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref64" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn65"><p>https://www.wired.com/story/this-ai-model-never-stops-learning<a href="#fnref65" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn66"><p>https://www.linkedin.com/posts/mit-technology-review_large-language-models-can-do-jaw-dropping-activity-7276879508077514752-xn6l<a href="#fnref66" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn67"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref67" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn68"><p>https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2023-generative-ais-breakout-year<a href="#fnref68" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn69"><p>https://milvus.io/ai-quick-reference/how-does-retrievalaugmented-generation-help-with-the-issue-of-an-llms-static-knowledge-cutoff-or-memory-limitations<a href="#fnref69" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn70"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref70" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn71"><p>https://knowledge.wharton.upenn.edu/article/the-hidden-cost-of-ai-energy-consumption<a href="#fnref71" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn72"><p>https://thegrizzlynews.org/2361/news/large-language-models-carry-enormous-energy-consumption-and-cost<a href="#fnref72" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn73"><p>https://knowledge.wharton.upenn.edu/article/the-hidden-cost-of-ai-energy-consumption<a href="#fnref73" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn74"><p>https://knowledge.wharton.upenn.edu/article/the-hidden-cost-of-ai-energy-consumption<a href="#fnref74" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn75"><p>https://knowledge.wharton.upenn.edu/article/the-hidden-cost-of-ai-energy-consumption<a href="#fnref75" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn76"><p>https://balkangreenenergynews.com/chatgpt-consumes-enough-power-in-one-year-to-charge-over-three-million-electric-cars<a href="#fnref76" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn77"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref77" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn78"><p>https://news.engin.umich.edu/2024/11/up-to-30-of-the-power-used-to-train-ai-is-wasted-heres-how-to-fix-it<a href="#fnref78" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn79"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref79" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn80"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref80" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn81"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref81" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn82"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref82" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn83"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref83" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn84"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref84" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn85"><p>https://mistral.ai/news/announcing-mistral-7b<a href="#fnref85" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn86"><p>https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle<a href="#fnref86" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn87"><p>https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier<a href="#fnref87" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn88"><p>https://www.linkedin.com/pulse/top-10-insights-from-forresters-state-generative-ai-2024-columbus-dqtvc<a href="#fnref88" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="任务要求">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">任务要求</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./agent.html" class="pagination-link" aria-label="智能体 Agent / 代理型AI">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">智能体 Agent / 代理型AI</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
