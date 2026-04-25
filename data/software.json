@@ -1,0 +1,27 @@
+{
+  "_schema": {
+    "_comment": "Open-source software. Each item: title, summary, url (optional), tags (optional).",
+    "fields": "title, summary, url?, tags[]?"
+  },
+  "items": [
+    {
+      "title": "AssistantCook",
+      "summary": "Apple Shortcut with ChatGPT (OpenAI GPT-3.5), based on S-GPT.",
+      "url": "https://github.com/syfyufei/AssistantCook",
+      "tags": ["apple", "llm"]
+    },
+    {
+      "title": "regioncode",
+      "summary": "An R package for China studies: seamlessly converts region formal names, common-used names, and administrative division codes between each other. Inspired by countrycode.",
+      "url": "https://cran.r-project.org/package=regioncode",
+      "tags": ["r-package", "geocode"]
+    },
+    {
+      "title": "drhur",
+      "summary": "A pedagogical R package — supplementary courseware for Dr. Yue Hu's R program lectures. Tutorials crystallized from Dr. Hu's online and offline R workshops.",
+      "url": "https://cran.r-project.org/package=drhur",
+      "tags": ["r-package", "pedagogy"]
+    }
+  ],
+  "specialties": ["Data scraping", "Geocode conversion", "Latent variable analysis", "Data visualization"]
+}

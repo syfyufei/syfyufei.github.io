@@ -1,0 +1,57 @@
+{
+  "_schema": {
+    "_comment": "Travel log entries. Each item: place, date, quote, video (YouTube embed URL), country_code (ISO 3166-1 alpha-2 — used by the world map to highlight), diary (external URL optional).",
+    "country_code": "Two-letter ISO code — must match jsvectormap keys. e.g. AE, VN, TH, MY, NL, BE, FR, JP, CN"
+  },
+  "items": [
+    {
+      "place": "United Arab Emirates",
+      "subtitle": "Dubai",
+      "country_code": "AE",
+      "date": "2023-06",
+      "quote": "\u201c熱。\u201d",
+      "video": "https://www.youtube.com/embed/52l6uqa21NI",
+      "diary": "https://syfyufei.github.io/travel/UAE.html"
+    },
+    {
+      "place": "Vietnam",
+      "subtitle": "Ho Chi Minh City",
+      "country_code": "VN",
+      "date": "2023",
+      "quote": "\u201c有一種社會主義國家民眾特有的焦慮感。THU 在越南語裡是秋天🍂的意思。重逢與初次見面。\u201d",
+      "video": "https://www.youtube.com/embed/HHP_zWgSRK0",
+      "diary": "https://syfyufei.github.io/travel/Vietnam.html"
+    },
+    {
+      "place": "Thailand",
+      "country_code": "TH",
+      "date": "2023-04",
+      "quote": "恐懼、逃避、嘗試、熱愛、迷戀，對於獨自旅行。沈浸在弱政府能力的社會裡無法自拔。",
+      "video": "https://www.youtube.com/embed/LXzD9DBSbjs?list=PLO-_x-XtV-QhwSrtQpCv90qXFaXBMR5OZ",
+      "diary": "https://syfyufei.github.io/travel/Thailand.html"
+    },
+    {
+      "place": "Malaysia",
+      "country_code": "MY",
+      "date": "2023-04",
+      "quote": "一次不算很漫長的告別，但是一個極好的開始。",
+      "video": "https://www.youtube.com/embed/paoVf-u6F4E",
+      "diary": "https://syfyufei.github.io/travel/Malaysia.html"
+    },
+    {
+      "place": "Netherlands",
+      "country_code": "NL",
+      "date": "2023",
+      "quote": "A safe place for diversity.",
+      "video": "https://www.youtube.com/embed/k2OSHelZySI"
+    },
+    {
+      "place": "Belgium",
+      "country_code": "BE",
+      "date": "2023-04",
+      "quote": "Save water and Drink Belgian Beer.",
+      "video": "https://www.youtube.com/embed/nOidlQIbO0M",
+      "diary": "https://syfyufei.github.io/travel/Belgium.html"
+    }
+  ]
+}

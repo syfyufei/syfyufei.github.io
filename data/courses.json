@@ -1,0 +1,27 @@
+{
+  "_schema": {
+    "_comment": "Courses delivered. Each item: title, institution, year, track, summary?.",
+    "track": "one of: Comparative Politics, Research Methodologies, Language Studies"
+  },
+  "intro": "Political Science is for Everyone's Pleasure. I deliver courses on Comparative Politics and Research Methodologies across various research institutions.",
+  "items": [
+    {
+      "title": "R Workshop",
+      "institution": "University of Tokyo",
+      "year": 2024,
+      "track": "Research Methodologies"
+    },
+    {
+      "title": "Political Discourse Analysis",
+      "institution": "Tsinghua University",
+      "year": 2023,
+      "track": "Comparative Politics"
+    },
+    {
+      "title": "Comprehensive Japanese Level 1",
+      "institution": "Kyoto University",
+      "year": 2024,
+      "track": "Language Studies"
+    }
+  ]
+}

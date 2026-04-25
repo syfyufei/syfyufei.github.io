@@ -1,0 +1,135 @@
+{
+  "_schema": {
+    "_comment": "To add a publication, append an object to one of the arrays below. Required fields: type, title, authors, year, venue. Optional: url, tags, note.",
+    "type": "one of: journal-en, journal-zh, conference, blog",
+    "authors": "string — rendered as-is",
+    "year": "number",
+    "venue": "string — journal/conference name + issue/pages",
+    "url": "optional — primary link (article, PDF, blog)",
+    "tags": "optional — string[] (rendered as badges)",
+    "note": "optional — indexing info e.g. 'SSCI Q1' or 'CSSCI'"
+  },
+  "journal_en": [
+    {
+      "title": "The Resistance and Resilience of National Image Building: An Empirical Analysis of Confucius Institute Closures in the USA",
+      "authors": "Hu, Yue, Yufei Sun, and Donald Lien",
+      "year": 2022,
+      "venue": "The Chinese Journal of International Politics 15(2): 209–26",
+      "url": "https://academic.oup.com/cjip/article-abstract/15/2/209/6574938?redirectedFrom=fulltext",
+      "tags": ["national-image", "political-discourse"],
+      "note": "SSCI Q1 (5-year IF: 3.449)"
+    }
+  ],
+  "journal_zh": [
+    {
+      "title": "《地方治理的\u201c能力空间\u201d与疫情防控压力的传导变异——基于2021年春节期间地方疫情防控政策的实证研究》",
+      "authors": "孙宇飞, 杨雪冬",
+      "year": 2023,
+      "venue": "《广州大学学报（社会科学版）》2023(02 vo 22): 71-81",
+      "url": "https://xb.gzhu.edu.cn/skb/CN/Y2023/V22/I2/71",
+      "tags": ["local-governance", "pressure-based-system"],
+      "note": "CSSCI"
+    },
+    {
+      "title": "《为何需要助推型政策:理解居民健康意识和行为的不同步》",
+      "authors": "李振, 孙宇飞",
+      "year": 2021,
+      "venue": "《公共管理与政策评论》2021(01 vo 10): 31-41",
+      "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=GGZC202101006&uniplatform=NZKPT&v=xFnhvVNuQrHaj0-PBIImLMLHJAWIUIhzUwp5hXxZSxA5jZ8gXJcry2ckkBTRe63O",
+      "tags": ["public-policy", "behavioral-nudging"],
+      "note": "CSSCI"
+    },
+    {
+      "title": "《高职专业选择满意度影响因素、问题与展望——学生个体视角》",
+      "authors": "赵泽群, 孙宇飞, 邱懿",
+      "year": 2021,
+      "venue": "《中国职业技术教育》2021(19): 82–86",
+      "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=ZONE202119014&uniplatform=NZKPT&v=JVVxpUbRUhvlIezd5LDkwBk8XHKy9pTmoh1mG8EttsaUQ1O6c9Qg9SjEu6NQZWV4",
+      "tags": ["vocational-education"],
+      "note": "北大核心 & AMI 核心期刊"
+    },
+    {
+      "title": "《\u201c条块并举\u201d发包制下的基层治理——以T区乡镇政府的精准扶贫工作为例》",
+      "authors": "李振, 王浩瑜, 孙宇飞, 牛童, 徐雅静",
+      "year": 2020,
+      "venue": "《公共行政评论》2020, 13(03): 102-117+196-197",
+      "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=GGXZ202003008&uniplatform=NZKPT&v=jbmrE-RKiPSH3RVAK8Ve3Vr0zmnDibzFf634y2IlHdrz7q_GJ6zFqnDUQ00yyfO2",
+      "tags": ["local-governance", "grassroots"],
+      "note": "CSSCI"
+    },
+    {
+      "title": "《危机中的大国形象：COVID-19爆发期间中国海外基层形象(Grassroots Image)的变化和影响因素》",
+      "authors": "孙宇飞",
+      "year": 2020,
+      "venue": "《法学学士学位论文》中国，青岛: 山东大学",
+      "tags": ["national-image", "covid-19"],
+      "note": "本科毕业论文"
+    }
+  ],
+  "conference": [
+    {
+      "title": "Nonaltruistic Collectivists: Public Service Motivation under Peer Pressure",
+      "authors": "Sun, Yufei, Ziyi Chen, and Yue Hu",
+      "year": 2023,
+      "venue": "Public Management Research Conference 2023, Utrecht, Netherlands (also APSA 2023)",
+      "tags": ["public-service-motivation"]
+    },
+    {
+      "title": "Parroting for What: The Differential Diffusion of Official Political Discourse — Evidence from Mainland China and Macao SAR",
+      "authors": "Sun, Yufei",
+      "year": 2023,
+      "venue": "IAMCR 2023 (OCP), Lyon, France (also Annual Macau Research Conference 2023, collaborator: U Ioki)",
+      "tags": ["political-discourse", "macao"]
+    },
+    {
+      "title": "Resisting National Image Building: The Motivators and Consequences of Confucius Institute Closures in the U.S.",
+      "authors": "Hu, Yue, Yufei Sun, and Donald Lien",
+      "year": 2022,
+      "venue": "SPSA, San Antonio, US",
+      "tags": ["national-image"]
+    },
+    {
+      "title": "能力不够压力来凑：治理能力与压力型体制——基于2021年春节期间地方疫情防控政策的实证研究",
+      "authors": "孙宇飞, 杨雪冬",
+      "year": 2021,
+      "venue": "第五届地方政府与区域治理学术研讨会，中国天津",
+      "tags": ["local-governance"]
+    },
+    {
+      "title": "Diversity Loyalty: Psychological Paths of Mass Response to Political News",
+      "authors": "Hu Y, Sun Y",
+      "year": 2021,
+      "venue": "第四届中国政治传播研究学术论坛，中国北京",
+      "tags": ["political-communication"]
+    },
+    {
+      "title": "教育式宣传与宣传式教育：政治宣传效果的整合性框架——基于思政课教学的实验研究",
+      "authors": "孙宇飞, 汤霓",
+      "year": null,
+      "venue": "第九届\u201c政治文化、心理与行为研究\u201d工作坊，中国南京",
+      "tags": ["political-communication"]
+    }
+  ],
+  "blog": [
+    {
+      "title": "洪后健康指南",
+      "authors": "原子团, 果壳科技, 清华研读间",
+      "year": 2021,
+      "venue": "(2021-07-30) 中国，郑州"
+    },
+    {
+      "title": "政观专栏 | 孙宇飞：政治科学研究者的数据管理",
+      "authors": "孙宇飞",
+      "year": 2021,
+      "venue": "(2021-06-17) 中国，北京",
+      "url": "https://mp.weixin.qq.com/s/IYi1n4TYushdLc3pdTXu7A"
+    },
+    {
+      "title": "如何在 iPadOS、iOS 和 MacOS 上优雅的跑 R —— 使用腾讯云搭建 RStudio server 的懒人包",
+      "authors": "孙宇飞",
+      "year": 2020,
+      "venue": "(2020-04-09) 中国，北京",
+      "url": "https://blog.csdn.net/qq_42954130/article/details/105406023"
+    }
+  ]
+}

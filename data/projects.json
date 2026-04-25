@@ -1,0 +1,38 @@
+{
+  "_schema": {
+    "_comment": "Ongoing research clusters. Each item: title, summary, tags, optional url.",
+    "fields": "title, summary (1 sentence), tags[], url?"
+  },
+  "items": [
+    {
+      "title": "Local Governance in China",
+      "summary": "How can Chinese local governments retain autonomy in a pressure-based system?",
+      "tags": ["local-governance", "pressure-based-system"]
+    },
+    {
+      "title": "Political Communication",
+      "summary": "Perception, process, persuasion.",
+      "tags": ["political-communication", "political-psychology"]
+    },
+    {
+      "title": "Political Discourse",
+      "summary": "How does official discourse spread inside and outside of government? How does the public use government discourse?",
+      "tags": ["political-discourse", "official-discourse"]
+    },
+    {
+      "title": "Democracy in Modern China",
+      "summary": "How and why Chinese people participate in political decision-making in non-Western electoral systems?",
+      "tags": ["democracy", "participation"]
+    },
+    {
+      "title": "SDG Localization",
+      "summary": "How sustainability can move from a global initiative to a local practice.",
+      "tags": ["sdg", "local-governance"]
+    },
+    {
+      "title": "Library LLM",
+      "summary": "Applying large language models to library knowledge services — knowledge graphs, semantic search, intelligent Q&A, personalized recommendation.",
+      "tags": ["large-language-model", "library-services"]
+    }
+  ]
+}
