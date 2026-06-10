@@ -55,7 +55,7 @@ These are not arbitrary; the owner explicitly chose them. **Do not propose to un
 │   ├── courses.json        _schema doc at top; array: items
 │   └── travel.json         _schema doc at top; array: items (each has country_code)
 ├── img/
-│   ├── adrian.png          Profile photo (hero on home, sidebar on about)
+│   ├── adrian.jpg          Profile photo, 840x1260 JPEG (hero on home, sidebar on about)
 │   ├── logo.jpg            Brand logo (used as og:image fallback)
 │   ├── logo.ico            Favicon
 │   └── favicon.ico         Favicon (legacy duplicate, harmless)
