@@ -120,7 +120,7 @@ main { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
 @media (max-width: 520px) {
   .hero .text h1 { white-space: normal; font-size: clamp(1.8rem, 8vw, 2.4rem); }
 }
-.hero .text .subtitle { color: var(--muted); font-size: clamp(0.44rem, 2.22vw, 0.95rem); text-transform: uppercase; letter-spacing: 0.03em; margin: 0 0 1.75rem; font-weight: 500; white-space: nowrap; }
+.hero .text .subtitle { color: var(--muted); font-size: clamp(0.7rem, 2.22vw, 1.05rem); letter-spacing: 0.02em; margin: 0 0 1.75rem; font-weight: 500; white-space: nowrap; }
 .hero .text .intro { font-size: clamp(1.05rem, 1.4vw, 1.2rem); max-width: 56ch; line-height: 1.65; }
 .hero .text .cta-row { margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 .hero .text .cta-row a:not(.btn-solid) { color: var(--muted); }
