@@ -1,0 +1,13 @@
+.github
+.gitignore
+.surgeignore
+.claude
+.DS_Store
+.nojekyll
+CLAUDE.md
+YToo_SS.yaml
+resume.html
+resume.pdf
+resume.docx
+resume_v2.md
+make_resume.js
