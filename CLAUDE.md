@@ -29,7 +29,7 @@ These are not arbitrary; the owner explicitly chose them. **Do not propose to un
 | **Absolute paths only** (`/style.css`, not `style.css`) | This is a user-domain GitHub Pages site (`syfyufei.github.io/`); always served from root. Absolute paths keep links consistent regardless of page depth |
 | **No category/tag archive pages** | Tags live as a `tags: []` field on each item and render as badges. No `/categories/methodology/` etc. |
 | **No RSS, no sitemap** | Low value for a small academic site; not worth the extra source-of-truth |
-| **System fonts only** | No `/fonts/`, no `/webfonts/`, no FontAwesome. Inline SVG for the four social icons |
+| **Two webfonts via Google Fonts CDN** | Crimson Pro (headings) + Inter (body), loaded from `fonts.googleapis.com` on all 6 pages, with system fonts as fallback inside `--serif`/`--sans`. Still no self-hosted `/fonts/` or `/webfonts/` dir, no FontAwesome. Inline SVG for the four social icons |
 | **One runtime JS dependency** | jsvectormap from CDN, only on `globalization.html` |
 | **Header/footer duplicated across pages** | Deliberate. JS includes would break with-JS-disabled browsers and add machinery. Editing 6 copies when nav changes is fine |
 
@@ -59,8 +59,10 @@ These are not arbitrary; the owner explicitly chose them. **Do not propose to un
 │   ├── logo.jpg            Brand logo (used as og:image fallback)
 │   ├── logo.ico            Favicon
 │   └── favicon.ico         Favicon (legacy duplicate, harmless)
-├── CNAME                   syfyufei.github.io custom-domain marker
-├── .gitignore              Includes YToo_SS.yaml (a local Clash config that lives outside git)
+├── .github/workflows/pages.yml  GitHub Actions workflow that deploys the repo root to Pages
+├── .nojekyll               Disables Jekyll processing on GitHub Pages
+├── .gitignore              Includes YToo_SS.yaml (local Clash config) and resume artifacts (resume.*, make_resume.js)
+├── .surgeignore            Excludes non-site files (CLAUDE.md, .github, resume artifacts) from Surge deploys
 └── CLAUDE.md               This file
 ```
 
@@ -272,10 +274,12 @@ Single hand-written stylesheet. **Read it top-to-bottom before making style chan
 All theming is at `:root`:
 
 ```css
---bg, --fg, --muted, --accent, --border, --card, --link, --link-hover
---serif (heading font stack)
---sans  (body font stack — system fonts only)
---max   (max content width, 960px)
+--bg, --bg-alt, --fg, --muted, --accent, --accent-warm, --border, --card, --link, --link-hover
+--serif (heading font stack — Crimson Pro, then system serif fallback)
+--sans  (body font stack — Inter, then system fonts as fallback)
+--max        (max content width, 1200px)
+--max-narrow (narrow content width, 760px)
+--header-h   (sticky header height, 72px)
 ```
 
 Dark mode is automatic via `@media (prefers-color-scheme: dark)` overriding the same variables. Never hard-code colors outside the `:root` blocks.
@@ -408,9 +412,12 @@ The site **must** be served from the repo root because all paths are absolute (`
 
 ### Deployment
 
-GitHub Pages serves the `main` branch of this repo at the domain in [CNAME](CNAME). **No GitHub Actions, no build, no Jekyll** (Jekyll is implicitly disabled because there's no `_config.yml`; if you ever see Jekyll picking the site up, add an empty `.nojekyll` file).
+Two deployment targets, both serving the repo root as-is (still **no build step**):
 
-Push to `main` → live within ~1 minute.
+1. **GitHub Pages** at `https://syfyufei.github.io/` — deployed by `.github/workflows/pages.yml` on every push to `main` (build_type = "workflow"). `.nojekyll` disables Jekyll. ⚠️ Known issue (June 2026): pushes have not been creating workflow runs (`gh run list` is empty) and the live Pages URL 404s — likely an account-level Actions problem. Surge is the working mirror until this is resolved.
+2. **Surge** at `https://syfyufei.surge.sh/` — deployed manually from the repo root with `surge . syfyufei.surge.sh` (CLI installed, logged in as syfyufei@gmail.com). `.surgeignore` keeps non-site files (CLAUDE.md, .github, resume artifacts) out of the upload. Surge serves `404.html` for missing pages automatically.
+
+Push to `main` keeps the repo canonical; run the `surge` command after pushing to update the live mirror.
 
 ### Quick verification checklist
 
