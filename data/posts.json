@@ -1,0 +1,21 @@
+{
+  "_schema": {
+    "description": "Blog posts listed on /blog.html, newest first. Each post is a hand-written HTML file under /blog/ (copy an existing post as a template). Add the post file, then prepend an entry here.",
+    "fields": {
+      "title": "string, required. Post title as displayed",
+      "date": "string, required. YYYY-MM-DD",
+      "url": "string, required. Absolute path to the post, e.g. /blog/slug.html (English slug, no pinyin)",
+      "summary": "string, optional. One-sentence teaser",
+      "tags": "string[], optional. Rendered as badges"
+    }
+  },
+  "items": [
+    {
+      "title": "让机器检查我们的推理：形式化验证与政治学",
+      "date": "2026-11-27",
+      "url": "/blog/formal-verification-political-science.html",
+      "summary": "形式化验证是什么，政治学里已经做到了什么、还有什么值得做，以及大模型带来的变化与陷阱。(In Chinese)",
+      "tags": ["formal-verification", "methodology", "social-choice"]
+    }
+  ]
+}

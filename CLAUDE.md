@@ -8,7 +8,7 @@
 
 A **plain static site** at `syfyufei.github.io`. Served by GitHub Pages straight from the repo root — **no build step, no toolchain**. The owner is a political-science PhD candidate who explicitly rejected SSGs (Hugo, Quarto, Astro) and asked for an architecture an LLM can maintain by hand-editing files.
 
-Almost all content lives in `data/*.json`. Each page is a hand-written HTML shell that fetches its JSON and clones a `<template>` to render the list. One stylesheet, one script, six HTML pages.
+Almost all content lives in `data/*.json`. Each page is a hand-written HTML shell that fetches its JSON and clones a `<template>` to render the list. One stylesheet, one script, seven top-level HTML pages plus one HTML file per blog post under `/blog/`.
 
 ```
 push to main → GitHub Pages serves files as-is → visitors see them
@@ -45,6 +45,8 @@ These are not arbitrary; the owner explicitly chose them. **Do not propose to un
 ├── academia.html           Hub: Publications + Projects + Courses (3 JSON sources)
 ├── engineering.html        Hub: Software (1 JSON source; room to grow more categories)
 ├── globalization.html      Hub: full-viewport interactive world map + travel notes
+├── blog.html               Blog index (renders data/posts.json)
+├── blog/                   One hand-written HTML file per post (English slug, e.g. formal-verification-political-science.html)
 ├── 404.html                Static 404
 ├── style.css               Single hand-written stylesheet (CSS vars + dark mode + map styles)
 ├── render.js               ~80-line vanilla JS: fetch JSON → clone <template>
@@ -53,7 +55,8 @@ These are not arbitrary; the owner explicitly chose them. **Do not propose to un
 │   ├── projects.json       _schema doc at top; array: items
 │   ├── software.json       _schema doc at top; array: items
 │   ├── courses.json        _schema doc at top; array: items
-│   └── travel.json         _schema doc at top; array: items (each has country_code)
+│   ├── travel.json         _schema doc at top; array: items (each has country_code)
+│   └── posts.json          _schema doc at top; array: items (blog posts, newest first)
 ├── img/
 │   ├── adrian.jpg          Profile photo, 840x1260 JPEG (hero on home, sidebar on about)
 │   ├── logo.jpg            Brand logo (used as og:image fallback)
@@ -72,10 +75,10 @@ Anything outside this list is wrong — most likely Hugo residue someone reintro
 
 ## 3. Navigation & site map
 
-The nav has exactly 5 items, in this order:
+The nav has exactly 6 items, in this order:
 
 ```
-Home  ·  About  ·  Academia  ·  Engineering  ·  Globalization
+Home  ·  About  ·  Academia  ·  Engineering  ·  Globalization  ·  Blog
 ```
 
 Mapped to:
@@ -87,8 +90,9 @@ Mapped to:
 | Academia | `academia.html` | `data/publications.json`, `data/projects.json`, `data/courses.json` (all on one page, three sections) |
 | Engineering | `engineering.html` | `data/software.json` (single section; extend as needed) |
 | Globalization | `globalization.html` | `data/travel.json` + interactive world map |
+| Blog | `blog.html` (+ `blog/*.html` posts) | `data/posts.json` (index); posts are static HTML |
 
-**The three hub pages are organized around three identity facets**: scholar (Academia), maker (Engineering), traveler (Globalization). When extending a hub, prefer adding a new `<section class="hub-section">` over creating a new top-level page. The 5-item nav is the contract with the user.
+**The three hub pages are organized around three identity facets**: scholar (Academia), maker (Engineering), traveler (Globalization). When extending a hub, prefer adding a new `<section class="hub-section">` over creating a new top-level page. The 6-item nav is the contract with the user (Blog added Nov 2026 at the owner's request).
 
 ---
 
@@ -99,16 +103,16 @@ Every HTML page has a near-identical `<header class="site">` and `<footer class=
 1. **`class="active"` on the current page's nav link** — set by hand per page
 2. **`<title>` tag** — page-specific
 
-When you change anything in the header (e.g. add a nav item, rename "About") or the footer (e.g. add a social link, update © year), **edit all 6 files**:
+When you change anything in the header (e.g. add a nav item, rename "About") or the footer (e.g. add a social link, update © year), **edit all 7 top-level files plus every post in `blog/`**:
 
 ```
-index.html · about.html · academia.html · engineering.html · globalization.html · 404.html
+index.html · about.html · academia.html · engineering.html · globalization.html · blog.html · 404.html · blog/*.html
 ```
 
 Use `Grep` to confirm you didn't miss one. Pattern to verify nav consistency:
 
 ```
-grep -c '"/academia.html"' *.html   # should print 6
+grep -l '"/academia.html"' *.html blog/*.html | wc -l   # should equal the number of site HTML files
 ```
 
 **Why duplicated, not included?** The owner explicitly preferred this. JS-based includes break for users with JS disabled and add load-order complexity. Hand-duplicating 6 short blocks is cheaper than maintaining an include system.
@@ -355,6 +359,10 @@ The owner asked for "country fill" semantics, not pins. Resist the urge to add `
 ---
 
 ## 9. Cookbook — common tasks
+
+### "Publish a blog post"
+1. Copy `blog/formal-verification-political-science.html` to `blog/<english-slug>.html`; replace title, `<meta name="description">`, date and the `<article class="post">` body. Citations: `<sup class="cite"><a href="#refN" id="citeN">[N]</a></sup>` linking to `<li id="refN">` in the references `<ol>` after `<h2 id="references">`.
+2. Prepend an entry to `data/posts.json → items`.
 
 ### "Add a new publication"
 Append to the appropriate array in `data/publications.json`. Done.
