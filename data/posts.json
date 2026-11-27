@@ -11,10 +11,10 @@
   },
   "items": [
     {
-      "title": "把理论交给机器检查：政治学研究者的形式化验证入门",
+      "title": "让机器检验理论",
       "date": "2026-11-27",
       "url": "/blog/formal-verification-political-science.html",
-      "summary": "多一个人投票，结果反而更糟？从投票悖论讲起，介绍形式化验证能为政治学研究做什么。 (In Chinese)",
+      "summary": "多投一票，结果反而更糟？用大白话讲讲怎么让电脑帮我们检查理论的推理。 (In Chinese)",
       "tags": ["formal-verification", "methodology", "social-choice"]
     }
   ]
