@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>让机器检验理论 · Sun Yufei (Adrian)</title>
-<meta name="description" content="多投一票，结果反而更糟？用大白话讲讲怎么让电脑帮我们检查理论的推理。">
+<meta name="description" content="人越多越难改？用否决者理论当例子，讲讲怎么让电脑检查理论的推理。">
 <link rel="icon" href="/img/logo.jpg" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,80 +34,68 @@
     <p class="post-subtitle">写给政治学研究者的入门</p>
     <p class="post-meta">Sun Yufei (Adrian) · <time datetime="2026-11-27">2026-11-27</time></p>
 
-<h2 id="s1">引子：多一个人投票，结果反而更糟？</h2>
-<p>这一节讲一个真实的故事：机器帮政治学回答了一个几十年没答完的问题。</p>
-<p>你去投票，是希望结果更合你的心意。那么，有没有可能，你投了票，结果反而比你待在家里更差？听起来很荒唐，但在某些投票规则下，这真的会发生。研究投票的学者给它起了个名字，叫「无投票悖论」。一条好的投票规则，应该保证谁去投票都不会吃亏。这个要求叫「参与性」。</p>
-<p>还有一个要求也很自然。假如有一位候选人，和任何一个对手单挑都能赢，那他就应该当选。这个要求叫「Condorcet 一致性」。</p>
-<p>两个要求，单看都很合理。可是在 1988 年，法国经济学家 Moulin 证明：只要候选人有 4 个以上、选民有 25 人以上，就没有任何投票规则能同时做到这两点。<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup></p>
-<p>问题来了：一定要 25 人吗？人少一点，会不会有两全的办法？</p>
-<p>2016 年，三位学者 Brandt、Geist 和 Peters 把这个问题交给了计算机。他们先把问题改写成计算机能读的严格语言，再让一种叫「求解器」的程序去搜。机器的回答很干脆：12 个选民就已经不可能两全；而 11 个人及以下，机器真的找出了一条两全的规则。所以，12 就是那条精确的分界线。<sup class="cite"><a href="#ref1">[1]</a></sup></p>
-<p>几十年来，人们只知道「25 人一定不行」。是机器把真正的分界线找了出来，还证明了不能再小。这种让机器检查推理的做法，叫「形式化验证」。这篇文章就讲：它是什么，政治学里已经用它做了什么，你能用它做什么，它又做不到什么。</p>
-<h2 id="s2">一、形式化验证是什么</h2>
-<p>这一节用两个比喻，讲清楚机器是怎么「检查理论」的。</p>
-<p>我们平时写论证，常常跳步。「因为甲，所以乙，所以丙。」读者觉得顺，就点头了。可中间是不是真的连得上，没人一步步核对过。</p>
-<p>形式化验证，就是请一位特别较真的检查员来核对。它有两种常见的样子。</p>
-<p>第一种像<strong>只认死理的阅卷老师</strong>。你必须把证明的每一步都写清楚，它一步一步地对。哪一步说不清，它就不让过。这类软件叫「定理证明器」，常见的有 Isabelle、Coq 和 Lean。</p>
-<p>第二种像<strong>专门找茬的对手</strong>。你告诉它：「我有这几条前提，能推出这个结论。」它就去想尽办法找反例：有没有一种情况，前提全都成立，结论却不成立？找到了，就说明你的论证有漏洞；怎么找都找不到，才说明结论确实站得住。这类软件叫「求解器」。引子里找出 12 人分界线的，就是它。</p>
-<p>要注意的是，检查员只管「推得对不对」，不管「前提真不真」。这一点后面还会讲。</p>
-<h2 id="s3">二、政治学里已经做到的</h2>
-<p>这一节挑三个例子，看看机器已经替政治学检查过什么。</p>
-<h3 id="s4">例一：多数决为什么特别</h3>
-<p>我们投票，最常用的是「少数服从多数」。可它凭什么特别？数学家 May 给出过一个经典回答：如果你要求投票规则做到三点，那么只剩下多数决这一种选择。这三点用大白话说是：</p>
+<h2 id="s1">引子：人越多，越难改？</h2>
+<p>这一节先讲一个政治学的经典理论，再说我们为什么想让机器检查它。</p>
+<p>想象几个朋友商量换一家常去的餐馆。只要有一个人不同意，就换不成。人越多，换成的可能就越小；大家口味差得越远，就越难找到一家人人都觉得更好的新馆子。</p>
+<p>政治学里有一个理论，说的就是这个道理，叫「否决者理论」，由政治学者 Tsebelis 提出。「否决者」指的是：要改变现状，必须征得其同意的个人或机构，比如议会的两院、联合政府里的各个政党。这个理论的核心结论是：否决者越多、彼此立场差得越远，政策就越难改变。<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup></p>
+<p>这句话听起来一步到位，很难反驳。可如果我们把它拆成几条前提，交给一台只讲逻辑的机器去检查，会发生什么？机器会告诉我们：这个结论成立，但中间少写了一个前提。这篇文章就从这个例子讲起：机器怎样检查理论，它已经做过什么，你可以怎样用它，它又做不到什么。</p>
+<h2 id="s2">一、机器怎样检查理论</h2>
+<p>这一节用两个比喻，讲清楚这种方法是怎么回事。</p>
+<p>我们平时写论证，常常跳步。「因为甲，所以乙，所以丙。」读者觉得顺，就点头了。中间是不是真的连得上，没人一步步核对过。</p>
+<p>让机器检查推理的做法，叫「形式化验证」。它就像请来一位特别较真的检查员。这位检查员有两种常见的样子。</p>
+<p>第一种像<strong>只认死理的阅卷老师</strong>。你必须把证明的每一步都写清楚，它一步一步地对，哪一步说不清，它就不让过。这类软件叫「定理证明器」，常见的有 Isabelle、Coq 和 Lean。</p>
+<p>第二种像<strong>专门找茬的对手</strong>。你告诉它：「我有这几条前提，能推出这个结论。」它就想尽办法找反例：有没有一种情况，前提全都成立，结论却不成立？找到了，说明论证有漏洞；怎么找都找不到，才说明结论站得住。这类软件叫「求解器」。下面的例子用的就是它。</p>
+<p>要记住：检查员只管「推得对不对」，不管「前提真不真」。这一点最后还会讲。</p>
+<h2 id="s3">二、把否决者理论交给机器</h2>
+<p>这一节演示一次完整的检查，看看机器怎样把藏起来的前提找出来。</p>
+<p>先把理论说得具体一点。设想各种政策方案可以从左到右排成一条线。每个否决者在这条线上都有自己最想要的位置。我们写下三句话：</p>
 <ul>
-<li>每个人的票一样重，不管是谁投的；</li>
-<li>对每个选项一视同仁，不偏袒谁；</li>
-<li>支持某个选项的人变多了，它的处境只能变好，不能变坏。</li>
+<li>前提一：每个否决者都更喜欢离自己想要的位置更近的方案。</li>
+<li>前提二：只有当所有否决者都觉得新方案比现状好，现状才会被改变。</li>
+<li>结论：多加一个否决者，总会有一些原本能通过的改变，变得通不过。</li>
 </ul>
-<p>这个结论叫「May 定理」，是民主理论的基石之一。现在，它已经被两种不同的定理证明器各自核对过一遍，一次用 Isabelle，一次用 Coq。<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup><sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup> 也就是说，这个证明的每一步，都经过了那位「只认死理的阅卷老师」。</p>
-<h3 id="s5">例二：21 条结论，只推出 3 条</h3>
-<p>政治学的大部分理论，不是用数学写的，而是用文字写的。文字理论也能检查吗？能。</p>
-<p>二十多年前，荷兰学者 Kamps 做了一个实验。他拿来一位社会学家关于「组织」的理论。这个理论有 7 条基本假设，作者说从中能推出 21 条结论。Kamps 把每句话都改写成严格的逻辑语言，交给机器检查。结果，21 条里只有 3 条真的推得出来。<sup class="cite"><a href="#ref4" id="cite4">[4]</a></sup></p>
-<p>剩下的 18 条怎么办？机器给出了反例。看着反例，研究者就能想清楚：是这条结论本来就不对，还是作者心里默认了某个前提，却没写出来。</p>
-<p>这正是形式化验证对文字理论最大的用处：<strong>把藏起来的前提逼出来。</strong></p>
-<p>我们也可以拿一个常见的论证试试。现代化理论里有这样一条推理：</p>
+<p>最后这句，就是「否决者越多，政策越难改变」的一种直白说法。我们用一个常见的求解器 Z3 把这三句写成机器能读的形式，问它：有没有一种情况，两条前提都成立，结论却不成立？</p>
+<p>机器很快给出了反例：新加的否决者，立场正好落在原有两个否决者之间。这时，凡是原来两个人都同意的改变，新来的这一位也一定同意。他的否决权等于没用，政策并没有变得更难改变。</p>
+<p>这个反例告诉我们，结论还缺一个前提。补上它：</p>
 <ul>
-<li>前提一：经济越发达，中产阶级越大。</li>
-<li>前提二：中产阶级越大，民主化的可能越高。</li>
-<li>结论：经济越发达，民主化的可能越高。</li>
+<li>前提三：新加的否决者，立场落在原有否决者的范围之外。</li>
 </ul>
-<p>把这三句交给求解器，它会说：找不到反例，结论成立。但如果你删掉前提二，它马上就能举出反例：两个国家，经济一高一低，民主程度却正好反过来。这个反例的意思很简单：少了「中产阶级和民主有关」这一环，整条推理就断了。</p>
-<p>三句话的论证，人一眼就能看出来。可真实的理论往往有十几条、几十条前提，互相缠在一起。这时候，机器就比人可靠得多。</p>
-<h3 id="s6">例三：「必要条件」和「充分条件」</h3>
-<p>比较政治学里，很多结论是这样说的：「没有甲，就不会有乙」，这叫必要条件；「有了甲，就一定有乙」，这叫充分条件。Mahoney 和 Goertz 指出，这种说法背后是逻辑，而不是统计。<sup class="cite"><a href="#ref5" id="cite5">[5]</a></sup> 既然本来就是逻辑，就可以直接交给求解器，检查几条结论之间有没有互相打架。</p>
-<h3 id="s7">顺带一提</h3>
-<p>在研究之外，这套方法也用在了真实的政治事务里。澳大利亚新南威尔士州的计票软件曾被发现出错，很可能分错了至少一个议席。后来，研究者做出了一个经过严格证明的计票检查程序。<sup class="cite"><a href="#ref6" id="cite6">[6]</a></sup> 还有一种专门用来写法律条文的编程语言 Catala，在把法国家庭补贴规定改写成程序时，查出了官方系统里的一个错误。<sup class="cite"><a href="#ref7" id="cite7">[7]</a></sup></p>
-<h2 id="s8">三、大模型带来的变化，和一个陷阱</h2>
+<p>再问一次，机器就找不到反例了。结论成立。</p>
+<p>机器还确认了一件事：即使不加前提三，「多一个否决者，政策不会变得更容易改变」这句较弱的话也总是对的。也就是说，原来那句话里，「不会更容易」是无条件成立的，「一定更难」却需要额外的条件。</p>
+<p>这个缺口，Tsebelis 本人在后来的文章里也专门讨论过。他把落在其他否决者之间的否决者称为被「吸收」了：加进来也不影响结果。<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup> 机器在几秒钟里，把理论家后来才补上的这一步重新找了出来。三句话的论证，人细想也能看出来。可真实的理论往往有十几条前提，缠在一起。这时候，机器比人可靠得多。</p>
+<h2 id="s4">三、机器还检查过什么</h2>
+<p>这一节再看几个已有的例子，说明这不只是一个小把戏。</p>
+<p><strong>21 条结论，只推出 3 条。</strong>二十多年前，荷兰学者 Kamps 拿来一位社会学家关于「组织」的理论。这个理论有 7 条基本假设，作者说从中能推出 21 条结论。Kamps 把每句话都改写成严格的逻辑语言，交给机器检查。结果，只有 3 条真的推得出来。剩下的，机器给出了反例。看着反例，研究者就能判断：是结论本身不对，还是作者心里默认了某个前提，却没写出来。<sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup></p>
+<p><strong>「必要条件」和「充分条件」。</strong>很多政治学结论是这样说的：「没有甲，就不会有乙」，这叫必要条件；「有了甲，就一定有乙」，这叫充分条件。Mahoney 和 Goertz 指出，这种说法背后是逻辑，而不是统计。<sup class="cite"><a href="#ref4" id="cite4">[4]</a></sup> 既然本来就是逻辑，就可以交给求解器，检查几条结论之间有没有互相打架。</p>
+<p><strong>把规则写成能运行的程序。</strong>制度研究离不开规则。有研究者设计了一种专门用来写法律条文的编程语言，叫 Catala。他们在把法国的家庭补贴规定改写成程序时，查出了官方系统里的一个错误。<sup class="cite"><a href="#ref5" id="cite5">[5]</a></sup> 规则一旦写成程序，就能自动检查它前后是否一致。</p>
+<h2 id="s5">四、大模型带来的变化，和一个陷阱</h2>
 <p>这一节讲：AI 让这件事变容易了，但也带来一个容易忽视的风险。</p>
-<p>过去，形式化验证最大的门槛是「翻译」。要把一句话改写成机器能读的严格语言，得先学一门很难的专门语言。现在，可以让大模型来翻译，人只要检查结果。已经有学者用这种办法，把 20 篇经济学与计算方面的论文搬进了定理证明器。<sup class="cite"><a href="#ref8" id="cite8">[8]</a></sup></p>
-<p>但陷阱就在这里。机器检查通过，只能说明「翻译后的那句话」被证明了。它不能保证，翻译后的那句话，就是你原来想说的那句话。</p>
-<p>打个比方：你请人把一份合同译成英文，再请律师审英文版。律师说没问题，并不代表原来的中文合同也没问题，因为翻译可能走了样。</p>
-<p>这种走样有多常见？2026 年的一项评测发现，表现最好的一个 AI 系统，87.2% 的翻译能通过机器检查，但真正忠实于原意的只有 57.7%。<sup class="cite"><a href="#ref9" id="cite9">[9]</a></sup> 也就是说，大约每三条「通过」的翻译里，就有一条意思已经变了。</p>
-<p>政治学的句子比数学更容易走样。「中央越集权，地方政策越相似」，说的是「一定越相似」，还是「大概率越相似」？AI 会悄悄替你选一种，而你可能根本没注意到。所以，<strong>AI 可以帮你起草，但每一条前提的意思，都要你自己一条条确认。</strong></p>
-<h2 id="s9">四、你可以怎么开始</h2>
+<p>过去，最大的门槛是「翻译」。要把一句话改写成机器能读的严格语言，得先学一门很难的专门语言。现在，可以让大模型来翻译，人只负责检查。已经有学者用这种办法，把 20 篇经济学与计算方面的论文搬进了定理证明器。<sup class="cite"><a href="#ref6" id="cite6">[6]</a></sup></p>
+<p>陷阱在于：机器检查通过，只能说明「翻译后的那句话」被证明了，不能保证它就是你原来想说的那句话。</p>
+<p>打个比方：你请人把一份合同译成英文，再请律师审英文版。律师说没问题，不代表原来的中文合同也没问题，因为翻译可能走了样。</p>
+<p>这种走样有多常见？2026 年的一项评测发现，表现最好的一个 AI 系统，87.2% 的翻译能通过机器检查，但真正忠实于原意的只有 57.7%。<sup class="cite"><a href="#ref7" id="cite7">[7]</a></sup> 大约每三条「通过」的翻译里，就有一条意思已经变了。</p>
+<p>政治学的句子比数学更容易走样。就拿「否决者越多，政策越难改变」来说：是「一定更难」，还是「不会更容易」，还是「平均来说更难」？上一节已经看到，这几种说法需要的前提并不一样。AI 会悄悄替你选一种，而你可能根本没注意到。所以，<strong>AI 可以帮你起草，但每一条前提的意思，都要你自己确认。</strong></p>
+<h2 id="s6">五、你可以怎么开始</h2>
 <p>这一节给出三个由浅入深的起步办法。</p>
-<p><strong>第一步：给自己的论证做一次体检。</strong>把论文的核心论证写成几条前提和一个结论，交给求解器检查。推不出来，就看反例，想想缺了什么前提。这一步不需要学定理证明器，几周就能做完，结果可以放进论文附录。</p>
-<p><strong>第二步：看看两种解释能不能分开。</strong>很多研究要在两种解释之间做选择。你可以把两种解释分别写成前提，看它们对你能观察到的东西，是否给出不同的预测。如果预测完全一样，那么不管数据多好，都没法分辨谁对。这件事，最好在收数据之前就知道。</p>
-<p><strong>第三步：试着学一点定理证明器。</strong>如果你的研究用到博弈论或投票理论，可以把一个经典模型完整地交给定理证明器检查一遍。现在已经有现成的工具库，收录了讨价还价、联盟、投票权力等政治学常用的概念，<sup class="cite"><a href="#ref10" id="cite10">[10]</a></sup> 不必从零开始。</p>
-<h2 id="s10">五、它做不到什么</h2>
+<p><strong>第一步：给自己的论证做一次体检。</strong>像第二节那样，把论文的核心论证写成几条前提和一个结论，交给求解器。推不出来，就看反例，想想缺了什么。这一步不需要学定理证明器，几周就能做完，结果可以放进论文附录。</p>
+<p><strong>第二步：看看两种解释能不能分开。</strong>很多研究要在两种解释之间做选择。把两种解释分别写成前提，看它们对你能观察到的东西是否给出不同的预测。如果预测完全一样，不管数据多好，都没法分辨谁对。这件事，最好在收数据之前就知道。</p>
+<p><strong>第三步：试着学一点定理证明器。</strong>如果你的研究用到博弈论模型，可以把一个经典模型完整地交给定理证明器检查一遍。现在已经有现成的工具库，收录了讨价还价、联盟、权力指数等常用概念，<sup class="cite"><a href="#ref8" id="cite8">[8]</a></sup> 不必从零开始。</p>
+<h2 id="s7">六、它做不到什么</h2>
 <p>最后这一节讲边界。这一点比前面所有内容都重要。</p>
-<p>形式化验证只回答一个问题：<strong>如果前提都对，结论是不是一定对？</strong></p>
-<p>它不回答前提本身对不对。它不管你的测量准不准，样本有没有代表性，因果推断的假设站不站得住，也不管这个理论有没有意思。而这些，恰恰是政治学争论最多的地方。</p>
-<p>所以要小心两种误会。</p>
-<p>第一种，把「机器证明过」当成「理论是对的」。机器证明的只是推理过程。前提错了，结论照样可能错。</p>
-<p>第二种，以为翻译是小事。从文字到逻辑，每一步都有你自己的理解在里面。同一段话，可以有好几种合理的翻译，推出来的结果也会不一样。<sup class="cite"><a href="#ref4">[4]</a></sup></p>
+<p>机器只回答一个问题：<strong>如果前提都对，结论是不是一定对？</strong></p>
+<p>它不回答前提本身对不对。拿否决者理论来说，政策真的能排成一条线吗？每个政党的立场该怎么测量？谁算否决者？这些问题，机器一个也回答不了。它也不管样本有没有代表性、因果推断的假设站不站得住、理论有没有意思。而这些，恰恰是研究者争论最多的地方。</p>
+<p>所以要小心两种误会。第一种，把「机器证明过」当成「理论是对的」。机器证明的只是推理过程，前提错了，结论照样可能错。第二种，以为翻译是小事。从文字到逻辑，每一步都有你自己的理解在里面。同一段话可以有好几种合理的翻译，推出来的结果也会不同。<sup class="cite"><a href="#ref3">[3]</a></sup></p>
 <p>说到底，机器不会替我们做判断。它做的是一件更朴素的事：把推理里的漏洞、没说出口的前提、分不开的两种解释，一个个摆到我们面前。剩下的判断，还是要研究者自己来做。</p>
 <h2 id="references">参考文献</h2>
 <ol type="1">
-<li id="ref1">Brandt, F., Geist, C., &amp; Peters, D. (2017). Optimal Bounds for the No-Show Paradox via SAT Solving. <em>Mathematical Social Sciences</em>, 90, 18–27（会议版 AAMAS 2016）. <a href="https://arxiv.org/abs/1602.08063" target="_blank" rel="noopener">https://arxiv.org/abs/1602.08063</a> <a class="backref" href="#cite1" aria-label="返回正文">↩</a></li>
-<li id="ref2">Gammie, P. Archive of Formal Proofs: May’s Theorem (SenSocialChoice). <a href="https://www.isa-afp.org/browser_info/current/AFP/SenSocialChoice/May.html" target="_blank" rel="noopener">https://www.isa-afp.org/browser_info/current/AFP/SenSocialChoice/May.html</a> <a class="backref" href="#cite2" aria-label="返回正文">↩</a></li>
-<li id="ref3">Li, K. H. (2022). Formalizing May’s Theorem. <a href="https://arxiv.org/abs/2210.05342" target="_blank" rel="noopener">https://arxiv.org/abs/2210.05342</a> <a class="backref" href="#cite3" aria-label="返回正文">↩</a></li>
-<li id="ref4">Kamps, J. (1998). Formal Theory Building Using Automated Reasoning Tools. <a href="https://e.humanities.uva.nl/publications/1998/kamp_form98.pdf" target="_blank" rel="noopener">https://e.humanities.uva.nl/publications/1998/kamp_form98.pdf</a> <a class="backref" href="#cite4" aria-label="返回正文">↩</a></li>
-<li id="ref5">Mahoney, J., &amp; Goertz, G. (2006). A Tale of Two Cultures: Contrasting Quantitative and Qualitative Research. <em>Political Analysis</em>. <a href="https://resolve.cambridge.org/core/journals/political-analysis/article/tale-of-two-cultures-contrasting-quantitative-and-qualitative-research/74CDE90B427798F4986F0B5039D48C67" target="_blank" rel="noopener">https://resolve.cambridge.org/core/journals/political-analysis/article/tale-of-two-cultures-contrasting-quantitative-and-qualitative-research/74CDE90B427798F4986F0B5039D48C67</a> <a class="backref" href="#cite5" aria-label="返回正文">↩</a></li>
-<li id="ref6">Ghale, M. K., Pattinson, D., Kumar, R., &amp; Norrish, M. (2018). Verified Certificate Checking for Counting Votes. VSTTE 2018. <a href="https://www.trustworthy.systems/publications/full_text/Ghale_PKN_18.pdf" target="_blank" rel="noopener">https://www.trustworthy.systems/publications/full_text/Ghale_PKN_18.pdf</a> <a class="backref" href="#cite6" aria-label="返回正文">↩</a></li>
-<li id="ref7">Merigoux, D., Chataing, N., &amp; Protzenko, J. (2021). Catala: A Programming Language for the Law. <em>Proceedings of the ACM on Programming Languages</em>, 5 (ICFP). <a href="https://arxiv.org/abs/2103.03198" target="_blank" rel="noopener">https://arxiv.org/abs/2103.03198</a> <a class="backref" href="#cite7" aria-label="返回正文">↩</a></li>
-<li id="ref8">Garg, N. (2026). EconCSLib: AI-Assisted Lean Formalization for Economics &amp; Computation Research. <a href="https://arxiv.org/abs/2606.13306" target="_blank" rel="noopener">https://arxiv.org/abs/2606.13306</a> <a class="backref" href="#cite8" aria-label="返回正文">↩</a></li>
-<li id="ref9">Zhang, K., et al. (2026). Beyond Compilation: Human-Calibrated Evaluation of Semantic Faithfulness in Lean Autoformalization. NeurIPS 2026 MATH-AI Workshop. <a href="https://neurips.cc/virtual/2026/168509" target="_blank" rel="noopener">https://neurips.cc/virtual/2026/168509</a> <a class="backref" href="#cite9" aria-label="返回正文">↩</a></li>
-<li id="ref10">GameTheory: Formalized Game Theory in Lean 4. <a href="https://reservoir.lean-lang.org/@elazarg/GameTheory" target="_blank" rel="noopener">https://reservoir.lean-lang.org/@elazarg/GameTheory</a> <a class="backref" href="#cite10" aria-label="返回正文">↩</a></li>
+<li id="ref1">Tsebelis, G. (1995). Decision Making in Political Systems: Veto Players in Presidentialism, Parliamentarism, Multicameralism and Multipartyism. <em>British Journal of Political Science</em>, 25(3), 289–325. <a href="https://resolve.cambridge.org/core/journals/british-journal-of-political-science/article/decision-making-in-political-systems-veto-players-in-presidentialism-parliamentarism-multicameralism-and-multipartyism/5E1E9DBFB4106517287328AEE1879A1E" target="_blank" rel="noopener">https://resolve.cambridge.org/core/journals/british-journal-of-political-science/article/decision-making-in-political-systems-veto-players-in-presidentialism-parliamentarism-multicameralism-and-multipartyism/5E1E9DBFB4106517287328AEE1879A1E</a> <a class="backref" href="#cite1" aria-label="返回正文">↩</a></li>
+<li id="ref2">Tsebelis, G. (2000). Veto Players and Institutional Analysis. <em>Governance</em>. 预印本：<a href="https://www.uh.edu/democracy/tsebslis.pdf" target="_blank" rel="noopener">https://www.uh.edu/democracy/tsebslis.pdf</a> <a class="backref" href="#cite2" aria-label="返回正文">↩</a></li>
+<li id="ref3">Kamps, J. (1998). Formal Theory Building Using Automated Reasoning Tools. <a href="https://e.humanities.uva.nl/publications/1998/kamp_form98.pdf" target="_blank" rel="noopener">https://e.humanities.uva.nl/publications/1998/kamp_form98.pdf</a> <a class="backref" href="#cite3" aria-label="返回正文">↩</a></li>
+<li id="ref4">Mahoney, J., &amp; Goertz, G. (2006). A Tale of Two Cultures: Contrasting Quantitative and Qualitative Research. <em>Political Analysis</em>. <a href="https://resolve.cambridge.org/core/journals/political-analysis/article/tale-of-two-cultures-contrasting-quantitative-and-qualitative-research/74CDE90B427798F4986F0B5039D48C67" target="_blank" rel="noopener">https://resolve.cambridge.org/core/journals/political-analysis/article/tale-of-two-cultures-contrasting-quantitative-and-qualitative-research/74CDE90B427798F4986F0B5039D48C67</a> <a class="backref" href="#cite4" aria-label="返回正文">↩</a></li>
+<li id="ref5">Merigoux, D., Chataing, N., &amp; Protzenko, J. (2021). Catala: A Programming Language for the Law. <em>Proceedings of the ACM on Programming Languages</em>, 5 (ICFP). <a href="https://arxiv.org/abs/2103.03198" target="_blank" rel="noopener">https://arxiv.org/abs/2103.03198</a> <a class="backref" href="#cite5" aria-label="返回正文">↩</a></li>
+<li id="ref6">Garg, N. (2026). EconCSLib: AI-Assisted Lean Formalization for Economics &amp; Computation Research. <a href="https://arxiv.org/abs/2606.13306" target="_blank" rel="noopener">https://arxiv.org/abs/2606.13306</a> <a class="backref" href="#cite6" aria-label="返回正文">↩</a></li>
+<li id="ref7">Zhang, K., et al. (2026). Beyond Compilation: Human-Calibrated Evaluation of Semantic Faithfulness in Lean Autoformalization. NeurIPS 2026 MATH-AI Workshop. <a href="https://neurips.cc/virtual/2026/168509" target="_blank" rel="noopener">https://neurips.cc/virtual/2026/168509</a> <a class="backref" href="#cite7" aria-label="返回正文">↩</a></li>
+<li id="ref8">GameTheory: Formalized Game Theory in Lean 4. <a href="https://reservoir.lean-lang.org/@elazarg/GameTheory" target="_blank" rel="noopener">https://reservoir.lean-lang.org/@elazarg/GameTheory</a> <a class="backref" href="#cite8" aria-label="返回正文">↩</a></li>
 </ol>
 
 
